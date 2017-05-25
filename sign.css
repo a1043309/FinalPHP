@@ -1,0 +1,84 @@
+body{
+	width: 1221px;
+}
+img{
+	width: 100%;
+	margin-top: 80px;
+}
+.content{
+	float: static;
+	margin-top: 50px;
+}
+.logo{
+	float: left;
+	width: 45%;
+	padding-left: 53px;
+	margin-top: 30px;
+}
+.signin{
+	float: right;
+
+}
+#title{
+	font-family: PingFangTC;
+	font-size: 36px;
+	font-weight: 600;
+	color: #000000;
+	border-radius: 8px;
+	background-color: #ffcceb;
+	border: solid 1px #000000;
+	padding-top: 23px;
+	padding-bottom: 28px;
+	padding-right: 207px;
+	padding-left: 207px;
+}
+
+#idd{
+	font-family: PingFangTC;
+	font-size: 36px;
+	font-weight: 600;
+	color: #000000;
+	padding-left: 50px;
+}
+#pwdd{
+	font-family: PingFangTC;
+	font-size: 36px;
+	font-weight: 600;
+	color: #000000;
+	padding-left: 50px;
+}
+.id{
+	width: 363px;
+	height: 69px;
+}
+.signin input{
+	width: 363px;
+	height: 69px;
+	font-size: 36px;
+}
+.upp{
+	margin-left: 150px;
+}
+button{
+	font-family: PingFangTC;
+	font-size: 36px;
+	font-weight: 600;
+	border-radius: 8px;
+	background-color: #75ff8e;
+	border: solid 1px #75ff8e;
+	width: 166px;
+	height: 99px;
+	margin-left: 40px;
+}
+.login{
+	margin-left: 40px;
+}
+.header a{
+	font-family: PingFangTC;
+	font-size: 24px;
+	color: #000dff;
+	float: right;
+}
+.clear{
+	clear: both;
+}
