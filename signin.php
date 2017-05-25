@@ -7,7 +7,8 @@
 </head>
 <body>
 	<div class="header">
-		<a>返回首頁</a>
+		<a href="#">返回首頁</a>
+		<div class="clear"></div>
 	</div>
 	<div class="content">
 		<div class="logo">
