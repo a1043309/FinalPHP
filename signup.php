@@ -1,3 +1,8 @@
+<?php
+if(isset($_SESSION["ID"]))
+	header("Location:index.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +13,7 @@
 <body>
 	<div class="header" style="margin-top: 30px;">
 		<img id="hlogo" src="./pic/logo.png" style="width: 25%">
-		<a href="#">返回首頁</a>
+		<a href="index.php">返回首頁</a>
 		<div class="clear"></div>
 	</div>
 	<div class="content">
@@ -18,17 +23,18 @@
 			<div class="clear"></div>
 		</div>
 		<div class="info">
+		<form action = 'signupsubmit.php' method = 'post' id = 'loginn'><br/>
 			<p>姓名：<input type="text" name="name"></p>
 			<p>性別：<input id="gender" type="radio" name="gender" value="male"> 男生 <input id="gender" type="radio" name="gender" value="female"> 女生</p>
-			<p>帳號：<input type="text" name="id"><button>檢查</button><a>*註冊後無法修改，長度限制20字元以內</a></p>
+			<p>帳號：<input type="text" name="id"><button type = "button">檢查</button><a>*註冊後無法修改，長度限制20字元以內</a></p>
 			<p>密碼：<input type="password" name="pwd"><a>*請區分大小寫，長度限制20以內</a></p>
-			<p>職業：<select>
+			<p>職業：<select name='job'>
 						<option value="null">選擇</option>
 						<option value="student">學生</option>
 						<option value="work">上班族</option>
 					</select></p>
 			<p>生日：<input type="date" name="birth"></p>
-			<p>手機：<input type="text" name="mobile"></p>
+			<p>手機：<input type="text" name="phone"></p>
 			<p>E-mail: <input type="text" name="email"></p>
 			<input id="su" type="submit" name="su" value="立即註冊">
 		</div>
@@ -39,3 +45,18 @@
 	</div>
 </body>
 </html>
+
+<?php
+
+function checkID(){
+
+	$Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
+	while($row = mysqli_fetch_assoc($result)){
+		if($row["U_ID"] == $id)
+		{
+			echo "你選擇的ID已被使用";
+			return true;
+		}
+	}
+	return false;
+}
