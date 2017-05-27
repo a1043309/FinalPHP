@@ -26,7 +26,7 @@ if (isset($_POST["id"]))
 			$isUsed = true;
 		}
 	}
-	if(!isUsed)
+	if(!$isUsed)
 	{
 		$result = mysqli_query($Link,"INSERT INTO USER(U_ID,U_PW,U_NAME,U_BIRTH,U_GENDER,U_PHONE,U_EMAIL) VALUES('$id','$pwd','$name','$birth','$gender','$phone','$email')");
 	}
