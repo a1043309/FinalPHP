@@ -24,7 +24,7 @@ if(isset($_SESSION["ID"]))
 			<div class="clear"></div>
 		</div>
 		<div class="info">
-		<form action = 'signupsubmit.php' method = 'post' id = 'loginn'><br/>
+		<form action = 'success.php' method = 'post' id = 'loginn'><br/>
 			<p>姓名：<input type="text" name="name"></p>
 			<p>性別：<input id="gender" type="radio" name="gender" value="male"> 男生 <input id="gender" type="radio" name="gender" value="female"> 女生</p>
 			<p>帳號：<input type="text" name="id"><button type = "button">檢查</button><a>*註冊後無法修改，長度限制20字元以內</a></p>

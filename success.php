@@ -8,11 +8,11 @@
 <body>
 	<div class="success_wrap">
 		<div class="success_header">
-			<img src="logo.png">
+			<img src="yoyo/logo.png">
 		</div>
 		<div class="success_line"></div>
 		<div class="success_content">
-			<img src="eyes.png">
+			<img src="yoyo/eyes.png">
 			<p id="success">&nbsp;&nbsp;&nbsp;恭喜您，註冊成功！！</p>
 			<p id="success_describe">3秒後，自動跳回首頁......</p>
 		</div>
