@@ -30,5 +30,5 @@ else if (isset($_POST["id"]))
 }
 else
 {
-	echo "請先登入才能夠使用喔";
+	header("Location:signin.php");
 }
