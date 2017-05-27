@@ -4,6 +4,7 @@
 
 <?php
 header('Content-type: text/html; charset=utf-8');
+echo "<a href='index.php'>回首頁</a><br/><br/>";
 session_start();
 if(!isset($_SESSION["ID"]))
 	header("Location:signin.php");

@@ -1,5 +1,6 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
+echo "<a href='index.php'>回首頁</a><br/><br/>";
 session_start();
 if(!isset($_SESSION["ID"]))
 	header("Location:signin.php");
@@ -35,8 +36,8 @@ else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classi
 		echo $_FILES["img"]["name"];
 		$a = pathinfo($_FILES["img"]["name"]);
 		$t = time();
-     	if(move_uploaded_file($_FILES["img"]["tmp_name"],"./product/img/".$p_code.$_FILES["img"]["name"])){
-     		$imgPath = "./product/img/".$p_code.$_FILES["img"]["name"];
+     	if(move_uploaded_file($_FILES["img"]["tmp_name"],"product/img/".$p_code.$_FILES["img"]["name"])){
+     		$imgPath = "product/img/".$p_code.$_FILES["img"]["name"];
      		echo "檔案上傳成功";
      	}
      	else
@@ -63,7 +64,7 @@ else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classi
 	<option value=NULL>選擇</option>
 	<option value="kart">跑跑卡丁車</option>
 	<option value="bnb">爆爆王</option>
-	<option value="maplestory">楓之谷</option>
+	<option value="maplestory">新楓之谷</option>
 </select></p>
 
 伺服器：<input type="text" name="server"><br/>
