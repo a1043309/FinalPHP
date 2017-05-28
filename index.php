@@ -21,35 +21,7 @@ if(isset($_SESSION["ID"]))
 	echo "<a href='userpage.php'>會員專區</a>";
 	echo "<a href='post.php'>我要刊登</a><br/><br/><br/>";
 
-	echo "跑跑卡丁車<br/><br/>";
-
-	$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='kart'";
-	$result = mysqli_query($Link,$sql);
-	while($row = mysqli_fetch_assoc($result))
-	{
-		echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
-	}
-	echo "<br/><br/><br/><br/>";
-
-	echo "爆爆王<br/><br/>";
-
-	$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='bnb'";
-	$result = mysqli_query($Link,$sql);
-	while($row = mysqli_fetch_assoc($result))
-	{
-		echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
-	}
-
-	echo "<br/><br/><br/><br/>";
-
-	echo "新楓之谷<br/><br/>";
-
-	$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='maplestory'";
-	$result = mysqli_query($Link,$sql);
-	while($row = mysqli_fetch_assoc($result))
-	{
-		echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
-	}
+	
 }
 else if (isset($_POST["id"]))
 {
@@ -77,3 +49,33 @@ else
 	echo "<a href='signup.php'>立即註冊</a>";
 	echo "<a href='userpage.php'>會員專區</a>";
 }
+
+echo "跑跑卡丁車<br/><br/>";
+
+	$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='kart' AND P_Inv > 0";
+	$result = mysqli_query($Link,$sql);
+	while($row = mysqli_fetch_assoc($result))
+	{
+		echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
+	}
+	echo "<br/><br/><br/><br/>";
+
+	echo "爆爆王<br/><br/>";
+
+	$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='bnb' AND P_Inv > 0";
+	$result = mysqli_query($Link,$sql);
+	while($row = mysqli_fetch_assoc($result))
+	{
+		echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
+	}
+
+	echo "<br/><br/><br/><br/>";
+
+	echo "新楓之谷<br/><br/>";
+
+	$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='maplestory' AND P_Inv > 0";
+	$result = mysqli_query($Link,$sql);
+	while($row = mysqli_fetch_assoc($result))
+	{
+		echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
+	}

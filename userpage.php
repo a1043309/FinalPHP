@@ -44,7 +44,11 @@ echo "我是買家<br/><br/>";
 
 echo "我的訂單：<br/>";
 
-$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Code IN (SELECT P_Code FROM purchase WHERE Buyer_ID='$UID' AND isReceive = '0')";
+$sql = "SELECT A1.P_Code P_Code, A1.P_NAME P_NAME, A2.Purchase_Code Purchase_Code
+FROM product A1, purchase A2 
+WHERE A1.P_Code = A2.P_Code AND A2.Buyer_ID = '$UID' AND A2.isReceive=0
+GROUP BY A2.Purchase_Code
+ORDER BY A2.Post_Time DESC";
 $result = mysqli_query($Link,$sql);
 while($row = mysqli_fetch_assoc($result))
 {
@@ -54,7 +58,11 @@ while($row = mysqli_fetch_assoc($result))
 echo "<br/><br/><br/>";
 echo "已購買的商品：<br/>";
 
-$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Code IN (SELECT P_Code FROM purchase WHERE Buyer_ID='$UID' AND isReceive = '1')";
+$sql = "SELECT A1.P_Code P_Code, A1.P_NAME P_NAME, A2.Purchase_Code Purchase_Code
+FROM product A1, purchase A2 
+WHERE A1.P_Code = A2.P_Code AND A2.Buyer_ID = '$UID' AND A2.isReceive!=0
+GROUP BY A2.Purchase_Code
+ORDER BY A2.Post_Time DESC";
 $result = mysqli_query($Link,$sql);
 while($row = mysqli_fetch_assoc($result))
 {
@@ -75,7 +83,11 @@ while($row = mysqli_fetch_assoc($result))
 echo "<br/><br/><br/>";
 echo "賣家評價：<br/>";
 
-$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Code IN (SELECT P_Code FROM purchase WHERE Buyer_ID = '$UID' AND RateToBuyer IS NOT NULL)";
+$sql = "SELECT A1.P_Code P_Code, A1.P_NAME P_NAME, A2.Purchase_Code Purchase_Code
+FROM product A1, purchase A2 
+WHERE A1.P_Code = A2.P_Code AND A2.Buyer_ID = '$UID' AND A2.isReceive!=0 AND A2.RateToBuyer IS NOT NULL
+GROUP BY A2.Purchase_Code
+ORDER BY A2.Post_Time DESC";
 
 $result = mysqli_query($Link,$sql);
 while($row = mysqli_fetch_assoc($result))
@@ -100,7 +112,11 @@ while($row = mysqli_fetch_assoc($result))
 echo "<br/><br/><br/>";
 echo "已完成的交易：<br/>";
 
-$sql = "SELECT P_NAME,P_Code FROM product WHERE Seller_ID = '$UID' AND P_Code IN (SELECT P_Code FROM purchase WHERE isReceive='1')";
+$sql = "SELECT A1.P_Code P_Code, A1.P_NAME P_NAME, A2.Purchase_Code Purchase_Code
+FROM product A1, purchase A2 
+WHERE A1.P_Code = A2.P_Code AND A1.Seller_ID = '$UID' AND A2.isReceive!=0
+GROUP BY A2.Purchase_Code
+ORDER BY A2.Post_Time DESC";
 
 $result = mysqli_query($Link,$sql);
 while($row = mysqli_fetch_assoc($result))
@@ -122,7 +138,11 @@ while($row = mysqli_fetch_assoc($result))
 echo "<br/><br/><br/>";
 echo "訂單管理：<br/>";
 
-$sql = "SELECT P_NAME,P_Code FROM product WHERE Seller_ID='$UID' AND P_Code IN (SELECT P_Code FROM purchase WHERE isReceive = '0')";
+$sql = "SELECT A1.P_Code P_Code, A1.P_NAME P_NAME, A2.Purchase_Code Purchase_Code
+FROM product A1, purchase A2 
+WHERE A1.P_Code = A2.P_Code AND A1.Seller_ID = '$UID' AND A2.isReceive=0
+GROUP BY A2.Purchase_Code
+ORDER BY A2.Post_Time DESC";
 
 $result = mysqli_query($Link,$sql);
 while($row = mysqli_fetch_assoc($result))
@@ -133,7 +153,11 @@ while($row = mysqli_fetch_assoc($result))
 echo "<br/><br/><br/>";
 echo "買家評價：<br/>";
 
-$sql = "SELECT P_NAME,P_Code FROM product WHERE Seller_ID = '$UID' AND P_Code IN (SELECT P_Code FROM purchase WHERE RateToSeller IS NOT NULL)";
+$sql = "SELECT A1.P_Code P_Code, A1.P_NAME P_NAME, A2.Purchase_Code Purchase_Code
+FROM product A1, purchase A2 
+WHERE A1.P_Code = A2.P_Code AND A1.Seller_ID = '$UID' AND A2.isReceive!=0 AND A2.RateToSeller IS NOT NULL
+GROUP BY A2.Purchase_Code
+ORDER BY A2.Post_Time DESC";
 
 $result = mysqli_query($Link,$sql);
 while($row = mysqli_fetch_assoc($result))
