@@ -20,7 +20,7 @@ if(!isset($_SESSION["ID"]))
 <head>
 	<meta charset="UTF-8">
 	<title>登入</title>
-	<link rel="stylesheet" type="text/css" href="sign.css">
+	<link rel="stylesheet" type="text/css" href="css/sign.css">
 </head>
 <body>
 	<div class="header">

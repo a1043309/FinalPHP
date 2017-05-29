@@ -8,7 +8,7 @@ if(isset($_SESSION["ID"]))
 <head>
 	<meta charset="UTF-8">
 	<title>註冊</title>
-	<link rel="stylesheet" type="text/css" href="sign.css">
+	<link rel="stylesheet" type="text/css" href="css/sign.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		function check(){
