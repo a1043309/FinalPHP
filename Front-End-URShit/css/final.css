@@ -550,6 +550,206 @@ img{
 	opacity: 0.8;
 	transition: 0.4s;
 }
+.product-info{
+	width: 1221px;
+	margin-top: 35px;
+}
+.product-pic{
+	width: 400px;
+	float: left;
+}
+.product-data{
+	width: 450px;
+	float: left;
+	margin: 0px 30px;
+}
+.product-data h3{
+	font-family: Microsoft JhengHei;
+	font-size: 28px;
+    font-weight: 600;
+    margin: 20px 0px;
+}
+.product-data h2{
+	width: 395px;
+	height: 110px;
+	font-family: Microsoft JhengHei;
+	font-size: 30px;
+    font-weight: 600;
+    background: #cdcff3;
+    margin: 35px 0px;
+    text-align: left;
+    line-height: 110px;
+    padding-left: 35px;
+}
+.product-data h2 span{
+	font-family: Microsoft JhengHei;
+	font-size: 30px;
+    font-weight: 600;
+    color: red;
+}
+.product-data p{
+	font-family: Microsoft JhengHei;
+	font-size: 24px;
+	margin: 20px 0px;
+}
+.product-data p span{
+	font-family: Microsoft JhengHei;
+	font-size: 15px;
+}
+#product-amount{
+	width: 80px;
+	font-size: 20px;
+}
+.product-btn{
+	width: 450px;
+	margin-left: 35px;
+}
+.btn-buy a{
+	width: 160px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-family: Microsoft JhengHei;
+	font-size: 24px;
+	font-weight: 600;
+	background: #feb336;
+	color: #FFF;
+	border: solid 3px #fa9c00;
+	border-radius: 3px;
+	text-decoration: none;
+	display: block;
+	float: left;
+	margin-right: 55px;
+}
+.btn-buy:hover a{
+	color: #292929;
+	background: #ffc25d;
+	border: solid 3px #ffc25d;
+	transition: 0.4s;
+}
+.btn-cart a{
+	width: 160px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-family: Microsoft JhengHei;
+	font-size: 24px;
+	font-weight: 600;
+	background: #FFF;
+	color: #292929;
+	border: solid 3px #979797;
+	border-radius: 3px;
+	text-decoration: none;
+	display: block;
+	float: left;
+}
+.btn-cart:hover a{
+	color: #FFF;
+	background: #686868;
+	border: solid 3px #686868;
+	transition: 0.4s;
+}
+.seller-info{
+	width: 280px;
+	float: right;
+	margin-top: 0px;
+}
+.seller-info-title{
+	width: 266px;
+	height: 64px;
+	border: dotted 3px #f87676;
+}
+.seller-info-title h3{
+	text-align: center;
+	line-height: 64px;
+	font-family: Microsoft JhengHei;
+	font-size: 30px;
+    font-weight: 600;
+    color: #0082f6;
+}
+.seller-info-details{
+	width: 266px;
+	height: 300px;
+	border: dotted 3px #f87676;
+	border-top: 1.5px;	
+}
+.seller-info-details p{
+	text-align: left;
+	font-family: Microsoft JhengHei;
+	font-size: 20px;
+	line-height: 70px;
+}
+.seller-info-details span{
+	color: red;
+}
+.seller-info-more{
+	margin: 25px 0px 0px 35px;
+}
+.seller-info-more a{
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-family: Microsoft JhengHei;
+	font-size: 24px;
+	font-weight: 600;
+	background: #9eeec8;
+	color: #0082f6;
+	text-decoration: none;
+	display: block;
+	float: left;
+}
+.seller-info-more:hover a{
+	color: #9eeec8;
+	background: #0082f6;
+	transition: 0.4s;
+	opacity: 0.8;
+}
+.product-more{
+	width: 1221px;
+	margin: 25px auto;
+	margin-bottom: 250px;
+}
+.product-more-y a{
+	width: 610px;
+	height: 80px;
+	line-height: 80px;
+	font-family: Microsoft JhengHei;
+	font-size: 30px;
+	font-weight: 600;
+	text-align: center;
+	background: #fff67a;
+	color: #000;
+	text-decoration: none;
+	display: block;
+	float: left;
+}
+.product-more-y:hover a{
+	color: #fff67a;
+	background: #000;
+	transition: 0.4s;
+	opacity: 0.8;
+}
+.product-more-p a{
+	width: 610px;
+	height: 80px;
+	line-height: 80px;
+	font-family: Microsoft JhengHei;
+	font-size: 30px;
+	font-weight: 600;
+	text-align: center;
+	background: #ede6f8;
+	color: #000;
+	text-decoration: none;
+	display: block;
+	float: left;
+}
+.product-more-p:hover a{
+	color: #ede6f8;
+	background: #000;
+	transition: 0.4s;
+	opacity: 0.8;
+}
 .page{
 	width: 1221px;
 	margin: 0 auto;
