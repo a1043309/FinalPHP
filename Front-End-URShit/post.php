@@ -73,21 +73,10 @@
 					<input id="selected-post" type="text">		
 				</div>
 				<div class="post-data"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input id="post-btn" type="submit" value="送出"> &nbsp;&nbsp;&nbsp;
+					<input id="post-btn" type="submit" value="提交"> &nbsp;&nbsp;&nbsp;
 					<input id="post-btn" type="reset" value="重新填寫">
 				</div>
 			</div>
-		</div>
-		<div class="page">
-			<ul>
-				<li><a href=""><< Prev</a></li>
-				<li><a href="">1</a></li>
-				<li><a href="">2</a></li>
-				<li><a href="">3</a></li>
-				<li><a href="">4</a></li>
-				<li><a href="">5</a></li>
-				<li><a href="">Next >></a></li>
-			</ul>
 		</div>
 		<div class="clear"></div>
 		<div class="footer">
