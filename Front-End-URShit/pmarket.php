@@ -13,10 +13,10 @@
 				<a href="#"><img src="pic/logo.png" alt="9487寶物交易網" title="9487寶物交易網"></a>
 			</div>
 			<div class="member-set">
+				<a href="#">$0</a>
 				<a href="#">登出</a>
-				<a href="#">｜</a>
-				<a href="#">我的拍賣</a>
-				<a href="#">$300</a>					
+				<a href="#">修改資料</a>
+				<a href="#" id="cart"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>	
 			</div>
 		</div>
 		<div class="clear"></div>
