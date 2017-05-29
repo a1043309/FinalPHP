@@ -167,7 +167,7 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 		<div class="nav-menu">
 			<ul>
 				<li>
-					<a href="#">首頁</a>
+					<a href="index.php">首頁</a>
 					<a href="#">新楓之谷</a>
 					<a href="#">跑跑卡丁車</a>
 					<a href="#">爆爆王</a>
@@ -214,7 +214,14 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 				<div class="main-pic">
 					<img src="pic/14248488949068911.jpeg" title="新楓之谷" alt="新楓之谷">
 				</div>
-				<div class="main-data"></div>
+				<div class="main-data">
+					<? $sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='maplestory' AND P_Inv > 0";
+						$result = mysqli_query($Link,$sql);
+						while($row = mysqli_fetch_assoc($result))
+						{
+							echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
+						}?>
+				</div>
 				<div class="sold-charts">
 					<div class="charts-title">
 						<h3>94會賣榜</h3>
@@ -256,7 +263,15 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 				<div class="main-pic">
 					<img src="pic/d2274503.jpeg" title="跑跑卡丁車" alt="跑跑卡丁車">
 				</div>
-				<div class="main-data"></div>
+				<div class="main-data">
+					<?php
+						$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='kart' AND P_Inv > 0";
+						$result = mysqli_query($Link,$sql);
+						while($row = mysqli_fetch_assoc($result))
+						{
+							echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
+						}?>
+				</div>
 				<div class="sold-charts">
 					<div class="charts-title">
 						<h3>94會賣榜</h3>
@@ -298,7 +313,15 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 				<div class="main-pic">
 					<img src="pic/23.jpeg" title="爆爆王" alt="爆爆王">
 				</div>
-				<div class="main-data"></div>
+				<div class="main-data">
+				<?
+					$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='bnb' AND P_Inv > 0";
+					$result = mysqli_query($Link,$sql);
+					while($row = mysqli_fetch_assoc($result))
+					{
+						echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
+					}?>
+				</div>
 				<div class="sold-charts">
 					<div class="charts-title">
 						<h3>94會賣榜</h3>
@@ -322,37 +345,3 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 	</div>
 </body>
 </html>
-
-
-
-
-<?php
-echo "跑跑卡丁車<br/><br/>";
-
-	$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='kart' AND P_Inv > 0";
-	$result = mysqli_query($Link,$sql);
-	while($row = mysqli_fetch_assoc($result))
-	{
-		echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
-	}
-	echo "<br/><br/><br/><br/>";
-
-	echo "爆爆王<br/><br/>";
-
-	$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='bnb' AND P_Inv > 0";
-	$result = mysqli_query($Link,$sql);
-	while($row = mysqli_fetch_assoc($result))
-	{
-		echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
-	}
-
-	echo "<br/><br/><br/><br/>";
-
-	echo "新楓之谷<br/><br/>";
-
-	$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='maplestory' AND P_Inv > 0";
-	$result = mysqli_query($Link,$sql);
-	while($row = mysqli_fetch_assoc($result))
-	{
-		echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
-	}
