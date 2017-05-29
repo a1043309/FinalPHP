@@ -546,8 +546,8 @@ img{
   	cursor: pointer;
 }
 #post-btn:hover{
-	width: 80px;
 	opacity: 0.8;
+	border: solid 3px #21ff49;
 	transition: 0.4s;
 }
 .product-info{
