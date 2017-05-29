@@ -1,0 +1,26 @@
+<?php
+	$id = $_GET["id"];
+
+	$Link = mysqli_connect('localhost','root','e1e2e3','9487');
+
+	$Link = mysqli_connect('localhost','root','e1e2e3','9487');
+	if(!$Link){
+		echo "連接失敗";
+	}
+
+	$result = mysqli_query($Link,"SELECT * FROM user");
+
+	$new = '';
+	while($row = mysqli_fetch_assoc($result)){
+		if($row["U_ID"] == $id){
+			$new = "used";
+			echo "<script>alert('這個ID已被使用');</script>";
+			break;
+		}
+	}
+	if ($new != "used") {
+		echo "<script>alert('恭喜 這個ID可以使用');</script>";
+	}
+
+	header("Refresh:0; http://localhost:8888/9487/signup.php");
+?>

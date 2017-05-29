@@ -1,5 +1,4 @@
 <?php
-header('Content-type: text/html; charset=utf-8');
 if(isset($_SESSION["ID"]))
 	header("Location:index.php");
 ?>
@@ -10,6 +9,18 @@ if(isset($_SESSION["ID"]))
 	<meta charset="UTF-8">
 	<title>註冊</title>
 	<link rel="stylesheet" type="text/css" href="sign.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		function check(){
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.open("get","idcheck.php");
+			xmlhttp.onload=function(){
+				document.loginn.action="idcheck.php";
+				document.loginn.submit();
+				};
+			xmlhttp.send();
+		}
+	</script>
 </head>
 <body>
 	<div class="header" style="margin-top: 30px;">
@@ -24,10 +35,10 @@ if(isset($_SESSION["ID"]))
 			<div class="clear"></div>
 		</div>
 		<div class="info">
-		<form action = 'success.php' method = 'post' id = 'loginn'><br/>
+		<form action = "" method = "get" name="loginn"><br/>
 			<p>姓名：<input type="text" name="name"></p>
 			<p>性別：<input id="gender" type="radio" name="gender" value="male"> 男生 <input id="gender" type="radio" name="gender" value="female"> 女生</p>
-			<p>帳號：<input type="text" name="id"><button type = "button">檢查</button><a>*註冊後無法修改，長度限制20字元以內</a></p>
+			<p>帳號：<input type="text" name="id"><button id="detect" onclick="check();" type = "button">檢查</button><a>*註冊後無法修改，長度限制20字元以內</a></p>
 			<p>密碼：<input type="password" name="pwd"><a>*請區分大小寫，長度限制20以內</a></p>
 			<p>職業：<select name='job'>
 						<option value="null">選擇</option>
@@ -37,7 +48,7 @@ if(isset($_SESSION["ID"]))
 			<p>生日：<input type="date" name="birth"></p>
 			<p>手機：<input type="text" name="phone"></p>
 			<p>E-mail: <input type="text" name="email"></p>
-			<input id="su" type="submit" name="su" value="立即註冊">
+			<input id="su" type="button" name="su" value="立即註冊">
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -47,17 +58,3 @@ if(isset($_SESSION["ID"]))
 </body>
 </html>
 
-<?php
-
-function checkID(){
-
-	$Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
-	while($row = mysqli_fetch_assoc($result)){
-		if($row["U_ID"] == $id)
-		{
-			echo "你選擇的ID已被使用";
-			return true;
-		}
-	}
-	return false;
-}

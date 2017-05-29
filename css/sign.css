@@ -1,0 +1,150 @@
+.logo img{
+	width: 100%;
+	border: solid 5px lightblue;
+	padding: 30px;
+}
+.header{
+	margin-top: 30px;
+}
+.content{
+	margin-top: 50px;
+}
+.logo{
+	float: left;
+	width: 40%;
+}
+.signin{
+	float: right;
+	width: 40%;
+}
+#title{
+	font-family: PingFangTC;
+	font-size: 20px;
+	font-weight: 600;
+	color: #000000;
+	border-radius: 8px;
+	background-color: #ffcceb;
+	padding:20px 130px;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+#idd{
+	font-family: PingFangTC;
+	font-size: 16px;
+	color: #000000;
+	padding-left: 50px;
+}
+#pwdd{
+	font-family: PingFangTC;
+	font-size: 16px;
+	color: #000000;
+	padding-left: 50px;
+}
+.id{
+	width: 363px;
+	height: 69px;
+}
+.signin input{
+	font-size: 16px;
+}
+.upp{
+	margin-left: 150px;
+}
+button{
+	font-family: PingFangTC;
+	font-size: 18px;
+	border-radius: 8px;
+	background-color: #75ff8e;
+	border: solid 1px #75ff8e;
+	margin-left: 40px;
+	padding:5px 10px;
+	margin-top: 15px;
+}
+.login{
+	margin-left: 40px;
+}
+.header a{
+	font-family: PingFangTC;
+	font-size: 14px;
+	color: #000dff;
+	float: right;
+	padding-right: 50px;
+}
+.clear{
+	clear: both;
+}
+body{
+	max-width: 940px;
+	margin: 0 auto;
+}
+.info{
+	margin-left: 215px;
+	font-family: PingFangTC;
+	font-size: 18px;
+	color: #000000;
+	margin-top: 40px;
+}
+.info input{
+	font-size: 18px;
+}
+#gender{
+	width: 17px;
+	height: 17px;
+}
+.info select{
+	font-size: 16px;
+}
+.one{
+	padding-left: 200px;
+}
+.onee{
+	background-color: #f87676;
+	border: solid 1px #f87676;
+	font-family: PingFangTC;
+	font-size: 20px;
+	font-weight: 600;
+	color: #ffffff;
+	padding: 15px 20px;
+	float: left;
+}
+#write{
+	float: left;
+	font-family: PingFangTC;
+	font-size: 24px;
+	font-weight: 600;
+	color: #f87676;
+	margin-left: 20px;
+}
+.info button{
+	width: 60px;
+	height: 33px;
+	border-radius: 8px;
+	background-color: #90ee82;
+	border: solid 1px #979797;
+	font-size: 18px;
+	margin-left: 10px;
+	font-weight: unset;
+}
+.info a{
+	font-size: 14px;
+	color: red;
+	margin-left: 5px;
+}
+#su{
+	font-family: PingFangTC;
+	font-size: 20px;
+	font-weight: 600;
+	text-align: center;
+	color: #ffffff;
+	padding: 10px 20px;
+	background-color: #f87676;
+	border: solid 1px #f87676;
+	margin-left: 350px;
+}
+.footer{
+	font-size: 14px;
+	font-weight: 600;
+	text-align: center;
+	margin-top: 80px;
+}

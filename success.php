@@ -27,16 +27,16 @@ if (isset($_POST["id"]))
 <head>
 	<meta charset="UTF-8">
 	<title>註冊成功</title>
-	<link rel="stylesheet" type="text/css" href="yoyo/yoyo.css">
+	<link rel="stylesheet" type="text/css" href="yoyo.css">
 </head>
 <body>
 	<div class="success_wrap">
 		<div class="success_header">
-			<img src="yoyo/logo.png">
+			<img src="pic/logo.png">
 		</div>
 		<div class="success_line"></div>
 		<div class="success_content">
-			<img src="yoyo/eyes.png">
+			<img src="pic/eyes.png">
 			<?php 
 			while($row = mysqli_fetch_assoc($result)){
 				if($row["U_ID"] == $id)
