@@ -70,7 +70,7 @@
 					<input id="selected-post" type="number" min="0">		
 				</div>
 				<div class="post-data">商品照片：
-					<input id="selected-post" type="text">		
+					<input id="selected-post" type="image">		
 				</div>
 				<div class="post-data"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<input id="post-btn" type="submit" value="提交"> &nbsp;&nbsp;&nbsp;
