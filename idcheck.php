@@ -1,9 +1,9 @@
 <?php
 	$id = $_GET["id"];
 
-	$Link = mysqli_connect('localhost','root','e1e2e3','9487');
+	$Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 
-	$Link = mysqli_connect('localhost','root','e1e2e3','9487');
+	$Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 	if(!$Link){
 		echo "連接失敗";
 	}

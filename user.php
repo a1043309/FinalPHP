@@ -1,5 +1,14 @@
 <?php
-	
+	echo "<a href = 'index.php'>回到首頁</a><br/><br/><br/>";
+	header('Content-type: text/html; charset=utf-8');
+	session_start();
+	if(!isset($_SESSION["ID"]))
+		header("Location:signin.php");
+
+	$UID = $_SESSION["ID"];
+	$Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
+	if(!$Link)
+		echo "連接失敗";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +25,8 @@
 				<a href="#"><img src="pic/marketcar.png"></a>
 				<p>
 				<a href="editinfo.php">修改資料</a>&nbsp;&nbsp;
-				<a href="#">登出</a>&nbsp;&nbsp;
-				<a href="#">$0</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<?php echo "<a href='index.php?&logout=yes' class='lid-member'>登出</a>"; ?>&nbsp;&nbsp;
+				<?php echo "<a href='#' class='lid-member'>$".$row["U_MONEY"]."</a>"; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				</p>
 			</div>
 		</div>
