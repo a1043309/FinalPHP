@@ -1,0 +1,915 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+img{
+	max-width: 100%;
+}
+.lid{
+	width: 1221px;
+    height: 42px;
+    /*opacity: 0.26;*/
+    background-color: #f8e0e0;
+    border: solid 5px #888bed;
+    margin: 0 auto;
+    margin-top: 26px;
+    position: relative;
+}
+.lid img{
+	position: absolute;
+	left: 11px;
+}
+.lid p{
+	font-family: Microsoft JhengHei;
+    font-size: 18px;
+    color: #162182;
+	position: absolute;
+	left: 100px;
+	top: 11px;
+}
+.lid a{	
+    text-decoration: none;    
+}
+.lid a:hover{
+	color: #888bed;
+	transition: 0.4s;
+	text-decoration: underline;
+}
+.lid-member{
+	font-family: Microsoft JhengHei;
+    font-size: 18px;
+    color: #1024a5;
+    float: right;
+    padding: 11px 10px 0px 10px;
+    margin-right: 5px;
+}
+#cart{
+	float: right;
+	padding-top: 3px; 
+}
+.wrap{
+	width: 1221px;
+	margin: 0 auto;
+}
+.header{
+	width: 1221px;
+	margin: 35px auto;
+}
+.logo{
+	float: left;
+}
+.member-set{
+	float: right;
+}
+.member-set a{
+	font-family: Microsoft JhengHei;
+  	font-size: 18px;
+  	color: #1024a5;
+  	text-decoration: none;
+  	float: right;
+  	padding: 11px 10px 0px 10px;
+  	margin-right: 5px;
+}
+.member-set a:hover{
+	color: #888bed;
+	transition: 0.4s;
+	text-decoration: underline;
+}
+.member-set p{
+	font-family: Microsoft JhengHei;
+  	font-size: 18px;
+  	color: #1024a5;
+  	float: right;
+  	padding: 11px 10px 0px 10px;
+  	margin-right: 5px;
+}
+.search-selected{
+	float: left;
+	margin: 100px 20px 0px 5px;
+}
+#selected{
+	width: 158px;
+	padding: 5px 0px;
+	background: #f8e0e0; 
+  	border: 2px #888bed solid;
+   	cursor: pointer;
+   	border-radius: 5px;
+   	font-size: 20px;
+   	-webkit-appearance: none;
+}
+.search{
+	float: left;
+	margin: 100px 10px 0px 10px;
+}
+#search{
+	margin-right: 10px;
+	padding: 5px 0px 6px 4px;
+	background: #f8e0e0; 
+  	border: 2px #888bed solid;
+   	cursor: pointer;
+   	border-radius: 5px; 
+   	font-size: 20px;
+}
+.search-icon{
+	float: left;
+	margin-top: 102px;
+}
+.search-icon a:hover{
+	color: #888bed;
+	transition: 0.4s;
+}
+.clear{
+    clear: both;
+}
+.nav-menu{
+	width: 1221px;
+	margin: 0 auto;
+    padding-top: 70px;
+}
+.nav-menu li{
+    text-align: center;
+}
+.nav-menu li a{
+	width: 200px;
+    display: block;
+    float: left;
+    padding: 15px 20px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background: #f8e0e0;
+    border: solid 5px #888bed;
+    font-family: Microsoft JhengHei;
+    font-size: 30px;
+    color: #000;
+    text-decoration: none;
+}
+.nav-menu li a:hover{
+    color: #FFF;
+    background: #888bed;
+    transition: 0.4s;
+}
+.content{
+	width: 1221px;
+	margin: 0 auto;
+}
+.list-area{
+	width: 1221px;
+	margin-top: 30px;
+}
+.list-title{
+	float: left;
+	width: 250px;
+	height: 100px;
+	clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+	background: #888bed;
+	position: relative;
+}
+.list-title p{
+	font-size: 30px;
+    font-weight: 500;
+    font-family: Microsoft JhengHei;
+    color: #e40046;
+    position: absolute;
+    top: 23px;
+    left: 5px;
+}
+.list-data{
+	float: left;
+    margin-top: 47px;
+    margin-left: 15px;	
+}
+.list-data li{
+	display: block;
+	float: left;
+	width: 120px;
+}
+.list-data a{
+	text-decoration: none;
+	font-family: Microsoft JhengHei;
+	font-size: 24px;
+    color: #000;
+    padding: 15px;
+}
+.list-data a:hover{
+	font-size: 30px;
+}
+.list-more{
+	float: right;
+	margin-top: 47px;
+	margin-right: 9px;
+}
+.list-more a{
+	text-decoration: none;
+	font-family: Microsoft JhengHei;
+	font-size: 24px;
+    font-weight: 600;
+    text-align: left;
+    color: #e40046;
+}
+.list-more a:hover{
+	color: #f689aa;
+	transition: 0.3s;
+}
+.list-line{
+	width: 1221px;
+    border-top: solid 5px #888bed;
+    margin-top: -1px;
+}
+.main{
+	width: 1221px;
+	margin-top: 30px;
+}
+.main-pic{
+	width: 480px;
+    height: 360px;
+	border: solid 3px #888bed;
+	float: left;
+}
+.main-data{
+	width: 340px;
+	padding: 10px;
+	float: left;
+}
+.sold-charts{
+	float: right;
+	width: 280px;
+}
+.charts-title{
+	width: 266px;
+	height: 90px;
+	border: solid 5px #888bed;
+}
+.charts-title h3{
+	text-align: center;
+	line-height: 90px;
+	font-family: Microsoft JhengHei;
+	font-size: 24px;
+    font-weight: 600;
+    color: #ff0000;
+}
+.charts-data{
+	width: 266px;
+	height: 65px;
+	border: solid 5px #888bed;
+	border-top: 2.5px;
+}
+.charts-data p{
+	text-align: center;
+	line-height: 65px;
+	font-family: Microsoft JhengHei;
+	font-size: 24px;
+}
+.search-area{
+	float: left;
+	width: 280px;
+}
+.search-title{
+	width: 266px;
+	height: 64px;
+	border: dotted 3px #f87676;
+}
+.search-title h3{
+	text-align: center;
+	line-height: 64px;
+	font-family: Microsoft JhengHei;
+	font-size: 30px;
+    font-weight: 600;
+    color: #0082f6;
+}
+.search-details{
+	width: 266px;
+	height: 139px;
+	border: dotted 3px #f87676;
+	border-top: 1.5px;	
+}
+.search-details p{
+	text-align: center;
+	font-family: Microsoft JhengHei;
+	font-size: 20px;
+	line-height: 90px;
+}
+#price-set{
+	width: 70px;
+	padding: 1px 0px;
+	cursor: pointer;
+   	font-size: 20px;
+}
+#server-chosen{
+	width: 100px;
+	padding: 1px 0px;
+	cursor: pointer;
+   	font-size: 20px;
+}
+#search-submit{
+	margin-right: 15px;
+	cursor: pointer;
+	margin-left: 186px;
+	background: #f8e0e0;
+	border: 2px #888bed solid;
+	border-radius: 5px;
+}
+.product-area{
+	width: 920px;
+	margin: 0 auto;
+	float: right;
+}
+.product-title{
+	width: 890px;
+    height: 72px;
+    background-color: #9eeec8;
+    margin-left: 30px;
+}
+.product-title h2{
+	font-family: Microsoft JhengHei;
+	font-size: 30px;
+  	font-weight: 600;
+  	text-align: left;
+  	color: #000;
+  	text-align: left;
+  	line-height: 72px;
+  	padding-left: 25px;
+}
+.product-details{
+	width: 886px;
+	height: 116px;
+ 	border: solid 2px #000000;
+ 	margin: 30px 0px 0px 30px;
+}
+.product-details a{
+	font-family: Microsoft JhengHei;	
+	line-height: 50px;
+  	text-decoration: none;
+}
+.product-details h4{
+	font-size: 24px;
+  	font-weight: 600;
+  	color: #000;
+ 	text-align: left;
+ 	padding-left: 25px;
+}
+.product-details p{
+	font-size: 20px;
+  	color: #000;
+  	float: left;
+  	text-align: left;
+  	padding-right: 20px;
+  	padding-left: 25px;
+}
+.product-details h3{
+	font-size: 26px;
+  	font-weight: 600;
+  	color: #ff0000;
+  	text-align: right;
+  	padding-right: 20px;
+}
+.product-details a:hover{
+	color: #000;
+	text-decoration: underline;
+}
+.seller-info{
+	width: 280px;
+	margin: 35px auto;
+	margin-right: 30px;
+	float: left;
+}
+.seller-info-title{
+	width: 266px;
+	height: 59px;
+	border: solid 3px #979797;
+}
+.seller-info-title h2{
+	font-family: Microsoft JhengHei;
+ 	font-size: 30px;
+ 	font-weight: 600;
+ 	color: #4990e2;
+ 	text-align: center;
+ 	line-height: 59px;
+}
+.seller-info-details{
+	width: 266px;
+	height: 149px;
+	border: solid 3px #979797;
+}
+.seller-info-details p{
+	font-family: Microsoft JhengHei;
+ 	font-size: 20px;
+ 	text-align: left;
+	line-height: 33px;
+	padding-left: 63px;
+}
+.label-pmarket{
+	width: 950px;
+	padding-top: 35px;
+	padding-left: 30px;
+	margin-bottom: 150px;
+}
+.label-title{
+	float: left;
+	width: 200px;
+	height: 80px;
+	clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+	background: #ccbdfb;
+}
+.label-title h3{
+	font-size: 30px;
+	font-weight: 600;
+	font-family: Microsoft JhengHei;
+	color: #FFF;
+	text-align: center;
+	line-height: 80px;
+}
+.label-data{
+	float: left;
+    margin-top: 35px;
+    margin-left: 15px;	
+}
+.label-data li{
+	display: block;
+	float: left;
+	width: 150px;
+}
+.label-data a{
+	text-decoration: none;
+	font-family: Microsoft JhengHei;
+	font-size: 24px;
+	font-weight: 600;
+    color: #000;
+    padding: 15px;
+}
+.label-data a:hover{
+	line-height: 0.2;
+	opacity: 0.4;
+	transition: 0.4s;
+}
+.label-line{
+	width: 900px;
+    border-top: solid 5px #ccbdfb;
+    margin-top: 80px;
+    margin-left: 280px;
+}
+.pmarket-data{
+	width: 920px;
+	margin-left: 250px;
+}
+.label-post{
+	width: 1221px;
+	margin-top: 30px;
+}
+.label-post-title{
+	float: left;
+	width: 250px;
+	height: 100px;
+	clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+	background: #ccbdfb;
+}
+.label-post-title h2{
+	font-size: 30px;
+    font-weight: 600;
+    font-family: Microsoft JhengHei;
+    color: #FFF;
+    text-align: center;
+    line-height: 100px;
+}
+.label-post-line{
+	width: 1221px;
+    border-bottom: solid 5px #ccbdfb;
+    padding-top: 100px;
+}
+.main-post{
+	width: 1221px;
+}
+.post-data{
+	width: 350px;
+	padding: 15px;
+	margin: 0 auto;
+	font-family: Microsoft JhengHei;
+	font-size: 20px;
+}
+.post-data span{
+	font-size: 12px;
+	color: red;
+}
+#selected-post{
+	width: 150px;
+}
+#post-btn{
+	width: 70px;
+	height: 25px;
+	border-radius: 3px;
+  	background-color: #75ff8e;
+  	border: solid 0px #979797;
+  	cursor: pointer;
+}
+#post-btn:hover{
+	opacity: 0.8;
+	border: solid 3px #21ff49;
+	transition: 0.4s;
+}
+.edit-info-data p{
+	width: 370px;
+	margin: 0 auto;
+	padding: 15px;
+	font-family: Microsoft JhengHei;
+	font-size: 20px;
+}
+.edit-info-data span{
+	color: red;
+}
+.edit-info-data p span{
+	font-size: 16px;
+}
+.edit-info-data span a{
+	font-size: 20px;
+	color: #0700ff; 
+	text-decoration: none;
+}
+.edit-info-data span a:hover{
+	color: #0700ff; 
+	text-decoration: underline;
+}
+.edit-info-data input{
+	font-size: 20px;
+	width: 160px;
+}
+#radio-wdt50{
+	width: 50px;
+}
+.change-pwd-area{
+	width: 900px;
+	margin: 50px auto;
+	margin-right: 50px;
+}
+.change-pwd-text{
+	width: 200px;
+	height: 80px;
+	float: left;
+	border: solid 1px #000;
+}
+#change-pwd-text-tl{
+	border-top: solid 2px #000;
+	border-left: solid 2px #000;
+}
+#change-pwd-text-l{
+	border-left: solid 2px #000;
+}
+#change-pwd-text-bl{
+	border-bottom: solid 2px #000;
+	border-left: solid 2px #000;
+}
+.change-pwd-text h4{
+	font-family: Microsoft JhengHei;
+	font-size: 24px;
+	line-height: 80px;
+	padding-left: 10px;
+}
+.change-pwd-data{
+	width: 550px;
+	height: 80px;
+	float: left;
+	border: solid 1px #000;
+}
+#change-pwd-data-tr{
+	border-top: solid 2px #000;
+	border-right: solid 2px #000;
+}
+#change-pwd-data-r{
+	border-right: solid 2px #000;
+}
+#change-pwd-data-br{
+	border-bottom: solid 2px #000;
+	border-right: solid 2px #000;
+}
+.change-pwd-data p{
+	line-height: 80px;
+	padding-left: 10px;
+}
+.change-pwd-data span{
+	font-size: 14px;
+	color: red;
+	font-weight: 600;
+}
+.change-pwd-data input{
+	font-size: 24px;
+	border: solid 1px #000;
+}
+.product-info{
+	width: 1221px;
+	margin-top: 35px;
+}
+.product-pic{
+	width: 400px;
+	float: left;
+}
+.product-data{
+	width: 450px;
+	float: left;
+	margin: 0px 30px;
+}
+.product-data h3{
+	font-family: Microsoft JhengHei;
+	font-size: 28px;
+    font-weight: 600;
+    margin: 20px 0px;
+}
+.product-data h2{
+	width: 395px;
+	height: 110px;
+	font-family: Microsoft JhengHei;
+	font-size: 30px;
+    font-weight: 600;
+    background: #cdcff3;
+    margin: 35px 0px;
+    text-align: left;
+    line-height: 110px;
+    padding-left: 35px;
+}
+.product-data h2 span{
+	font-family: Microsoft JhengHei;
+	font-size: 30px;
+    font-weight: 600;
+    color: red;
+}
+.product-data p{
+	font-family: Microsoft JhengHei;
+	font-size: 24px;
+	margin: 20px 0px;
+}
+.product-data p span{
+	font-family: Microsoft JhengHei;
+	font-size: 15px;
+}
+#product-amount{
+	width: 80px;
+	font-size: 20px;
+}
+.product-btn{
+	width: 450px;
+	margin-left: 35px;
+}
+.btn-buy a{
+	width: 160px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-family: Microsoft JhengHei;
+	font-size: 24px;
+	font-weight: 600;
+	background: #feb336;
+	color: #FFF;
+	border: solid 3px #fa9c00;
+	border-radius: 3px;
+	text-decoration: none;
+	display: block;
+	float: left;
+	margin-right: 55px;
+}
+.btn-buy:hover a{
+	color: #292929;
+	background: #ffc25d;
+	border: solid 3px #ffc25d;
+	transition: 0.4s;
+}
+.btn-cart a{
+	width: 160px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-family: Microsoft JhengHei;
+	font-size: 24px;
+	font-weight: 600;
+	background: #FFF;
+	color: #292929;
+	border: solid 3px #979797;
+	border-radius: 3px;
+	text-decoration: none;
+	display: block;
+	float: left;
+}
+.btn-cart:hover a{
+	color: #FFF;
+	background: #686868;
+	border: solid 3px #686868;
+	transition: 0.4s;
+}
+.seller-info{
+	width: 280px;
+	float: right;
+	margin-top: 0px;
+}
+.seller-info-title{
+	width: 266px;
+	height: 64px;
+	border: dotted 3px #f87676;
+}
+.seller-info-title h3{
+	text-align: center;
+	line-height: 64px;
+	font-family: Microsoft JhengHei;
+	font-size: 30px;
+    font-weight: 600;
+    color: #0082f6;
+}
+.seller-info-details{
+	width: 266px;
+	height: 300px;
+	border: dotted 3px #f87676;
+	border-top: 1.5px;	
+}
+.seller-info-details p{
+	text-align: left;
+	font-family: Microsoft JhengHei;
+	font-size: 20px;
+	line-height: 70px;
+}
+.seller-info-details span{
+	color: red;
+}
+.seller-info-more{
+	margin: 25px 0px 0px 35px;
+}
+.seller-info-more a{
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-family: Microsoft JhengHei;
+	font-size: 24px;
+	font-weight: 600;
+	background: #9eeec8;
+	color: #0082f6;
+	text-decoration: none;
+	display: block;
+	float: left;
+}
+.seller-info-more:hover a{
+	color: #9eeec8;
+	background: #0082f6;
+	transition: 0.4s;
+	opacity: 0.8;
+}
+.product-more{
+	width: 1221px;
+	margin: 25px auto;
+	margin-bottom: 250px;
+}
+.product-more-y a{
+	width: 610px;
+	height: 80px;
+	line-height: 80px;
+	font-family: Microsoft JhengHei;
+	font-size: 30px;
+	font-weight: 600;
+	text-align: center;
+	background: #fff67a;
+	color: #000;
+	text-decoration: none;
+	display: block;
+	float: left;
+}
+.product-more-y:hover a{
+	color: #fff67a;
+	background: #000;
+	transition: 0.4s;
+	opacity: 0.8;
+}
+.product-more-p a{
+	width: 610px;
+	height: 80px;
+	line-height: 80px;
+	font-family: Microsoft JhengHei;
+	font-size: 30px;
+	font-weight: 600;
+	text-align: center;
+	background: #ede6f8;
+	color: #000;
+	text-decoration: none;
+	display: block;
+	float: left;
+}
+.product-more-p:hover a{
+	color: #ede6f8;
+	background: #000;
+	transition: 0.4s;
+	opacity: 0.8;
+}
+.page{
+	width: 1221px;
+	margin: 0 auto;
+	margin-top: 45px;	
+	margin-left: 430px;
+}
+.page a{
+	text-decoration: none;
+	color: #0034ff;
+	font-family: Microsoft JhengHei;
+	font-size: 20px;
+  	font-weight: 600;
+  	display: block;
+  	padding: 10px;
+  	float: left;
+}
+.page a:hover{
+	text-decoration: underline;
+}
+/*　　↓ＪＳ↓　　*/
+#slider{
+	margin: 0 auto;
+	position: relative;
+
+	background: #FFF;
+	width: 1221px;	/* 整個區塊的寬 */
+	height: 540px;	/* 整個區塊的高 */
+}
+#slider ul{
+	width: 1141px;	/* 整個區塊的寬 - 兩個左右鈕的寬 */
+	height: 400px;
+	position: absolute;
+	left: 40px;		/* 一個左鈕的寬 */
+	top: 50px;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#slider li a{
+	outline: none;
+}
+#slider li a img{
+	vertical-align: middle;
+	border: none;
+}
+#slider li a:hover{
+	opacity: 0.9;
+}
+#slider .controls{
+	position: absolute;
+	top: 240px;		/* (整個區塊的高 - 自己的高) / 2 */
+	display: block;
+	width: 40px;
+	height: 60px;
+	outline: none;
+	/*background: url(pic/next.png) repeat;*/
+}
+#slider .previous{
+	left: 0;
+	background-position: left;
+}
+#slider .next{
+	right: 0;
+	background-position: right;
+}
+/*　　↑ＪＳ↑　　*/
+.footer{
+  	margin: 100px 0px 30px 0px;
+  	text-align: center;
+}
+.footer p{
+  	padding-top: 20px;
+  	font-size: 20px;
+}
