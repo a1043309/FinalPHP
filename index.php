@@ -219,7 +219,6 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 						$result = mysqli_query($Link,$sql);
 						for ($i=0; $i < 5; $i++) { 
 							if ($row = mysqli_fetch_assoc($result)) {
-								echo "<font size = "20">";
 								echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
 							}
 						}
@@ -272,7 +271,6 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 						$result = mysqli_query($Link,$sql);
 						for ($i=0; $i < 5; $i++) { 
 							if($row = mysqli_fetch_assoc($result)) {
-								echo "<font size = "20">";
 								echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
 							}
 						}
@@ -326,7 +324,6 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 					$result = mysqli_query($Link,$sql);
 					for ($i=0; $i < 5; $i++) { 
 				 	 if($row = mysqli_fetch_assoc($result)){
-				 	 	echo "<font size = "20">";
 				 	 	echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
 				 	 } 	 	
 					}					
