@@ -37,7 +37,7 @@ if(!isset($_SESSION["ID"]))
 			<p id="idd">帳號：<input type="text" name="id"></p>
 			<p id="pwdd">密碼：<input type="password" name="pwd"></p>
 			</form>
-			<button class="upp" onclick="location.href='signup.php'">註冊</button>
+			<button class="upp" onclick="self.location.href='signup.php'">註冊</button>
 			<button type="submit" form="loginn" id="login">登入</button>
 
 		</div>

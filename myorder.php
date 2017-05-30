@@ -3,14 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>我的訂單</title>
-	<link rel="stylesheet" type="text/css" href="yoyo.css">
+	<link rel="stylesheet" type="text/css" href="css/yoyo.css">
 </head>
 <body>
 	<div class="user_wrap">
 		<div class="user_header">
-			<img src="yoyo/logo.png">
+			<img src="pic/logo.png">
 			<div class="user_header_profile">
-				<a href="#"><img src="yoyo/marketcar.png"></a>
+				<a href="#"><img src="pic/marketcar.png"></a>
 				<p>
 				<a href="#">修改資料</a>&nbsp;&nbsp;
 				<a href="#">登出</a>&nbsp;&nbsp;

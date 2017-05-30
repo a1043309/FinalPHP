@@ -11,35 +11,15 @@ if(isset($_SESSION["ID"]))
 	<link rel="stylesheet" type="text/css" href="css/sign.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		<?php 
-			function check(){
-				$id = $_GET["id"];
-
-				$Link = mysqli_connect('localhost','root','e1e2e3','9487');
-
-				$Link = mysqli_connect('localhost','root','e1e2e3','9487');
-				if(!$Link){
-				echo "連接失敗";
-				}
-
-				$result = mysqli_query($Link,"SELECT * FROM user");
-
-				$new = '';
-				while($row = mysqli_fetch_assoc($result)){
-					if($row["U_ID"] == $id){
-						$new = "這個ID已被使用";
-						return $new;
-					}
-				}
-				if ($new != "used") {
-					$new = "恭喜 這個ID可以使用"
-					return $new;
-				}
-			}
-		?>
-		$("detect").click(function(){
-			alert(<?php check() ?>);
-		})
+		function check(){
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.open("get","idcheck.php");
+			xmlhttp.onload=function(){
+				document.loginn.action="idcheck.php";
+				document.loginn.submit();
+				};
+			xmlhttp.send();
+		}
 	</script>
 </head>
 <body>
