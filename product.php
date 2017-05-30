@@ -32,5 +32,25 @@ echo "<input type = 'hidden' name = 'p_code' value = '$P_Code'>";
 echo "輸入數量：：<input type='text' name='amount'></p>";
 echo "</form>";
 echo "<button type='submit' form='buy' id='purchase'>馬上購買</button><br/><br/><br/>";
-echo "<img src='$P_ImgPath' width='300px' height='300px'>";
+echo "<img src='$P_ImgPath' width='300px' height='300px'><br/><br/><br/>";
+
+
+
+
+
+
+
+echo "問與答<br/><br/><br/>";
+
+$sql = "SELECT A1.U_ID U_ID, A2.Content Content, A2.Reply_Content Reply_Content
+FROM user A1, question A2
+WHERE A1.U_ID = A2.Asker_ID AND A2.P_Code = '$P_Code' ORDER BY A2.Post_Time DESC";
+
+$result = mysqli_query($Link,$sql);
+while($row = mysqli_fetch_assoc($result)){
+	echo "發問者：".$row['U_ID']."<br/>";
+	echo "問題：".$row['Content']."<br/>";
+	echo "回覆：".$row['Reply_Content']."<br/>";
+}
+
 ?>

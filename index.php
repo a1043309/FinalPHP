@@ -318,7 +318,11 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 					<img src="pic/23.jpeg" title="爆爆王" alt="爆爆王">
 				</div>
 				<div class="main-data">
+<<<<<<< HEAD
 				<?php
+=======
+				<?php	
+>>>>>>> e667c323c755f41c2294720d671172155af08724
 
 					$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='bnb' AND P_Inv > 0";
 					$result = mysqli_query($Link,$sql);
