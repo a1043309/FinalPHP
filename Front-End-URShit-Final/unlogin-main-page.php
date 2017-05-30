@@ -6,7 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="css/final.css">
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 	<script type="text/javascript" src="js/slider.js"></script>
 </head>
 <body>
