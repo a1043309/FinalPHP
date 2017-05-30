@@ -82,15 +82,13 @@
 .user_content{
 	width: 100%;
 }
-.user_left{
-	clear: both;
-	width: 112px;
-}
+
 .user_leftbox{
 	width: 112px;
 	height: 278px;
 	border: solid 3px #979797;
 	margin-bottom: 29px;
+	float: left;
 }
 .user_leftbox p{
 	font-family: PingFangTC;
@@ -99,17 +97,434 @@
 	color: #000000;
 	margin-top: 28px;
 }
-.user_right img{
-	clear: both;
+.imbuyer{
+	width: 139px; 
+	height: 56px; 
+	float: left;
+	margin-left: 45px;
+}
+.imbuyer2{
+	width: 139px; 
+	height: 56px; 
+	float: left;
+	margin-left: 45px;
+}
+.u_text1{
+	font-family: PingFangTC;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+    color: #ffffff;
+    position: relative;
+    left: -120px;
+    top: 18px;
+}
+.publish1{
+	width: 87px;
+    height: 33px;
+    border-radius: 8px;
+    background-color: #75ff8e;
+    border: solid 0 #979797;
+    float: left;
+    margin-left: -700px;
+    margin-top: -10px;
+	display: block;
+}
+.publish1 a{
+	text-decoration: none;
+	color: black;
+	display: block;
+}
+.publish2{
+	width: 87px;
+    height: 33px;
+    border-radius: 8px;
+    background-color: #75ff8e;
+    border: solid 0 #979797;
+    float: left;
+    margin-left: -590px;
+    margin-top: -10px;
+    display: block;
+}
+.publish2 a{
+	text-decoration: none;
+	color: black;
+	display: block;
 }
 .user_line{
-	width: 875px;
+	width: 860px;
 	height: 3px;
 	border-top: solid 3px #ccbdfb;
+	float: left;
+	margin-top: 34px;
+	margin-left: -139px;
+	margin-bottom: 1em;
+}
+.user_line2{
+	width: 860px;
+	height: 3px;
+	border-top: solid 3px #ffb161;
+	float: left;
+	margin-top: 34px;
+	margin-left: -139px;
+	margin-bottom: 1em;
+}
+.buyerbox{
+    width: 346px;
+    height: 34px;
+    background-color: #ccbdfb;
+    border: solid 0 #ccbdfb;
+    margin-left: 45px;
+    margin-right: 45px;
+    float: left;
+}
+.buyerbox2{
+    width: 346px;
+    height: 34px;
+    background-color: #ffb161;
+    border: solid 0 #ffb161;
+    margin-left: 45px;
+    margin-right: 45px;
+    float: left;
+}
+.buyerbox3{
+    width: 346px;
+    height: 34px;
+    background-color: #ffb161;
+    border: solid 0 #ffb161;
+    margin-left: 163px;
+    margin-right: 45px;
+    float: left;
+}
+.u_text2{
+	font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    color: #000000;
+    float: left;
+    margin-left: -370px;
+    margin-top: 8px;
+}
+.u_text3{
+	font-family: PingFangTC;
+    font-size: 12px;
+    text-align: left;
+    color: #ff0a0a;
+    float: left;
+    margin-left: -100px;
+    margin-top: 12px;
+}
+.u_text3 a{
+	display: block;
+	text-decoration: none;
+	color: red;
+}
+.contentbox{
+    width: 340px;
+    height: 91px;
+    border: solid 3px #ccbdfb;
+    float: left;
+    margin-left: 45px;
+    margin-right: 45px;
+    margin-bottom: 1em;
+}
+.contentbox2{
+    width: 340px;
+    height: 91px;
+    border: solid 3px #ffb161;
+    float: left;
+    margin-left: 45px;
+    margin-right: 45px;
+    margin-bottom: 1em;
+}
+.contentbox3{
+    width: 340px;
+    height: 91px;
+    border: solid 3px #ffb161;
+    float: left;
+    margin-left: -391px;
+    margin-top: 33px;
 }
 .sell{
 	width: 107px;
 	height: 50px;
 	background-color: #ccbdfb;
+	float: left;
+	margin-top: 30px;
+	position: absolute;
+}
+.text1{
+	font-family: PingFangTC;
+	font-size: 16px;
+	font-weight: 600;
+	text-align: left;
+	color: #ffffff;
+	float: right;
+	position: relative;
+	right: 1195px;
+	top: 48px;
+}	
+.buyer{
+	width: 293px;
+	height: 50px;
+	background-color: #bdffd1;
+	float: left;
+	margin-top: 30px;
+	margin-left: 180px;
+	position: absolute;
+}
+.text2{
+	font-family: PingFangTC;
+	font-size: 16px;
+	font-weight: 600;
+	text-align: left;
+	color: #000000;
+	float: right;
+	position: relative;
+	right: 960px;
+	top: 36px;
+}
+.text2-1{
+	width: 84px;
+    height: 27px;
+    border-radius: 8px;
+    background-color: #63b16f;
+    border: solid 2px #ff0000;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+    position: relative;
+    left: 260px;
+    top: 38px;
+    display: block;
+    text-decoration: none;
+    float: left;
+}
+.text2-2{
+	width: 107px;
+    height: 27px;
+    border-radius: 8px;
+    background-color: #63b16f;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+    position: relative;
+    left: 270px;
+    top: 40px;
+    display: block;
+    text-decoration: none;
+    float: left;
+}
+.seller{
+	width: 293px;
+	height: 50px;
+	background-color: #ffd3a4;
+	float: left;
+	margin-top: 30px;
+	margin-left: 550px;
+	position: absolute;
+}
+.text3{
+	font-family: PingFangTC;
+	font-size: 16px;
+	font-weight: 600;
+	text-align: left;
+	color: #000000;
+	float: right;
+	position: relative;
+	right: 528px;
+	top: 36px;
+}
+.text3-1{
+	width: 84px;
+    height: 27px;
+    border-radius: 8px;
+    background-color: #ee7901;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+    position: relative;
+    left: 450px;
+    top: 40px;
+    display: block;
+    text-decoration: none;
+    float: left;
+}
+.text3-2{
+	width: 84px;
+    height: 27px;
+    border-radius: 8px;
+    background-color: #ee7901;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+    position: relative;
+    left: 460px;
+    top: 40px;
+    display: block;
+    text-decoration: none;
+    float: left;
+}
+.clear{
 	clear: both;
+}
+.myorder_q{
+	width: 74px;
+	height: 74px;
+	background-color: #d8d8d8;
+	border-radius: 99em;
+	position: relative;
+	left: 90px;
+	float: right;
+}
+.myorder_q_press{
+	width: 74px;
+	height: 74px;
+	background-color: #ff0000;
+	border-radius: 99em;
+	position: relative;
+	left: 90px;
+	float: right;
+}
+.text4{
+	font-family: PingFangTC;
+	font-size: 16px;
+	font-weight: 600;
+	text-align: left;
+	color: #000000;
+	float: right;
+	position: relative;
+	left: 142px;
+	top: 27px;
+}
+.text4-1{
+	font-family: PingFangTC;
+	font-size: 16px;
+	font-weight: 600;
+	text-align: left;
+	color: #ffffff;
+	float: right;
+	position: relative;
+	left: 142px;
+	top: 27px;
+}
+.myorder_line{
+	width: 1200px;
+	height: 3px;
+	border-top: solid 3px #ccbdfb;
+	margin-top: 6px;
+	float: left;
+	margin-bottom: 20px;
+}
+.press {
+	width: 99px;
+    height: 33px;
+    border-radius: 8px;
+    background-color: #75ff8e;
+    border: solid 0 #979797;
+    float: right;
+    position: relative;
+    right: 80px;
+    top: 80px;
+}
+.press a{
+	text-align: center;
+    text-decoration: none;
+    display: block;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000;
+}
+.htext2-1{
+	width: 84px;
+    height: 27px;
+    border-radius: 8px;
+    background-color: #63b16f;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+    position: relative;
+    left: 260px;
+    top: 40px;
+    display: block;
+    text-decoration: none;
+    float: left;
+}
+.htext2-2{
+	width: 107px;
+    height: 27px;
+    border-radius: 8px;
+    background-color: #63b16f;
+    border: solid 2px #d0011b;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+    position: relative;
+    left: 270px;
+    top: 38px;
+    display: block;
+    text-decoration: none;
+    float: left;
+}
+.htext3-1{
+	width: 84px;
+    height: 27px;
+    border-radius: 8px;
+    background-color: #ee7901;
+    border: solid 2px #ff0000;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+    position: relative;
+    left: 450px;
+    top: 40px;
+    display: block;
+    text-decoration: none;
+    float: left;
+}
+.htext3-2{
+	width: 84px;
+    height: 27px;
+    border-radius: 8px;
+    background-color: #ee7901;
+    border: solid 2px #ff0000;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+    position: relative;
+    left: 460px;
+    top: 40px;
+    display: block;
+    text-decoration: none;
+    float: left;
+}
+.choose{
+	margin-left: 50px;
+}
+.choose a{
+	text-decoration: none;
+	color: #000000;
+}
+.finish{
+	font-family: PingFangTC;
+    font-size: 18px;
+    font-weight: 600;
 }
