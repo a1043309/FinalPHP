@@ -209,9 +209,8 @@ select{
 .list-data a{
 	text-decoration: none;
 	font-family: Microsoft JhengHei;
-	font-size: 24px;
+	font-size: 20px;
     color: #000;
-    padding: 15px;
 }
 .list-data a:hover{
 	font-size: 30px;
