@@ -37,7 +37,9 @@ if(isset($_SESSION["ID"]))
 				}
 			}
 		?>
-		$("detect").onclick("")
+		$("detect").click(function(){
+			alert(<?php check() ?>);
+		})
 	</script>
 </head>
 <body>

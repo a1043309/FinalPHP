@@ -217,10 +217,13 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 				<div class="main-data">
 					<? $sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='maplestory' AND P_Inv > 0";
 						$result = mysqli_query($Link,$sql);
-						while($row = mysqli_fetch_assoc($result))
-						{
-							echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
-						}?>
+						for ($i=0; $i < 5; $i++) { 
+							if ($row = mysqli_fetch_assoc($result)) {
+								echo "<font size = "20">";
+								echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
+							}
+						}
+						?>
 				</div>
 				<div class="sold-charts">
 					<div class="charts-title">
@@ -267,10 +270,13 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 					<?php
 						$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='kart' AND P_Inv > 0";
 						$result = mysqli_query($Link,$sql);
-						while($row = mysqli_fetch_assoc($result))
-						{
-							echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
-						}?>
+						for ($i=0; $i < 5; $i++) { 
+							if($row = mysqli_fetch_assoc($result)) {
+								echo "<font size = "20">";
+								echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
+							}
+						}
+						?>
 				</div>
 				<div class="sold-charts">
 					<div class="charts-title">
@@ -314,13 +320,17 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 					<img src="pic/23.jpeg" title="爆爆王" alt="爆爆王">
 				</div>
 				<div class="main-data">
-				<?
+				<?	
+
 					$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='bnb' AND P_Inv > 0";
 					$result = mysqli_query($Link,$sql);
-					while($row = mysqli_fetch_assoc($result))
-					{
-						echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
-					}?>
+					for ($i=0; $i < 5; $i++) { 
+				 	 if($row = mysqli_fetch_assoc($result)){
+				 	 	echo "<font size = "20">";
+				 	 	echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
+				 	 } 	 	
+					}					
+				?>
 				</div>
 				<div class="sold-charts">
 					<div class="charts-title">
