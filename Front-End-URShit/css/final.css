@@ -529,6 +529,7 @@ img{
 	padding: 15px;
 	margin: 0 auto;
 	font-family: Microsoft JhengHei;
+	font-size: 20px;
 }
 .post-data span{
 	font-size: 12px;
@@ -549,6 +550,93 @@ img{
 	opacity: 0.8;
 	border: solid 3px #21ff49;
 	transition: 0.4s;
+}
+.edit-info-data p{
+	width: 370px;
+	margin: 0 auto;
+	padding: 15px;
+	font-family: Microsoft JhengHei;
+	font-size: 20px;
+}
+.edit-info-data span{
+	color: red;
+}
+.edit-info-data p span{
+	font-size: 16px;
+}
+.edit-info-data span a{
+	font-size: 20px;
+	color: #0700ff; 
+	text-decoration: none;
+}
+.edit-info-data span a:hover{
+	color: #0700ff; 
+	text-decoration: underline;
+}
+.edit-info-data input{
+	font-size: 20px;
+	width: 160px;
+}
+#radio-wdt50{
+	width: 50px;
+}
+.change-pwd-area{
+	width: 900px;
+	margin: 50px auto;
+	margin-right: 50px;
+}
+.change-pwd-text{
+	width: 200px;
+	height: 80px;
+	float: left;
+	border: solid 1px #000;
+}
+#change-pwd-text-tl{
+	border-top: solid 2px #000;
+	border-left: solid 2px #000;
+}
+#change-pwd-text-l{
+	border-left: solid 2px #000;
+}
+#change-pwd-text-bl{
+	border-bottom: solid 2px #000;
+	border-left: solid 2px #000;
+}
+.change-pwd-text h4{
+	font-family: Microsoft JhengHei;
+	font-size: 24px;
+	line-height: 80px;
+	padding-left: 10px;
+}
+.change-pwd-data{
+	width: 550px;
+	height: 80px;
+	float: left;
+	border: solid 1px #000;
+}
+#change-pwd-data-tr{
+	border-top: solid 2px #000;
+	border-right: solid 2px #000;
+}
+#change-pwd-data-r{
+	border-right: solid 2px #000;
+}
+#change-pwd-data-br{
+	border-bottom: solid 2px #000;
+	border-right: solid 2px #000;
+}
+.change-pwd-data p{
+	line-height: 80px;
+	padding-left: 10px;
+}
+.change-pwd-data span{
+	font-size: 14px;
+	color: red;
+	font-weight: 600;
+}
+.change-pwd-data input{
+	font-size: 24px;
+	border: solid 1px #000;
 }
 .product-info{
 	width: 1221px;
