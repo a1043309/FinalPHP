@@ -54,7 +54,7 @@
 	margin-top: 24px; 
 }
 .user_header img{
-	width: 158.1px;
+    width: auto;
 	height: 101.3px;
 	float: left;
 	margin-bottom: 25.7px;
@@ -527,4 +527,28 @@
 	font-family: PingFangTC;
     font-size: 18px;
     font-weight: 600;
+}
+.contentbox2 a{
+    color: black;
+    padding-left: 20px;
+    line-height: 2;
+}
+.user_header a img{
+    height: 105px;
+}
+.user_header_profile #m{
+    height: 34px;
+}
+.contentbox a{
+    color: black;
+    padding-left: 20px;
+    line-height: 2;
+}
+.contentbox3 a{
+    color: black;
+    padding-left: 20px;
+    line-height: 2;
+}
+.footer{
+    margin-top: 30px;
 }

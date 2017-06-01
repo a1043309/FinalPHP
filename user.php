@@ -1,5 +1,4 @@
 <?php
-	echo "<a href = 'index.php'>回到首頁</a><br/><br/><br/>";
 	header('Content-type: text/html; charset=utf-8');
 	session_start();
 	if(!isset($_SESSION["ID"]))
@@ -20,13 +19,16 @@
 <body>
 	<div class="user_wrap">
 		<div class="user_header">
-			<img src="pic/logo.png">
+			<a href="index.php"><img src="pic/logo.png"></a>
 			<div class="user_header_profile">
-				<a href="#"><img src="pic/marketcar.png"></a>
+				<a href="#"><img id="m" src="pic/marketcar.png"></a>
 				<p>
 				<a href="editinfo.php">修改資料</a>&nbsp;&nbsp;
 				<?php echo "<a href='index.php?&logout=yes' class='lid-member'>登出</a>"; ?>&nbsp;&nbsp;
-				<?php echo "<a href='#' class='lid-member'>$".$row["U_MONEY"]."</a>"; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<?php 
+					$result = mysqli_query($Link,"SELECT U_MONEY FROM user WHERE U_ID = '$UID'");
+					$row = mysqli_fetch_assoc($result);
+					echo "<a href='#' class='lid-member'>$".$row["U_MONEY"]."</a>"; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				</p>
 			</div>
 		</div>
@@ -45,21 +47,34 @@
 					else{?>
 						<p>買家正評率<br><?php echo $row["RATESUM"]/$row["RATECOUNT"];
 					}?>
-				<p>正評(<?php while($row = mysqli_fetch_assoc($result)){$g = 0; if($row["RateToBuyer"]>5){$g++;}} echo $g;?>)<br>負評(<?php while($row = mysqli_fetch_assoc($result)){$b = 0; if($row["RateToBuyer"]>5){$b++;}} echo $b;?>)</p>
+				<p>正評(<?php 
+					$sql3 = "SELECT RateToBuyer FROM PURCHASE WHERE Buyer_ID='$UID'";
+					$result3 = mysqli_query($Link,$sql3);
+					$row3 = mysqli_fetch_assoc($result3);
+					$g = 0;
+					while($row3 = mysqli_fetch_assoc($result3)){ if($row3["RateToBuyer"]>5){$g++;}} echo $g;?>)<br>負評(<?php 
+					$b=0;
+					while($row3 = mysqli_fetch_assoc($result3)){ if($row3["RateToBuyer"]<5){$b++;}} echo $b;?>)</p>
 				<?php
 					$sql2 = "SELECT SUM(RateToSeller) AS RATESUM, COUNT(RateToSeller) AS RATECOUNT FROM purchase WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$UID')";
 
 					$result2 = mysqli_query($Link,$sql2);
 					$row2 = mysqli_fetch_assoc($result2);
 				?>
-				<p>賣家正評率<br><?php if($row2["RATECOUNT"] == 0)
+				<?php if($row2["RATECOUNT"] == 0)
 					{?>
 						<p>賣家正評率 0<br></p><?php
 					}
 					else{?>
 						<p>賣家正評率<br><?php echo $row2["RATESUM"]/$row2["RATECOUNT"];
 					}?></p>
-				<p>正評(<?php while($row2 = mysqli_fetch_assoc($result)){$g = 0; if($row2["RateToSeller"]>5){$g++;}} echo $g;?>)<br>負評(<?php while($row2 = mysqli_fetch_assoc($result)){$b = 0; if($row["RateToSeller"]>5){$b++;}} echo $b;?>)</p>
+				<p>正評(<?php 
+					$sql4 = "SELECT RateToSeller FROM purchase WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$UID')";
+					$result4 = mysqli_query($Link,$sql4);
+					$g = 0;
+				while($row4 = mysqli_fetch_assoc($result4)){if($row4["RateToSeller"]>5){$g++;}} echo $g;?>)<br>負評(<?php 
+				$b=0;
+				while($row4 = mysqli_fetch_assoc($result4)){ if($row4["RateToSeller"]<5){$b++;}} echo $b;?>)</p>
 			</div>
 			<img src="pic/title.png" class="imbuyer">
 			<div class="u_text1">我是買家</div>

@@ -107,7 +107,7 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 				$result = mysqli_query($Link,"SELECT U_MONEY FROM user WHERE U_ID = '$UID'");
 				$row = mysqli_fetch_assoc($result);
 
-				echo "<a href='user.php' class='lid-member'>會員專區</a>";
+				echo "<a href='user.php' class='lid-member'>".$UID."</a>";
 				echo "<a href='post.php' class='lid-member'>我要刊登</a>";
 				echo "<a href='index.php?&logout=yes' class='lid-member'>登出</a>";
 				echo "<a href='#' class='lid-member'>$".$row["U_MONEY"]."</a>";
@@ -217,7 +217,7 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 				<div class="main-data">
 					<?php $sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='maplestory' AND P_Inv > 0";
 						$result = mysqli_query($Link,$sql);
-						for ($i=0; $i < 5; $i++) { 
+						for ($i=0; $i < 7; $i++) { 
 							if ($row = mysqli_fetch_assoc($result)) {
 								echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
 							}
@@ -269,7 +269,7 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 					<?php
 						$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='kart' AND P_Inv > 0";
 						$result = mysqli_query($Link,$sql);
-						for ($i=0; $i < 5; $i++) { 
+						for ($i=0; $i < 7; $i++) { 
 							if($row = mysqli_fetch_assoc($result)) {
 								echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
 							}
@@ -321,7 +321,7 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 				<?php
 					$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='bnb' AND P_Inv > 0";
 					$result = mysqli_query($Link,$sql);
-					for ($i=0; $i < 5; $i++) { 
+					for ($i=0; $i < 7; $i++) { 
 				 	 if($row = mysqli_fetch_assoc($result)){
 				 	 	echo "<a href='product.php?&p_code=$row[P_Code]'>".$row["P_NAME"]."</a><br/>";
 				 	 } 	 	
