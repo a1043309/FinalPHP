@@ -57,9 +57,14 @@ else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classi
 }
 
 ?>
-
-
-<form action = 'post.php' method = 'post' id = 'changepwd' enctype="multipart/form-data"><br/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action = 'post.php' method = 'post' id = 'changepwd' enctype="multipart/form-data"><br/>
 <p>選擇遊戲：<select name='game'>
 	<option value=NULL>選擇</option>
 	<option value="kart">跑跑卡丁車</option>
@@ -75,3 +80,6 @@ else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classi
 商品圖片：<input type="file" name="img" accept="image/*"><br/>
 <input id="post" type="submit" value="提交"><input type="reset" value="重新填寫">
 </form>
+</body>
+</html>
+
