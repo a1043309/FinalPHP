@@ -157,12 +157,12 @@
 				<p>會員年齡分析</p>
 				<p>18以下<br>18~25<br>26~40<br>40以上</p>
 			</div>
-			
-			<img src="pic/title2.png" class="imbuyer2">
-			<div class="u_text1">我是賣家</div>
-
+			<div>
+				<img src="pic/title2.png" class="imbuyer2">
+				<div class="u_text1">我是賣家</div>
+			</div>
 			<div class="user_line2"></div>
-			<button class="publish1"><a href="#">我要刊登</a></button>
+			<button class="publish1" onclick="self.location.href='post.php'">我要刊登</button>
 			<button class="publish2"><a href="#">我的賣場</a></button>
 			
 			<div class="buyerbox2"></div>

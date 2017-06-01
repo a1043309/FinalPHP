@@ -153,10 +153,18 @@ else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classi
 				<a href="index.php"><img src="pic/logo.png" alt="9487寶物交易網" title="9487寶物交易網"></a>
 			</div>
 			<div class="member-set">
-				<a href="#">登出</a>
-				<p>｜</p>
-				<a href="#">我的拍賣</a>
-				<a href="#">$300</a>
+				<?php 
+			if(isset($_SESSION["ID"]))
+			{
+				$UID = $_SESSION["ID"];
+				$result = mysqli_query($Link,"SELECT U_MONEY FROM user WHERE U_ID = '$UID'");
+				$row = mysqli_fetch_assoc($result);
+
+				echo "<a href='user.php' class='lid-member'>".$UID."</a>";
+				echo "<a href='index.php?&logout=yes' class='lid-member'>登出</a>";
+				echo "<a href='#' class='lid-member'>$".$row["U_MONEY"]."</a>";
+			}
+			?>
 			</div>
 		</div>
 		<div class="clear"></div>
