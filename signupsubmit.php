@@ -23,6 +23,7 @@ if (isset($_GET["id"]))
 
 	
 }
+$url = "http://localhost:8888/9487/";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +31,7 @@ if (isset($_GET["id"]))
 	<meta charset="UTF-8">
 	<title>註冊成功</title>
 	<link rel="stylesheet" type="text/css" href="css/yoyo.css">
+	<meta http-equiv="refresh" content="3;url=<?php echo $url; ?>">
 </head>
 <body>
 	<div class="success_wrap">
@@ -56,6 +58,7 @@ if (isset($_GET["id"]))
 			}
 			?>
 		</div>
+
 		<div class="footer">
 			<p>©copyright by 2017 9487DB&PHP</p>
 		</div>

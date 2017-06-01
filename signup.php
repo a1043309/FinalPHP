@@ -21,13 +21,41 @@ if(isset($_SESSION["ID"]))
 			xmlhttp.send();
 		}
 		function sign(){
-			var si = new XMLHttpRequest();
-			si.open("get","signupsubmit.php");
-			si.onload=function(){
-				document.loginn.action="signupsubmit.php";
-				document.loginn.submit();
-			};
-			si.send();
+			if(loginn.name.value == "") 
+                {
+                        alert("未輸入姓名");
+                }
+                <!-- 若<form>屬性name值為reg裡的文字方塊與下拉式選單值為空字串或是沒有選擇月或日，則顯示「未輸入完整生日日期」 -->
+                else if(loginn.birth.value == "")
+                {
+                        alert("未輸入完整生日日期");
+                }
+                <!-- 若<form>屬性name值為reg裡的核取方塊沒有選擇，則顯示「未選擇性別」 -->
+                else if(!loginn.gender[0].checked && !loginn.gender[1].checked)
+                {
+                         alert("未選擇性別");
+                }
+                else if(loginn.id.value == "")
+                {
+                         alert("未輸入帳號");
+                }
+                else if(loginn.phone.value == "")
+                {
+                         alert("未輸入手機");
+                }
+                else if(loginn.email.value == "")
+                {
+                         alert("未輸入email");
+                }
+                else {
+                	var si = new XMLHttpRequest();
+					si.open("get","signupsubmit.php");
+					si.onload=function(){
+					document.loginn.action="signupsubmit.php";
+					document.loginn.submit();
+					};
+					si.send();
+                }           	
 		}
 	</script>
 </head>
