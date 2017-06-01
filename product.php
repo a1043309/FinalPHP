@@ -21,12 +21,13 @@ $P_ImgPath = $row["P_ImgPath"];
 $P_SoldAmount = $row["P_SoldAmount"];
 $P_Inv = $row["P_Inv"];
 $Seller_ID = $row["Seller_ID"];
-
+$P_Present = $row["P_Present"];
 echo $P_Name."<br/>";
 echo "$".$P_Price."<br/>";
 echo "已賣數量：".$P_SoldAmount."<br/>";
 echo "(庫存：".$P_Inv.")<br/>";
 echo "賣家：".$Seller_ID."<br/>";
+echo "商品介紹：".$P_Present;
 echo "<form action = 'purchaseconfirm.php' method = 'get' id = 'buy'><br/>";
 echo "<input type = 'hidden' name = 'p_code' value = '$P_Code'>";
 echo "輸入數量：：<input type='text' name='amount'></p>";
