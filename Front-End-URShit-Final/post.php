@@ -4,7 +4,7 @@ session_start();
 if(!isset($_SESSION["ID"]))
 	header("Location:signin.php");
 
-else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classify"]) && isset($_POST["p_name"]) && isset($_POST["p_price"]) && isset($_POST["p_inv"]))
+else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classify"]) && isset($_POST["p_name"]) && isset($_POST["p_price"]) && isset($_POST["p_inv"]) && isset($_POST["info"]))
 {
 	$game = $_POST["game"];
 	$server = $_POST["server"];
@@ -12,6 +12,7 @@ else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classi
 	$p_name = $_POST["p_name"];
 	$p_price = $_POST["p_price"];
 	$p_inv = $_POST["p_inv"];
+	$p_present = $_POST["info"];
 
 	$UID = $_SESSION["ID"];
 	$Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
@@ -47,7 +48,7 @@ else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classi
 	
 	echo "刊登";
 	
-	$sql = "INSERT INTO product(P_Code,P_Game,P_Server,P_Classify,P_Inv,P_NAME,P_Price,P_SoldAmount,Seller_ID) VALUES('$p_code','$game','$server','$classify','$p_inv','$p_name','$p_price',0,'$UID')";
+	$sql = "INSERT INTO product(P_Code,P_Game,P_Server,P_Classify,P_Inv,P_NAME,P_Price,P_SoldAmount,Seller_ID,P_Present) VALUES('$p_code','$game','$server','$classify','$p_inv','$p_name','$p_price',0,'$UID','$p_present')";
 	echo $sql;
 	$result = mysqli_query($Link,$sql);
 	$result = mysqli_query($Link,"UPDATE product SET P_ImgPath = '$imgPath' WHERE P_Code = '$p_code'");
@@ -198,6 +199,11 @@ else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classi
 				<div class="post-data" >商品照片：
 					<input id="selected-post" type="file" name="img">		
 				</div>
+				<div class="post-data" >商品介紹：
+					<textarea rows="4" cols="50" name="info">商品介紹
+					</textarea>		
+				</div>
+
 				<div class="post-data"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<input id="post-btn" type="submit" value="提交"> &nbsp;&nbsp;&nbsp;
 					<input id="post-btn" type="reset" value="重新填寫">
