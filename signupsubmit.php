@@ -17,6 +17,8 @@ if (isset($_POST["id"]))
 	if(!$Link)
 		echo "連接失敗";
 
+	mysqli_query($Link, "SET NAMES UTF8");
+
 	$result = mysqli_query($Link,"SELECT * FROM user");
 
 	
@@ -38,6 +40,7 @@ if (isset($_POST["id"]))
 		<div class="success_content">
 			<img src="yoyo/eyes.png">
 			<?php 
+			$result = mysqli_query($Link,"SELECT * FROM user");
 			while($row = mysqli_fetch_assoc($result)){
 				if($row["U_ID"] == $id)
 				{

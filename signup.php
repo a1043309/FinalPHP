@@ -20,6 +20,15 @@ if(isset($_SESSION["ID"]))
 				};
 			xmlhttp.send();
 		}
+		function sign(){
+			var si = new XMLHttpRequest();
+			si.open("get","signupsubmit.php");
+			si.onload=function(){
+				document.loginn.action="signupsubmit.php";
+				document.loginn.submit();
+			};
+			si.send();
+		}
 	</script>
 </head>
 <body>
@@ -48,7 +57,7 @@ if(isset($_SESSION["ID"]))
 			<p>生日：<input type="date" name="birth"></p>
 			<p>手機：<input type="text" name="phone"></p>
 			<p>E-mail: <input type="text" name="email"></p>
-			<input id="su" type="button" name="su" value="立即註冊">
+			<input id="su" type="button" onclick="sign();" name="su" value="立即註冊">
 		</div>
 		<div class="clear"></div>
 	</div>

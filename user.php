@@ -6,6 +6,7 @@
 
 	$UID = $_SESSION["ID"];
 	$Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
+	mysqli_query($Link, "SET NAMES UTF8");
 	if(!$Link)
 		echo "連接失敗";
 ?>
@@ -23,7 +24,7 @@
 			<div class="user_header_profile">
 				<a href="#"><img id="m" src="pic/marketcar.png"></a>
 				<p>
-				<a href="editinfo.php">修改資料</a>&nbsp;&nbsp;
+				<a href="edit-info.php">修改資料</a>&nbsp;&nbsp;
 				<?php echo "<a href='index.php?&logout=yes' class='lid-member'>登出</a>"; ?>&nbsp;&nbsp;
 				<?php 
 					$result = mysqli_query($Link,"SELECT U_MONEY FROM user WHERE U_ID = '$UID'");

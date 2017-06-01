@@ -11,6 +11,7 @@ if(isset($_GET["logout"]))
 $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 	if(!$Link)
 		echo "連接失敗";
+	mysqli_query($Link, "SET NAMES UTF8");
 
 ?>
 <head>
