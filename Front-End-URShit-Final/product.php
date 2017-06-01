@@ -1,3 +1,29 @@
+<?php
+	header('Content-type: text/html; charset=utf-8');
+	session_start();
+
+	$P_Code = $_GET["p_code"];
+
+	if(isset($_SESSION["ID"]))
+		$UID = $_SESSION["ID"];
+
+	$Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
+	if(!$Link)
+		echo "連接失敗";
+	mysqli_query($Link, "SET NAMES UTF8");
+	$sql = "SELECT * FROM product WHERE P_Code = '$P_Code'";
+	$result = mysqli_query($Link,$sql);
+	$row = mysqli_fetch_assoc($result);
+
+	$P_Name = $row["P_NAME"];
+	$P_Price = $row["P_Price"];
+	$P_ImgPath = $row["P_ImgPath"];
+	$P_SoldAmount = $row["P_SoldAmount"];
+	$P_Inv = $row["P_Inv"];
+	$Seller_ID = $row["Seller_ID"];
+	$P_Present = $row["P_Present"];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +36,19 @@
 	<div class="lid">
 		<img src="pic/eyes.png">
 		<p>你是87我是87，9487寶物交易網</p>
-		<a href="#" class="lid-member">yoyowen</a>
-		<a href="#" class="lid-member">立即註冊</a>
-		<a href="#" class="lid-member">登出</a>
-		<span class="lid-member">$0</span>
+		<?php 
+			if(isset($_SESSION["ID"]))
+			{
+				$UID = $_SESSION["ID"];
+				$Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
+				$result = mysqli_query($Link,"SELECT U_MONEY FROM user WHERE U_ID = '$UID'");
+				$row = mysqli_fetch_assoc($result);
+
+				echo "<a href='user.php' class='lid-member'>".$UID."</a>";
+				echo "<a href='post.php' class='lid-member'>我要刊登</a>";
+				echo "<a href='index.php?&logout=yes' class='lid-member'>登出</a>";
+				echo "<a href='#' class='lid-member'>$".$row["U_MONEY"]."</a>";
+			}?>
 		<a href="#" id="cart"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>		
 	</div>
 	<div class="wrap">
@@ -40,25 +75,28 @@
 		<div class="content">
 			<div class="product-info">
 				<div class="product-pic">
-					<img src="pic/17.jpg">
+					<?php echo "<img src='$P_ImgPath'>"; ?>
 				</div>
+				<form action="purchaseconfirm.php" method="get" id="buy">
 				<div class="product-data">
-					<h3>傳說頂培飾品/87最便宜/只剩一組</h3>
-					<h2>價格：<span>$3,333</span></h2>
+					<h3><?php echo $P_Name; ?></h3>
+					<h2>價格：<span><?php echo "$".$P_Price; ?></span></h2>
 					<p>伺服器：菇菇寶貝</p>
-					<p>需要數量： <input id="product-amount" type="number" min="0"> &nbsp;&nbsp;&nbsp;<span>(庫存：1)</span></p>
+					<?php echo "<input type = 'hidden' name = 'p_code' value = '$P_Code'>"; ?>
+					<p>需要數量： <input id="product-amount" type="number" min="0" name="amount"> &nbsp;&nbsp;&nbsp;<span>(庫存：<?php echo $P_Inv; ?>)</span></p>
 					<div class="product-btn">
-						<div class="btn-buy"><a href="">立即購買</a></div>
+						<div class="btn-buy"><button type="submit" form="buy" id="purchase">立即購買</button></div>
 						<div class="btn-cart"><a href="">加入購物車</a></div>
 					</div>
 					<div class="clear"></div>
+					</form>
 				</div>
 				<div class="seller-info">
 					<div class="seller-info-title">
 						<h3>賣家資訊</h3>
 					</div>
 					<div class="seller-info-details">
-						<p>會員：URShit</p>
+						<p>會員：<?php echo $Seller_ID; ?></p>
 						<p>賣家評價：0則</p>
 						<p>正評率：<span>99.99%</span></p>
 						<div class="seller-info-more"><a href="">看賣家全部商品</a></div>
