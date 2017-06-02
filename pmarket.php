@@ -1,5 +1,17 @@
+<?php
+	header('Content-type: text/html; charset=utf-8');
+	session_start();
+	if(!isset($_SESSION["ID"]))
+		header("Location:signin.php");
+
+	$UID = $_SESSION["ID"];
+	$Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
+	mysqli_query($Link, "SET NAMES UTF8");
+	if(!$Link)
+		echo "連接失敗";
+?>
 <!DOCTYPE html>
-<html lang="en">
+< lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>9487寶物交易網</title>
@@ -10,12 +22,15 @@
 	<div class="wrap">
 		<div class="header">
 			<div class="logo">
-				<a href="#"><img src="pic/logo.png" alt="9487寶物交易網" title="9487寶物交易網"></a>
+				<a href="index.php"><img src="pic/logo.png" alt="9487寶物交易網" title="9487寶物交易網"></a>
 			</div>
 			<div class="member-set">
-				<a href="#">$0</a>
-				<a href="#">登出</a>
-				<a href="#">修改資料</a>
+				<?php echo "<a href='index.php?&logout=yes' class='lid-member'>登出</a>"; ?>&nbsp;&nbsp;
+				<?php 
+					$result = mysqli_query($Link,"SELECT U_MONEY FROM user WHERE U_ID = '$UID'");
+					$row = mysqli_fetch_assoc($result);
+					echo "<a href='#' class='lid-member'>$".$row["U_MONEY"]."</a>"; ?>
+				<a href="edit-info.php">修改資料</a>
 				<a href="#" id="cart"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>	
 			</div>
 		</div>
@@ -26,10 +41,27 @@
 					<h2>賣家資訊</h2>
 				</div>
 				<div class="seller-info-details">
-					<p>賣家 : yoyowen</p>
-					<p>正評率 : 100%</p>
-					<p>正評 (5)</p>
-					<p>負評 (0)</p>
+					<p>賣家 : <?php echo "<a href='user.php' class='lid-member'>".$UID."</a>";?></p>
+					<?php
+					$sql = "SELECT SUM(RateToBuyer) AS RATESUM, COUNT(RateToBuyer) AS RATECOUNT FROM PURCHASE WHERE Buyer_ID='$UID'";
+
+					$result = mysqli_query($Link,$sql);
+					$row = mysqli_fetch_assoc($result);
+					if($row["RATECOUNT"] == 0)
+					{?>
+						<p>買家正評率 0<br></p><?php
+					}
+					else{?>
+						<p>買家正評率<br><?php echo $row["RATESUM"]/$row["RATECOUNT"];
+					}?>
+					<p>正評(<?php 
+					$sql3 = "SELECT RateToBuyer FROM PURCHASE WHERE Buyer_ID='$UID'";
+					$result3 = mysqli_query($Link,$sql3);
+					$row3 = mysqli_fetch_assoc($result3);
+					$g = 0;
+					while($row3 = mysqli_fetch_assoc($result3)){ if($row3["RateToBuyer"]>5){$g++;}} echo $g;?>)<br>負評(<?php 
+					$b=0;
+					while($row3 = mysqli_fetch_assoc($result3)){ if($row3["RateToBuyer"]<5){$b++;}} echo $b;?>)</p>
 				</div>
 			</div>
 			<div class="label-pmarket">

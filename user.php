@@ -163,7 +163,7 @@
 			</div>
 			<div class="user_line2"></div>
 			<button class="publish1" onclick="self.location.href='post.php'">我要刊登</button>
-			<button class="publish2"><a href="#">我的賣場</a></button>
+			<button class="publish2" onclick="self.location.href='pmarket.php'">我的賣場</button>
 			
 			<div class="buyerbox2"></div>
 			<div class="u_text2">我的商品</div>
