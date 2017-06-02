@@ -36,11 +36,11 @@
 		</div>
 		<div class="clear"></div>
 		<div class="content">
-			<div class="seller-info">
-				<div class="seller-info-title">
+			<div class="seller-infomation">
+				<div class="seller-infomation-title">
 					<h2>賣家資訊</h2>
 				</div>
-				<div class="seller-info-details">
+				<div class="seller-infomation-details">
 					<p>賣家 : <?php echo "<a href='user.php' class='lid-member'>".$UID."</a>";?></p>
 					<?php
 					$sql = "SELECT SUM(RateToBuyer) AS RATESUM, COUNT(RateToBuyer) AS RATECOUNT FROM PURCHASE WHERE Buyer_ID='$UID'";
