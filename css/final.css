@@ -232,7 +232,7 @@ img{
 .list-data a{
 	text-decoration: none;
 	font-family: Microsoft JhengHei;
-	font-size: 20px;
+	font-size: 24px;
     color: #000;
     padding: 15px;
 }
@@ -412,18 +412,18 @@ img{
 	color: #000;
 	text-decoration: underline;
 }
-.seller-info{
+.seller-infomation{
 	width: 280px;
 	margin: 35px auto;
 	margin-right: 30px;
 	float: left;
 }
-.seller-info-title{
+.seller-infomation-title{
 	width: 266px;
 	height: 59px;
 	border: solid 3px #979797;
 }
-.seller-info-title h2{
+.seller-infomation-title h2{
 	font-family: Microsoft JhengHei;
  	font-size: 30px;
  	font-weight: 600;
@@ -431,12 +431,12 @@ img{
  	text-align: center;
  	line-height: 59px;
 }
-.seller-info-details{
+.seller-infomation-details{
 	width: 266px;
 	height: 149px;
 	border: solid 3px #979797;
 }
-.seller-info-details p{
+.seller-infomation-details p{
 	font-family: Microsoft JhengHei;
  	font-size: 20px;
  	text-align: left;
@@ -1002,14 +1002,6 @@ textarea{
   	text-align: center;
 }
 .footer p{
-  	padding-top: 30px;
-  	font-size: 14px;
-}
-.main-data a{
-	color: black;
-	font-size: 20px;
-	line-height: 2;
-}
-.post-data textarea{
-	margin-top: 15px;
+  	padding-top: 20px;
+  	font-size: 20px;
 }
