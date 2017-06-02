@@ -11,7 +11,7 @@
 		echo "連接失敗";
 ?>
 <!DOCTYPE html>
-< lang="en">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>9487寶物交易網</title>
@@ -25,11 +25,11 @@
 				<a href="index.php"><img src="pic/logo.png" alt="9487寶物交易網" title="9487寶物交易網"></a>
 			</div>
 			<div class="member-set">
-				<?php echo "<a href='index.php?&logout=yes' class='lid-member'>登出</a>"; ?>&nbsp;&nbsp;
 				<?php 
 					$result = mysqli_query($Link,"SELECT U_MONEY FROM user WHERE U_ID = '$UID'");
 					$row = mysqli_fetch_assoc($result);
 					echo "<a href='#' class='lid-member'>$".$row["U_MONEY"]."</a>"; ?>
+				<?php echo "<a href='index.php?&logout=yes' class='lid-member'>登出</a>"; ?>
 				<a href="edit-info.php">修改資料</a>
 				<a href="#" id="cart"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>	
 			</div>
@@ -54,7 +54,7 @@
 					else{?>
 						<p>買家正評率<br><?php echo $row["RATESUM"]/$row["RATECOUNT"];
 					}?>
-					<p>正評(<?php 
+					<p>正評 (<?php 
 					$sql3 = "SELECT RateToBuyer FROM PURCHASE WHERE Buyer_ID='$UID'";
 					$result3 = mysqli_query($Link,$sql3);
 					$row3 = mysqli_fetch_assoc($result3);
