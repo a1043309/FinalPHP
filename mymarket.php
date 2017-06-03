@@ -22,7 +22,7 @@
 	<div class="wrap">
 		<div class="header">
 			<div class="logo">
-				<a href="index.php"><img src="pic/logo.png" alt="9487寶物交易網" title="9487寶物交易網"></a>
+				<a href="index.php"><img style="width: 60%;" src="pic/logo.png" alt="9487寶物交易網" title="9487寶物交易網"></a>
 			</div>
 			<div class="member-set">
 				<?php 
@@ -102,13 +102,14 @@
 							<a href="#"><p style="font-size: 16px;">遊戲：<?php echo $game;?></p></a>
 							<a href="#"><p style="font-size: 16px;">伺服器：<?php echo $server;?></p></a>
 							<a href="#"><p style="font-size: 16px;">種類：<?php echo $classify; ?></p></a>
-							<h3><?php echo $price;?></h3></div>
+							<h3><?php echo "$".$price;?></h3></div>
 						<?php } ?>
 				</div>
 			</div>
 		</div>
 		<div class="clear"></div>
-		<div class="page">
+		<div class="clear"></div>
+		<div class="footer">
 			<?php
     //分頁頁碼
    				echo '共 '.$data_nums.' 筆-在 '.$page.' 頁-共 '.$pages.' 頁';
@@ -121,9 +122,6 @@
     				} 
     			echo " 頁 <a href=?page=".$pages.">末頁</a><br /><br />";
 			?>
-		</div>
-		<div class="clear"></div>
-		<div class="footer">
 			<p style="font-size: 14px;">Copyright © 2017 9487DB&PHP</p>
 		</div>
 	</div>

@@ -89,7 +89,7 @@
 				<div class="product-data">
 					<h3><?php echo $P_Name; ?></h3>
 					<h2>價格：<span><?php echo "$".$P_Price; ?></span></h2>
-					<p>伺服器：<?php echo "$".$P_Server; ?></p>
+					<p>伺服器：<?php echo $P_Server; ?></p>
 					<?php echo "<input type = 'hidden' name = 'p_code' value = '$P_Code'>"; ?>
 					<p>需要數量： <input id="product-amount" type="number" min="0" name="amount"> &nbsp;&nbsp;&nbsp;<span>(庫存：<?php echo $P_Inv; ?>)</span></p>
 					<div class="product-btn">
@@ -112,7 +112,7 @@
 				</div>
 			</div>
 			<div class="clear"></div>
-			<div class="product-more">
+			<div style="margin-bottom: 0px;" class="product-more">
 				<?php echo "<div class='product-more-y'><a href='product.php?p_code=$P_Code'>商品資訊</a></div>"?>
 				<?php echo "<div class='product-more-p'><a href='product.php?p_code=$P_Code&question=0'>問與答</a></div>"?>
 			</div>
@@ -218,7 +218,7 @@
 						$P_Inv = $row["P_Inv"];
 						$Seller_ID = $row["Seller_ID"];
 						$P_Present = $row["P_Present"];
-						echo "<img src='$P_ImgPath' border = 1><br/><br/><br/>";
+						echo "<img src='$P_ImgPath' style='border:3px solid lightblue; width:35%; margin-top:30px;'><br/><br/><br/>";
 
 						echo $P_Present;
 					}

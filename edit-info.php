@@ -14,9 +14,10 @@
 		{
 			$sql = "UPDATE user SET U_NAME = '$_POST[name]', U_GENDER = '$_POST[gender]', U_JOB = '$_POST[job]', U_PHONE = '$_POST[phone]',U_EMAIL = '$_POST[email]' WHERE U_ID = '$UID'";
 			$result = mysqli_query($Link,$sql);
+			echo "<script>alert('更改成功');location.href='index.php'</script>";
 		}
 		else
-			echo "請填寫完整";
+			echo "<script>alert('請填寫完整');</script>";
 	}
 	$sql = "SELECT * FROM user WHERE U_ID = '$UID'";
 	$result = mysqli_query($Link,$sql);
@@ -35,10 +36,9 @@
 	<div class="wrap">
 		<div class="header">
 			<div class="logo">
-				<a href="#"><img src="pic/logo.png" alt="9487寶物交易網" title="9487寶物交易網"></a>
+				<a href="index.php"><img style="width:60%;" src="pic/logo.png" alt="9487寶物交易網" title="9487寶物交易網"></a>
 			</div>
 			<div class="member-set">
-				<a href="#">回上一頁</a>
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -49,23 +49,23 @@
 				</div>
 				<div class="label-post-line"></div>
 			</div>
-			<form action = 'editinfo.php' method = 'post' id = 'editinfo'>
+			<form action = 'edit-info.php' method = 'post' id = 'editinfo'>
 			<div class="main-post">
 				<div class="edit-info-data">
-				<?php echo "<input type='hidden' name='id'value='$row[U_ID]'>"?>
+				<?php echo "<input type='hidden' name='id' value='$row[U_ID]'>"?>
 					<p><span>&nbsp;&nbsp;注意事項：*為必填欄位</span></p>
 					<p>&nbsp;帳&nbsp;&nbsp;&nbsp;號：<?php echo $UID; ?></p>
 					<p>&nbsp;生&nbsp;&nbsp;&nbsp;日：<?php echo $row["U_BIRTH"]; ?></p>
 					<p><span>*</span>姓&nbsp;&nbsp;&nbsp;名：<?php echo "<input type='text' name='name' value='$row[U_NAME]'>"; ?></p>
-					<p><span>*</span>性&nbsp;&nbsp;&nbsp;別：<input type="radio" value="male" name="sex" id="radio-wdt50">男<input type="radio" value="female" name="sex" id="radio-wdt50">女</p>
+					<p><span>*</span>性&nbsp;&nbsp;&nbsp;別：<input type="radio" value="male" name="gender" id="radio-wdt50">男<input type="radio" value="female" name="gender" id="radio-wdt50">女</p>
 					<p><span>*</span>職&nbsp;&nbsp;&nbsp;業：<select name='job'>
 						<option value=NULL>選擇</option>
 						<option value="student">學生</option>
 						<option value="work">上班族</option>
 					</select></p>
 					<p><span>*</span>手&nbsp;&nbsp;&nbsp;機：<?php echo "<input type='text' name='phone' value='$row[U_PHONE]' maxlength='10' minlength='10'>"; ?></p>
-					<p><span>*</span>E-mail：<?php echo "<input type='text' name='email' value='$row[U_EMAIL]'>"; ?></p>
-					<p>&nbsp;密&nbsp;&nbsp;&nbsp;碼：&nbsp;* * * * * * * * * * * &nbsp;&nbsp;&nbsp;<span><a href="">(修改密碼)</a></span></p>
+					<p><span>*</span>E-mail：<?php echo "<input type='text' style='width:275px;' name='email' value='$row[U_EMAIL]'>"; ?></p>
+					<p>&nbsp;密&nbsp;&nbsp;&nbsp;碼：&nbsp;* * * * * * * * * * * &nbsp;&nbsp;&nbsp;<span><a href="change-pwd.php">(修改密碼)</a></span></p>
 				</div>
 				<div class="post-data"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<input id="post-btn" type="submit" value="儲存設定"> &nbsp;&nbsp;&nbsp;
@@ -75,8 +75,8 @@
 			</form>
 		</div>
 		<div class="clear"></div>
-		<div class="footer">
-			<p>Copyright © 2017 9487DB&PHP</p>
+		<div class="footer" >
+			<p style="font-size:14px;">Copyright © 2017 9487DB&PHP</p>
 		</div>
 	</div>
 </body>

@@ -216,7 +216,7 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 					<img src="pic/14248488949068911.jpeg" title="新楓之谷" alt="新楓之谷">
 				</div>
 				<div class="main-data">
-					<?php $sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='maplestory' AND P_Inv > 0";
+					<?php $sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='新楓之谷' AND P_Inv > 0";
 						$result = mysqli_query($Link,$sql);
 						for ($i=0; $i < 7; $i++) { 
 							if ($row = mysqli_fetch_assoc($result)) {
@@ -268,7 +268,7 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 				</div>
 				<div class="main-data">
 					<?php
-						$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='kart' AND P_Inv > 0";
+						$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='跑跑卡丁車' AND P_Inv > 0";
 						$result = mysqli_query($Link,$sql);
 						for ($i=0; $i < 7; $i++) { 
 							if($row = mysqli_fetch_assoc($result)) {
@@ -320,7 +320,7 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 				</div>
 				<div class="main-data">
 				<?php
-					$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='bnb' AND P_Inv > 0";
+					$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Game='爆爆王' AND P_Inv > 0";
 					$result = mysqli_query($Link,$sql);
 					for ($i=0; $i < 7; $i++) { 
 				 	 if($row = mysqli_fetch_assoc($result)){
