@@ -22,6 +22,8 @@
 	$P_Inv = $row["P_Inv"];
 	$Seller_ID = $row["Seller_ID"];
 	$P_Present = $row["P_Present"];
+	$P_Server = $row["P_Server"];
+	$P_Game = $row["P_Game"];
 
 ?>
 <!DOCTYPE html>
@@ -81,7 +83,7 @@
 				<div class="product-data">
 					<h3><?php echo $P_Name; ?></h3>
 					<h2>價格：<span><?php echo "$".$P_Price; ?></span></h2>
-					<p>伺服器：菇菇寶貝</p>
+					<p>伺服器：<?php echo "$".$P_Server; ?></p>
 					<?php echo "<input type = 'hidden' name = 'p_code' value = '$P_Code'>"; ?>
 					<p>需要數量： <input id="product-amount" type="number" min="0" name="amount"> &nbsp;&nbsp;&nbsp;<span>(庫存：<?php echo $P_Inv; ?>)</span></p>
 					<div class="product-btn">
@@ -106,8 +108,42 @@
 			<div class="clear"></div>
 			<div class="product-more">
 				<div class="product-more-y"><a href="">商品資訊</a></div>
-				<div class="product-more-p"><a href="">問與答</a></div>
+				<div class="product-more-p"><a href="&question=0">問與答</a></div>
 			</div>
+	<?php
+		if(isset($_GET["question"]))	//如果get到question顯示問與答，反之顯示商品資訊
+		{
+			$sql = "SELECT A1.U_ID U_ID, A2.Content Content, A2.Reply_Content Reply_Content FROM user A1, question A2 WHERE A1.U_ID = A2.Asker_ID AND A2.P_Code = '$P_Code' ORDER BY A2.Post_Time DESC";
+
+			$result = mysqli_query($Link,$sql);
+			while($row = mysqli_fetch_assoc($result))
+			{
+				echo "發問者：".$row['U_ID']."<br/>";
+				echo "問題：".$row['Content']."<br/>";
+				echo "回覆：".$row['Reply_Content']."<br/>";
+			}
+		}
+		else
+		{
+			$sql = "SELECT * FROM product WHERE P_Code = '$P_Code'";
+			$result = mysqli_query($Link,$sql);
+			$row = mysqli_fetch_assoc($result);
+
+			$P_Name = $row["P_NAME"];
+			$P_Price = $row["P_Price"];
+			$P_ImgPath = $row["P_ImgPath"];
+			$P_SoldAmount = $row["P_SoldAmount"];
+			$P_Inv = $row["P_Inv"];
+			$Seller_ID = $row["Seller_ID"];
+			$P_Present = $row["P_Present"];
+			echo "<img src='$P_ImgPath' border = 1><br/><br/><br/>";
+
+			echo $P_Present;
+			
+		}
+
+	?>
+
 		</div>
 		<div class="footer">
 			<p>Copyright © 2017 9487DB&PHP</p>
