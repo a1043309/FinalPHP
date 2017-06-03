@@ -182,7 +182,8 @@ else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classi
 					<select id="selected-post" name="game" onChange="onChangeColumn1();">
 						<script>
 							for(i = 0; i<datatree.length; i++){
-								document.writeln("<option value \""+datatree[i].name+"\">"+datatree[i].name);
+								$v = datatree[i].name;
+								document.writeln("<option value =\""+datatree[i].name+"\">"+datatree[i].name);
 							}
 						</script>
 					</select>

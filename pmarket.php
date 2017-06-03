@@ -41,27 +41,26 @@
 					<h2>賣家資訊</h2>
 				</div>
 				<div class="seller-infomation-details">
-					<p>賣家 : <?php echo "<a href='user.php' class='lid-member'>".$UID."</a>";?></p>
+					<p>賣家 : <?php echo "<a href='' class='lid-member'>".$UID."</a>";?></p>
 					<?php
-					$sql = "SELECT SUM(RateToBuyer) AS RATESUM, COUNT(RateToBuyer) AS RATECOUNT FROM PURCHASE WHERE Buyer_ID='$UID'";
+					$sql = "SELECT SUM(RateToBuyer) AS RATESUM, COUNT(RateToBuyer) AS RATECOUNT FROM PURCHASE WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$UID')";
 
 					$result = mysqli_query($Link,$sql);
 					$row = mysqli_fetch_assoc($result);
 					if($row["RATECOUNT"] == 0)
 					{?>
-						<p>買家正評率 0<br></p><?php
+						<p>賣家正評率 0<br></p><?php
 					}
 					else{?>
-						<p>買家正評率<br><?php echo $row["RATESUM"]/$row["RATECOUNT"];
-					}?>
-					<p>正評 (<?php 
-					$sql3 = "SELECT RateToBuyer FROM PURCHASE WHERE Buyer_ID='$UID'";
-					$result3 = mysqli_query($Link,$sql3);
-					$row3 = mysqli_fetch_assoc($result3);
+						<p>賣家正評率<?php echo $row["RATESUM"]/$row["RATECOUNT"];?></p>
+					<?php }?>
+					<p>正評(<?php 
+					$sql2 = "SELECT RateToSeller FROM purchase WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$UID')";
+					$result2 = mysqli_query($Link,$sql2);
 					$g = 0;
-					while($row3 = mysqli_fetch_assoc($result3)){ if($row3["RateToBuyer"]>5){$g++;}} echo $g;?>)<br>負評(<?php 
-					$b=0;
-					while($row3 = mysqli_fetch_assoc($result3)){ if($row3["RateToBuyer"]<5){$b++;}} echo $b;?>)</p>
+				while($row2 = mysqli_fetch_assoc($result2)){if($row2["RateToSeller"]>5){$g++;}} echo $g;?>)<br>負評(<?php 
+				$b=0;
+				while($row2 = mysqli_fetch_assoc($result2)){ if($row2["RateToSeller"]<5){$b++;}} echo $b;?>)</p>
 				</div>
 			</div>
 			<div class="label-pmarket">
@@ -77,36 +76,55 @@
 				</div>			
 				<div class="label-line"></div>
 				<div class="pmarket-data">
-					<div class="product-details">
-						<a href="#"><h4>傳說頂培飾品/87最便宜/只剩一組</h4></a>
-						<a href="#"><p>伺服器:菇菇寶貝</p></a>
-						<a href="#"><p>物品種類:裝備</p></a>
-						<h3>$3,300</h3>
-					</div>
-					<div class="product-details">
-						<a href="#"><h4>傳說頂培飾品/87最便宜/只剩一組</h4></a>
-						<a href="#"><p>伺服器:菇菇寶貝</p></a>
-						<a href="#"><p>物品種類:裝備</p></a>
-						<h3>$3,300</h3>
-					</div>
+					<?php
+
+						$sql3 = "SELECT * FROM product WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$UID')";
+						$result3 = mysqli_query($Link, $sql3);
+						$data_nums = mysqli_num_rows($result3);
+						$per = 5;
+						$pages = ceil($data_nums/$per);
+						if (!isset($_GET["page"])) {
+							$page = 1;
+						}else{
+							$page = intval($_GET["page"]);
+						}
+						$start = ($page-1)*$per;
+						
+						while ($row3 = mysqli_fetch_array($result3)) {?>
+							<div class="product-details">
+							<?php 
+							$name = $row3['P_NAME'];
+							$game = $row3['P_Game'];
+							$server = $row3['P_Server'];
+							$classify = $row3['P_Classify'];
+							$price = $row3['P_Price'];?>
+							<a href="#"><h4><?php echo $name;?></h4></a>
+							<a href="#"><p style="font-size: 16px;">遊戲：<?php echo $game;?></p></a>
+							<a href="#"><p style="font-size: 16px;">伺服器：<?php echo $server;?></p></a>
+							<a href="#"><p style="font-size: 16px;">種類：<?php echo $classify; ?></p></a>
+							<h3><?php echo $price;?></h3></div>
+						<?php } ?>
 				</div>
 			</div>
 		</div>
 		<div class="clear"></div>
 		<div class="page">
-			<ul>
-				<li><a href=""><< Prev</a></li>
-				<li><a href="">1</a></li>
-				<li><a href="">2</a></li>
-				<li><a href="">3</a></li>
-				<li><a href="">4</a></li>
-				<li><a href="">5</a></li>
-				<li><a href="">Next >></a></li>
-			</ul>
+			<?php
+    //分頁頁碼
+   				echo '共 '.$data_nums.' 筆-在 '.$page.' 頁-共 '.$pages.' 頁';
+    			echo "<br /><a href=?page=1>首頁</a> ";
+    			echo "第 ";
+    				for( $i=1 ; $i<=$pages ; $i++ ) {
+        				if ( $page-3 < $i && $i < $page+3 ) {
+           					 echo "<a href=?page=".$i.">".$i."</a> ";
+        				}
+    				} 
+    			echo " 頁 <a href=?page=".$pages.">末頁</a><br /><br />";
+			?>
 		</div>
 		<div class="clear"></div>
 		<div class="footer">
-			<p>Copyright © 2017 9487DB&PHP</p>
+			<p style="font-size: 14px;">Copyright © 2017 9487DB&PHP</p>
 		</div>
 	</div>
 </body>

@@ -227,12 +227,11 @@ img{
 .list-data li{
 	display: block;
 	float: left;
-	width: 120px;
 }
 .list-data a{
 	text-decoration: none;
 	font-family: Microsoft JhengHei;
-	font-size: 24px;
+	font-size: 18px;
     color: #000;
     padding: 15px;
 }
@@ -1004,4 +1003,20 @@ textarea{
 .footer p{
   	padding-top: 20px;
   	font-size: 20px;
+}
+.seller-infomation-details a{
+	float: none;
+}
+.seller-infomation-details p{
+	margin-top: 10px;
+}
+.seller-infomation-details{
+	padding-bottom: 25px;
+}
+.main-data{
+	line-height: 40px;
+}
+.main-data a{
+	color: black;
+	font-size: 20px;
 }
