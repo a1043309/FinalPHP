@@ -93,7 +93,7 @@
 					<?php echo "<input type = 'hidden' name = 'p_code' value = '$P_Code'>"; ?>
 					<p>需要數量： <input id="product-amount" type="number" min="0" name="amount"> &nbsp;&nbsp;&nbsp;<span>(庫存：<?php echo $P_Inv; ?>)</span></p>
 					<div class="product-btn">
-						<div class="btn-buy"><button type="submit" form="buy" id="purchase" style="width: 160px;height: 50px;line-height: 50px;text-align: center;font-family: Microsoft JhengHei;font-size: 24px;font-weight: 600;background: #feb336;color: #FFF;border: solid 3px #fa9c00;border-radius: 3px;text-decoration: none;display: block;float: left;margin-right: 55px;">立即購買</button></div>
+						<div class="btn-buy"><button type="submit" form="buy" id="purchase">立即購買</button></div>
 						<div class="btn-cart"><a href="">加入購物車</a></div>
 					</div>
 					<div class="clear"></div>

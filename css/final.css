@@ -785,10 +785,9 @@ textarea{
 	width: 450px;
 	margin-left: 35px;
 }
-.btn-buy button{
+#purchase{
 	width: 160px;
-	height: 50px;
-	line-height: 50px;
+	line-height: 48px;
 	text-align: center;
 	font-family: Microsoft JhengHei;
 	font-size: 24px;
@@ -801,8 +800,9 @@ textarea{
 	display: block;
 	float: left;
 	margin-right: 55px;
+	cursor: pointer;
 }
-.btn-buy:hover a{
+#purchase:hover{
 	color: #292929;
 	background: #ffc25d;
 	border: solid 3px #ffc25d;
