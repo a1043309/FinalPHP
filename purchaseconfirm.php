@@ -1,6 +1,5 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
-echo "<a href='index.php'>回首頁</a><br/><br/><br/>";
 session_start();
 if(!isset($_GET["p_code"]))
 {

@@ -13,6 +13,8 @@
 	
 	if (isset($_GET['purchase_code'])) {
 		$purchase_code = $_GET['purchase_code'];
+		$seller = $_GET['seller'];
+		$sum = $_GET['sum'];
 		$sql3 = "UPDATE purchase SET isReceive = '1'  WHERE Purchase_Code = '$purchase_code'";
 		$result3 = mysqli_query($Link,$sql3);
 		$sql4 = "SELECT U_MONEY FROM user WHERE U_ID = '$seller'";
@@ -117,9 +119,13 @@
 							echo "<form action='myorder.php' method='get' id='rate'>";
 							$purchase_code=$row2["Purchase_Code"];
 						 	echo "<input type='hidden' name='purchase_code' value=$purchase_code>"; 
+						 	$seller = $row2["Seller_ID"];
+						 	echo "<input type='hidden' name='seller' value=$seller>";
+
+						 	$sum = $row2["P_Price"]*$row2["Amount"]; 
+						 	echo "<input type='hidden' name='sum' value=$sum>";
+							
 						 	 ?>
-						<?php $sum = $row2["P_Price"]*$row2["Amount"]; 
-							$seller = $row2["Seller_ID"];?>
 						<?php 
 							echo "<td><input type='submit' name='' value='確認收到貨' style='margin:10px 10px;'></td>";
 						?>
