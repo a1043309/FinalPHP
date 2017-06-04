@@ -3,20 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>問與答－賣家回答</title>
-	<link rel="stylesheet" type="text/css" href="yoyo.css">
+	<link rel="stylesheet" type="text/css" href="css/yoyo.css">
 </head>
 <body>
 	<div class="user_wrap">
 		<div class="user_header">
-			<img src="yoyo/logo.png">
+			<img src="pic/logo.png">
 			<div class="user_header_profile">
-				<a href="#"><img src="yoyo/marketcar.png"></a>
+				<a href="#"><img style="height: auto;" src="pic/marketcar.png"></a>
 				<p>
 				<a href="#">修改資料</a>&nbsp;&nbsp;
 				<a href="#">登出</a>&nbsp;&nbsp;
 				<a href="#">$0</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				</p>
 			</div>
+		<div class="clear"></div>
 		</div>
 		<div class="myorder_content1">
 			<div class="clear"></div>
@@ -33,12 +34,17 @@
 			<a href="#" class="myorder_q_press"></a>
 			<div class="text4-1">問答</div>
 			<div class="myorder_line"></div>
+			<div class="clear"></div>
 		</div>
 		
-		<div class="choose">
+		<div class="choose">			
+			<div class="menu">
+				<ul>
+					<li><a href="#">買家提問</a></li>
+					<li><a href="#">賣家回答</a></li>
+				</ul>
+			</div>
 			<div class="clear"></div>
-			<a href="#">買家提問</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-			<a href="#" class="finish">賣家回答</a>
 		</div>
 
 		<div class="myorder_content2">
@@ -75,6 +81,7 @@
 				<td>&nbsp;</td>
 			</tr>
 			</table>
+		<div class="clear"></div>
 		</div>
 		
 		<div class="footer">
