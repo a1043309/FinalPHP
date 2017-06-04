@@ -19,10 +19,9 @@ if (isset($_GET["id"]))
 
 	mysqli_query($Link, "SET NAMES UTF8");
 
-	$result = mysqli_query($Link,"SELECT * FROM user");
-
-	
+	$result = mysqli_query($Link,"SELECT * FROM user");	
 }
+header("Refresh;3;url=index.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +29,6 @@ if (isset($_GET["id"]))
 	<meta charset="UTF-8">
 	<title>註冊成功</title>
 	<link rel="stylesheet" type="text/css" href="css/yoyo.css">
-	<meta http-equiv="refresh" content="3;url=<?php echo $url; ?>">
 </head>
 <body>
 	<div class="success_wrap">
@@ -54,7 +52,7 @@ if (isset($_GET["id"]))
 				$result = mysqli_query($Link,"INSERT INTO USER(U_ID,U_PW,U_NAME,U_BIRTH,U_GENDER,U_PHONE,U_EMAIL) VALUES('$id','$pwd','$name','$birth','$gender','$phone','$email')");
 				echo "<p id='success'>&nbsp;&nbsp;&nbsp;恭喜您，註冊成功！！</p>";
 				echo "<p id='success_describe'>3秒後，自動跳回首頁......</p>";
-				header("Refresh;3; url=index.php");
+				header("Refresh:3;url=index.php");
 			}
 			?>
 		</div>
