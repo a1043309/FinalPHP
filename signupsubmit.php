@@ -23,7 +23,6 @@ if (isset($_GET["id"]))
 
 	
 }
-header("url=index.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,6 +54,7 @@ header("url=index.php");
 				$result = mysqli_query($Link,"INSERT INTO USER(U_ID,U_PW,U_NAME,U_BIRTH,U_GENDER,U_PHONE,U_EMAIL) VALUES('$id','$pwd','$name','$birth','$gender','$phone','$email')");
 				echo "<p id='success'>&nbsp;&nbsp;&nbsp;恭喜您，註冊成功！！</p>";
 				echo "<p id='success_describe'>3秒後，自動跳回首頁......</p>";
+				header("Refresh;3; url=index.php");
 			}
 			?>
 		</div>
