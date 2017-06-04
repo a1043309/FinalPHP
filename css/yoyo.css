@@ -554,3 +554,28 @@
 .footer{
     margin-top: 30px;
 }
+.member-set{
+    float: right;
+}
+.member-set a{
+    font-family: Microsoft JhengHei;
+    font-size: 18px;
+    color: #1024a5;
+    text-decoration: none;
+    float: right;
+    padding: 11px 10px 0px 10px;
+    margin-right: 5px;
+}
+.member-set a:hover{
+    color: #888bed;
+    transition: 0.4s;
+    text-decoration: underline;
+}
+.member-set p{
+    font-family: Microsoft JhengHei;
+    font-size: 18px;
+    color: #1024a5;
+    float: right;
+    padding: 11px 10px 0px 10px;
+    margin-right: 5px;
+}

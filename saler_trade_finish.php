@@ -1,20 +1,35 @@
+<?php
+	header('Content-type: text/html; charset=utf-8');
+	session_start();
+	if(!isset($_SESSION["ID"]))
+		header("Location:signin.php");
+
+	$UID = $_SESSION["ID"];
+	$Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
+	
+	if(!$Link)
+		echo "連接失敗";
+	mysqli_query($Link, "SET NAMES UTF8");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>訂單管理</title>
-	<link rel="stylesheet" type="text/css" href="yoyo.css">
+	<link rel="stylesheet" type="text/css" href="css/yoyo.css">
 </head>
 <body>
 	<div class="user_wrap">
 		<div class="user_header">
-			<img src="yoyo/logo.png">
-			<div class="user_header_profile">
-				<a href="#"><img src="yoyo/marketcar.png"></a>
+			<img src="pic/logo.png">
+			<div style="margin-right: 100px;" class="user_header_profile">
+				<a href="index.php"><img style="height: auto;" src="pic/marketcar.png"></a>
 				<p>
-				<a href="#">修改資料</a>&nbsp;&nbsp;
-				<a href="#">登出</a>&nbsp;&nbsp;
-				<a href="#">$0</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<?php $result = mysqli_query($Link,"SELECT U_MONEY FROM user WHERE U_ID = '$UID'");
+					$row = mysqli_fetch_assoc($result);
+					echo "<a style='padding:10px;' href='#' class='lid-member'>$".$row["U_MONEY"]."</a>"; ?>
+				<?php echo "<a style='padding:10px;' href='index.php?&logout=yes' class='lid-member'>登出</a>"; ?>
+				<a style='padding:10px;' href="edit-info.php">修改資料</a>
 				</p>
 			</div>
 		</div>
@@ -43,10 +58,10 @@
 
 		<div class="myorder_content2">
 			<div class="clear"></div>
-			<table border="1" style="text-align: center; margin-top: 1em;">
+			<table border="1" style="text-align: center; margin-top: 1em;margin-left: 30px;">
 			<tr>
 				<td><input type="checkbox" name="" value="">&nbsp;</td>
-				<td>賣家&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td>買家&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>商品名稱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>數量&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>單價&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
@@ -87,9 +102,9 @@
 			</table>
 		</div>
 		<button class="press"><a href="#">送出評價</a></button>
-		<div class="footer">
+	</div>
+	<div class="footer">
 			<p>©copyright by 2017 9487DB&PHP</p>
 		</div>
-	</div>
 </body>
 </html>
