@@ -23,7 +23,7 @@ if (isset($_GET["id"]))
 
 	
 }
-$url = "http://localhost:8888/9487/";
+header("url=index.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
