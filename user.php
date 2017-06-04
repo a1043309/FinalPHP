@@ -85,7 +85,7 @@
 			<div class="u_text3"><a href="myorder.php">>>更多</a></div>
 			<div class="buyerbox"></div>
 			<div class="u_text2">已購買的商品</div>
-			<div class="u_text3"><a href="#">>>更多</a></div>
+			<div class="u_text3"><a href="order_history.php">>>更多</a></div>
 			<div class="contentbox">
 				<?php
 				$sql = "SELECT A1.P_Code P_Code, A1.P_NAME P_NAME, A2.Purchase_Code Purchase_Code
@@ -136,7 +136,7 @@
 					
 				?>
 			</div>
-			<div class="contentbox"></div>
+			<div class="contentbox">
 			<?php
 				$sql = "SELECT A1.P_Code P_Code, A1.P_NAME P_NAME, A2.Purchase_Code Purchase_Code
 					FROM product A1, purchase A2 
@@ -151,7 +151,7 @@
 						echo "<a href=product.php?&p_code=$row[P_Code]>$row[P_NAME]</a><br/>";
 					}
 				}
-			?>
+			?></div>
 			<div class="clear"></div>
 			<div class="user_leftbox">
 				<p>會員年齡分析</p>
