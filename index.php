@@ -198,11 +198,11 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 				</div>
 				<div class="list-data">
 					<ul>
-						<li><a href="#">遊戲幣</a></li>
-						<li><a href="#">道具</a></li>
-						<li><a href="#">帳號</a></li>
-						<li><a href="#">代練</a></li>
-						<li><a href="#">送禮</a></li>
+						<li>遊戲幣</li>
+						<li>道具</li>
+						<li>帳號</li>
+						<li>代練</li>
+						<li>送禮</li>
 					</ul>
 				</div>
 				<div class="list-more">
@@ -249,11 +249,11 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 				</div>
 				<div class="list-data">
 					<ul>
-						<li><a href="#">遊戲幣</a></li>
-						<li><a href="#">道具</a></li>
-						<li><a href="#">帳號</a></li>
-						<li><a href="#">代練</a></li>
-						<li><a href="#">商城道具</a></li>
+						<li>遊戲幣</li>
+						<li>道具</li>
+						<li>帳號</li>
+						<li>代練</li>
+						<li>商城道具</li>
 					</ul>
 				</div>
 				<div class="list-more">
@@ -301,11 +301,11 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 				</div>
 				<div class="list-data">
 					<ul>
-						<li><a href="#">遊戲幣</a></li>
-						<li><a href="#">道具</a></li>
-						<li><a href="#">帳號</a></li>
-						<li><a href="#">代練</a></li>
-						<li><a href="#">商城道具</a></li>
+						<li>遊戲幣</li>
+						<li>道具</li>
+						<li>帳號</li>
+						<li>代練</li>
+						<li>商城道具</li>
 					</ul>
 				</div>
 				<div class="list-more">
@@ -347,7 +347,7 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 			</div>
 		</div>
 		<div class="footer">
-			<p>Copyright © 2017 9487DB&PHP</p>
+			<p style="font-size: 14px;">Copyright © 2017 9487DB&PHP</p>
 		</div>
 	</div>
 </body>

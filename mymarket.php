@@ -6,9 +6,10 @@
 
 	$UID = $_SESSION["ID"];
 	$Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
-	mysqli_query($Link, "SET NAMES UTF8");
+	
 	if(!$Link)
 		echo "連接失敗";
+	mysqli_query($Link, "SET NAMES UTF8");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,15 +70,15 @@
 				</div>
 				<div class="label-data">
 					<ul>
-						<li><a href="#">新楓之谷</a></li>
-						<li><a href="#">跑跑卡丁車</a></li>
-						<li><a href="#">爆爆王</a></li>
+						<li><?php echo"<a href=mymarket.php?&p_game=新楓之谷>新楓之谷</a>";?></li>
+						<li><?php echo"<a href=mymarket.php?&p_game=跑跑卡丁車>跑跑卡丁車</a>";?></li>
+						<li><?php echo"<a href=mymarket.php?&p_game=爆爆王>爆爆王</a>";?></li>
 					</ul>
 				</div>			
 				<div class="label-line"></div>
 				<div class="pmarket-data">
 					<?php
-
+					if (empty($_GET["p_game"])) {
 						$sql3 = "SELECT * FROM product WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$UID')";
 						$result3 = mysqli_query($Link, $sql3);
 						$data_nums = mysqli_num_rows($result3);
@@ -89,6 +90,20 @@
 							$page = intval($_GET["page"]);
 						}
 						$start = ($page-1)*$per;
+					}else{
+						$p_game = $_GET["p_game"];
+						$sql3 = "SELECT * FROM product WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$UID' AND P_Game = '$p_game')";
+						$result3 = mysqli_query($Link, $sql3);
+						$data_nums = mysqli_num_rows($result3);
+						$per = 5;
+						$pages = ceil($data_nums/$per);
+						if (!isset($_GET["page"])) {
+							$page = 1;
+						}else{
+							$page = intval($_GET["page"]);
+						}
+						$start = ($page-1)*$per;
+					}
 						
 						while ($row3 = mysqli_fetch_array($result3)) {?>
 							<div class="product-details">
@@ -97,8 +112,9 @@
 							$game = $row3['P_Game'];
 							$server = $row3['P_Server'];
 							$classify = $row3['P_Classify'];
+							$code = $row3['P_Code'];
 							$price = $row3['P_Price'];?>
-							<a href="#"><h4><?php echo $name;?></h4></a>
+							<?php echo "<a href=product.php?&p_code=$code><h4>$name</h4></a>";?>
 							<a href="#"><p style="font-size: 16px;">遊戲：<?php echo $game;?></p></a>
 							<a href="#"><p style="font-size: 16px;">伺服器：<?php echo $server;?></p></a>
 							<a href="#"><p style="font-size: 16px;">種類：<?php echo $classify; ?></p></a>
