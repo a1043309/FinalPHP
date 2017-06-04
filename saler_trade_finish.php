@@ -50,7 +50,7 @@
 <body>
 	<div class="user_wrap">
 		<div class="user_header">
-			<img src="pic/logo.png">
+			<a href="index.php"><img src="pic/logo.png"></a>
 			<div style="margin-right: 100px;" class="user_header_profile">
 				<a href="index.php"><img style="height: auto;" src="pic/marketcar.png"></a>
 				<p>
@@ -72,8 +72,8 @@
 			<a href="#" class="text2-2">已購買的商品</a>
 			<div class="seller"></div>
 			<div class="text3">我是賣家</div>
-			<a href="#" class="htext3-1">訂單管理</a>
-			<a href="#" class="text3-2">商品管理</a>
+			<a href="saler_trade_ing.php" class="htext3-1">訂單管理</a>
+			<a href="onsale.php" class="text3-2">商品管理</a>
 			<a href="#" class="myorder_q"></a>
 			<div class="text4">問答</div>
 			<div class="myorder_line"></div>
@@ -83,8 +83,8 @@
 		<div class="choose">			
 			<div class="menu">
 				<ul>
-					<li><a href="#">處理中</a></li>
-					<li><a href="#">已完成</a></li>
+					<li><a href="saler_trade_ing.php">處理中</a></li>
+					<li><a href="saler_trade_finish.php">已完成</a></li>
 				</ul>
 			</div>
 

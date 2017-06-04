@@ -44,8 +44,8 @@
 			<a href="#" class="text2-2">已購買的商品</a>
 			<div class="seller"></div>
 			<div class="text3">我是賣家</div>
-			<a href="#" class="text3-1">訂單管理</a>
-			<a href="#" class="htext3-2">商品管理</a>
+			<a href="saler_trade_ing.php" class="text3-1">訂單管理</a>
+			<a href="onsale.php" class="htext3-2">商品管理</a>
 			<a href="#" class="myorder_q"></a>
 			<div class="text4">問答</div>
 			<div class="myorder_line"></div>

@@ -170,7 +170,7 @@
 			<div class="u_text3"><a href="onsale.php">>>更多</a></div>
 			<div class="buyerbox2"></div>
 			<div class="u_text2">已完成的交易</div>
-			<div class="u_text3"><a href="#">>>更多</a></div>
+			<div class="u_text3"><a href="saler_trade_finish.php">>>更多</a></div>
 			<div class="contentbox2">
 				<?php
 					$sql = "SELECT P_NAME,P_Code FROM product WHERE Seller_ID='$UID'";
@@ -201,10 +201,10 @@
 
 			<div class="buyerbox2"></div>
 			<div class="u_text2">買家疑問</div>
-			<div class="u_text3"><a href="#">>>更多</a></div>
+			<div class="u_text3"><a href="">>>更多</a></div>
 			<div class="buyerbox2"></div>
 			<div class="u_text2">訂單管理</div>
-			<div class="u_text3"><a href="#">>>更多</a></div>
+			<div class="u_text3"><a href="saler_trade_ing.php">>>更多</a></div>
 			<div class="contentbox2">
 				<?php
 					$sql = "SELECT P_NAME,P_Code FROM product WHERE Seller_ID='$UID' AND P_Code IN (SELECT P_Code FROM question)";
