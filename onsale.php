@@ -50,12 +50,6 @@
 			<div class="text4">問答</div>
 			<div class="myorder_line"></div>
 		</div>
-		
-		<div class="choose">
-			<div class="clear"></div>
-			<a href="#" class="finish">上架中</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-			<a href="#">缺貨中</a>
-		</div>
 
 		<div class="myorder_content2">
 			<div class="clear"></div>

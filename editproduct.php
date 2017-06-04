@@ -132,7 +132,7 @@ else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classi
 	<div class="wrap">
 		<div class="header">
 			<div class="logo">
-				<a href="index.php"><img src="pic/logo.png" alt="9487寶物交易網" title="9487寶物交易網"></a>
+				<a href="index.php"><img  style="width: 60%;" src="pic/logo.png" alt="9487寶物交易網" title="9487寶物交易網"></a>
 			</div>
 			<div class="member-set">
 				<?php 
@@ -154,7 +154,7 @@ else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classi
 		<div class="content">
 			<div class="label-post">
 				<div class="label-post-title">
-					<h2>我要刊登</h2>
+					<h2>修改商品</h2>
 				</div>
 				<div class="label-post-line"></div>
 			</div>

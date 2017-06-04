@@ -10,6 +10,18 @@
 	if(!$Link)
 		echo "連接失敗";
 	mysqli_query($Link, "SET NAMES UTF8");
+	
+	if (isset($_GET['purchase_code'])) {
+		$q=$_GET["q"];
+		$purchase_code = $_GET["purchase_code"];
+		$ratetobuyer = $q;
+
+		$sql3 = "UPDATE purchase SET RateToBuyer = $ratetobuyer  WHERE Purchase_Code = $purchase_code";
+		$result3 = mysqli_query($Link,$sql3);
+		echo "<script>alert('送出成功');location.href='saler_trade_finish.php';</script>";
+
+	}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +29,23 @@
 	<meta charset="UTF-8">
 	<title>訂單管理</title>
 	<link rel="stylesheet" type="text/css" href="css/yoyo.css">
+	<script type="text/javascript">
+		function take(str){
+			var xmlhttp;
+			xmlhttp = new XMLHttpRequest();
+			xmlhttp.open("GET","saler_trade_finish.php?q="+str,true);
+			xmlhttp.send();
+		}
+		function rate(){
+			var si = new XMLHttpRequest();
+			si.open("get","saler_trade_finish.php");
+			si.onload=function(){
+				document.gett.action="saler_trade_finish.php";
+				document.gett.submit();
+			};
+			si.send();
+		}
+	</script>
 </head>
 <body>
 	<div class="user_wrap">
@@ -64,58 +93,42 @@
 
 		<div class="myorder_content2">
 			<div class="clear"></div>
-			<table border="1" style="text-align: center; margin-top: 1em;margin-left: 30px;">
+			<table border="1" style="text-align: center; margin-top: 1em;margin-left: 50px;">
 			<tr>
-				<td><input type="checkbox" name="" value="">&nbsp;</td>
-				<td>買家&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td>商品名稱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td>數量&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td>單價&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td>總金額&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td>處理狀態&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td style="padding: 10px 50px;">買家</td>
+				<td style="padding: 10px 180px;">商品名稱</td>
+				<td style="padding: 10px 20px;">數量</td>
+				<td style="padding: 10px 20px;">單價</td>
+				<td style="padding: 10px 20px;">總金額</td>
+				<td style="padding: 10px 20px;">處理狀態</td>
 				<td>評價</td>
 				<td>送出</td>
 			</tr>
-			<tr>
-				<td><input type="checkbox" name="" value=""></td>
-				<td>yoyowen</td>
-				<td>1:1700 全楓谷最便宜 可提供擺499w箭矢</td>
-				<td>10</td>
-				<td>100</td>
-				<td>1000</td>
-				<td>已完成</td>
-				<td><input type="text" name="" value="" size="1"></td>
-				<td><button class="press"><a href="#">送出評價</a></button></td>
-				
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="" value=""></td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td><input type="text" name="" value="" size="1"></td>
-				<td><button class="press"><a href="#">送出評價</a></button></td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="" value=""></td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td><input type="text" name="" value="" size="1"></td>
-				<td><button class="press"><a href="#">送出評價</a></button></td>
-			</tr>
+			<form action="" name="gett">
+			<?php
+				$sql2 = "SELECT * FROM purchase, product WHERE (product.P_Code = purchase.P_Code AND product.Seller_ID = '$UID' AND purchase.isReceive = 1)";
+				$result2 = mysqli_query($Link,$sql2);
+				while ($row2 = mysqli_fetch_assoc($result2)) {?>
+					<tr>
+						<td><?php echo $row2["Buyer_ID"]; ?></td>
+						<td><?php echo $row2["P_NAME"]; ?></td>
+						<td><?php echo $row2["Amount"]; ?></td>
+						<td><?php echo $row2["P_Price"]; ?></td>
+						<td><?php echo $row2["P_Price"]*$row2["Amount"]; ?></td>
+						<td>已完成</td>
+						<?php echo "<input type='hidden' name='purchase_code' value=$row2[Purchase_Code]>"; $purchase_code=$row2["Purchase_Code"] ?>
+						<td style="padding: 10px 10px;"><?php echo "<input type='number' size='1' style='width:30px;' name='ratetobuyer' value=$row2[RateToBuyer] onkeyup='take(this.value)'>/10"; ?></td>
+						<td><input type='button' name='' value='送出評分' onclick='rate();' style='margin:10px 10px;'></td>
+					</tr>
+				<?php }
+			?>
+			</form>
 			</table>
 		<div class="clear"></div>
 		</div>
 		
 	</div>
-	<div class="footer">
+	<div style="margin-top: 180px;" class="footer">
 			<p>©copyright by 2017 9487DB&PHP</p>
 		</div>
 </body>
