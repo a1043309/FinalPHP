@@ -15,7 +15,14 @@
 		$purchase_code = $_GET['purchase_code'];
 		$sql3 = "UPDATE purchase SET isReceive = '1'  WHERE Purchase_Code = '$purchase_code'";
 		$result3 = mysqli_query($Link,$sql3);
-		echo "<script>alert('確認送出');location.href='myorder.php';</script>";
+		$sql4 = "SELECT U_MONEY FROM user WHERE U_ID = '$seller'";
+		$result4 = mysqli_query($Link,$sql4);
+		$row4 = mysqli_fetch_assoc($result4);
+		$money = $row4["U_MONEY"];
+		$money = $money + $sum;
+		$sql5 = "UPDATE user SET U_MONEY = '$money' WHERE U_ID = '$seller'";
+		$result5 = mysqli_query($Link,$sql5);
+		echo "<script>alert('成功送出');location.href='myorder.php';</script>";
 
 	}
 
@@ -111,6 +118,8 @@
 							$purchase_code=$row2["Purchase_Code"];
 						 	echo "<input type='hidden' name='purchase_code' value=$purchase_code>"; 
 						 	 ?>
+						<?php $sum = $row2["P_Price"]*$row2["Amount"]; 
+							$seller = $row2["Seller_ID"];?>
 						<?php 
 							echo "<td><input type='submit' name='' value='確認收到貨' style='margin:10px 10px;'></td>";
 						?>

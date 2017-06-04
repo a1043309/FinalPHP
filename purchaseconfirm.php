@@ -52,19 +52,16 @@ else
 		}
 
 		$amount = $_GET["amount"];
-		//$sql = "UPDATE user SET U_MONEY = $U_MONEY-($amount * $P_Price) WHERE U_ID = '$UID'";
+		$sql = "UPDATE user SET U_MONEY = $U_MONEY-($amount * $P_Price) WHERE U_ID = '$UID'";
 		//echo $sql."<br/>";
-		//$result = mysqli_query($Link,$sql);
+		$result = mysqli_query($Link,$sql);
 		$sql = "INSERT INTO purchase (Amount,Buyer_ID,Purchase_Code,P_Code) VALUES ($amount,'$UID','$purchase_code','$p_code')";
-		echo $sql."<br/>";
 		$result = mysqli_query($Link,$sql);
 		$sql = "UPDATE product SET P_Inv = ($P_Inv - $amount) WHERE P_Code = '$p_code'";
-		echo $sql."<br/>";
 		$result = mysqli_query($Link,$sql);
 		$sql = "UPDATE product SET P_SoldAmount = ($P_SoldAmount + $amount) WHERE P_Code = '$p_code'";
-		echo $sql."<br/>";
 		$result = mysqli_query($Link,$sql);
-
+		echo "<script>alert('購買成功！');location.href='product.php?&p_code=$p_code';</script>";
 		//header("Location:user.php");
 	}
 	$sql = "SELECT * FROM product WHERE P_Code = '$p_code'";
@@ -78,13 +75,6 @@ else
 	$P_Inv = $row["P_Inv"];
 	$Seller_ID = $row["Seller_ID"];
 
-	echo $P_Name."<br/>";
-	echo "$".$P_Price."<br/>";
-	echo "已賣數量：".$P_SoldAmount."<br/>";
-	echo "(庫存：".$P_Inv.")<br/>";
-	echo "賣家：".$Seller_ID."<br/>";
-	echo "<img src='$P_ImgPath' width='300px' height='300px'><br/><br/>";
-
 	if($UID == $Seller_ID)
 	{
 		echo "您不可以購買自己的商品，兩秒後跳轉";
@@ -96,9 +86,15 @@ else
 			$amount = $_GET["amount"];
 		else
 			$amount = 1;
-		echo "您確定要購買嗎?<br/><br/>";
-		echo "<a href='purchaseconfirm.php?p_code=$p_code&confirm=yes&amount=$amount'>確定</a><br/><br/><br/>";
-		echo "<a href='product.php?p_code=$p_code>取消</a><br/><br/><br/>";
+		if (($amount*$P_Price)>$U_MONEY) {
+			echo "<script>alert('您的錢不夠 需要儲值！');location.href='product.php?&p_code=$p_code';</script>";
+		}
+		echo "<script> var r = confirm('確認購買嗎？');
+		if (r == true) {
+			location.href='purchaseconfirm.php?p_code=$p_code&confirm=yes&amount=$amount';
+		}else{
+			location.href='product.php?p_code=$p_code';
+		}</script>";
 	}
 	
 }
