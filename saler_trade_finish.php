@@ -12,13 +12,13 @@
 	mysqli_query($Link, "SET NAMES UTF8");
 	
 	if (isset($_GET['purchase_code'])) {
-		$q=$_GET["q"];
-		$purchase_code = $_GET["purchase_code"];
+		$q=$_GET["ratetobuyer"];
+		$purchase_code = $_GET['purchase_code'];
 		$ratetobuyer = $q;
-
-		$sql3 = "UPDATE purchase SET RateToBuyer = $ratetobuyer  WHERE Purchase_Code = $purchase_code";
+		echo $q;
+		$sql3 = "UPDATE purchase SET RateToBuyer = $ratetobuyer  WHERE Purchase_Code = '$purchase_code'";
 		$result3 = mysqli_query($Link,$sql3);
-		echo "<script>alert('送出成功');location.href='saler_trade_finish.php';</script>";
+		echo "<script>alert($q);location.href='saler_trade_finish.php';</script>";
 
 	}
 
@@ -104,7 +104,6 @@
 				<td>評價</td>
 				<td>送出</td>
 			</tr>
-			<form action="" name="gett">
 			<?php
 				$sql2 = "SELECT * FROM purchase, product WHERE (product.P_Code = purchase.P_Code AND product.Seller_ID = '$UID' AND purchase.isReceive = 1)";
 				$result2 = mysqli_query($Link,$sql2);
@@ -116,13 +115,20 @@
 						<td><?php echo $row2["P_Price"]; ?></td>
 						<td><?php echo $row2["P_Price"]*$row2["Amount"]; ?></td>
 						<td>已完成</td>
-						<?php echo "<input type='hidden' name='purchase_code' value=$row2[Purchase_Code]>"; $purchase_code=$row2["Purchase_Code"] ?>
-						<td style="padding: 10px 10px;"><?php echo "<input type='number' size='1' style='width:30px;' name='ratetobuyer' value=$row2[RateToBuyer] onkeyup='take(this.value)'>/10"; ?></td>
-						<td><input type='button' name='' value='送出評分' onclick='rate();' style='margin:10px 10px;'></td>
+						<?php
+							echo "<form action='saler_trade_finish.php' method='get' id='rate'>";
+							$purchase_code=$row2["Purchase_Code"];
+						 	echo "<input type='hidden' name='purchase_code' value=$purchase_code>"; 
+						 	 ?>
+
+						<td style="padding: 10px 10px;"><?php echo "<input type='number' size='1' style='width:30px;' name='ratetobuyer' value='$row2[RateToBuyer]'>/10"; ?></td>
+						<?php 
+							echo "<td><input type='submit' name='' value='送出評分' style='margin:10px 10px;'></td>";
+						?>
+						</form>
 					</tr>
 				<?php }
 			?>
-			</form>
 			</table>
 		<div class="clear"></div>
 		</div>
