@@ -3,14 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>訂單管理</title>
-	<link rel="stylesheet" type="text/css" href="yoyo.css">
+	<link rel="stylesheet" type="text/css" href="css/yoyo.css">
 </head>
 <body>
 	<div class="user_wrap">
 		<div class="user_header">
-			<img src="yoyo/logo.png">
+			<img src="pic/logo.png">
 			<div class="user_header_profile">
-				<a href="#"><img src="yoyo/marketcar.png"></a>
+				<a href="#"><img style="height: auto;" src="pic/marketcar.png"></a>
 				<p>
 				<a href="#">修改資料</a>&nbsp;&nbsp;
 				<a href="#">登出</a>&nbsp;&nbsp;
@@ -33,12 +33,18 @@
 			<a href="#" class="myorder_q"></a>
 			<div class="text4">問答</div>
 			<div class="myorder_line"></div>
+			<div class="clear"></div>
 		</div>
 		
 		<div class="choose">
+			<div class="menu">
+				<ul>
+					<li><a href="#">處理中</a></li>
+					<li><a href="#">已完成</a></li>
+				</ul>
+			</div>
+
 			<div class="clear"></div>
-			<a href="#" class="finish">處理中</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-			<a href="#">已完成</a>
 		</div>
 
 		<div class="myorder_content2">
@@ -85,6 +91,7 @@
 				
 			</tr>
 			</table>
+		<div class="clear"></div>
 		</div>
 		
 		<div class="footer">

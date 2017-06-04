@@ -48,12 +48,18 @@
 			<a href="#" class="myorder_q"></a>
 			<div class="text4">問答</div>
 			<div class="myorder_line"></div>
+			<div class="clear"></div>
 		</div>
 		
-		<div class="choose">
+		<div class="choose">			
+			<div class="menu">
+				<ul>
+					<li><a href="#">處理中</a></li>
+					<li><a href="#">已完成</a></li>
+				</ul>
+			</div>
+
 			<div class="clear"></div>
-			<a href="#">處理中</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-			<a href="#" class="finish">已完成</a>
 		</div>
 
 		<div class="myorder_content2">
@@ -68,6 +74,7 @@
 				<td>總金額&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>處理狀態&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>評價</td>
+				<td>送出</td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" name="" value=""></td>
@@ -78,6 +85,8 @@
 				<td>1000</td>
 				<td>已完成</td>
 				<td><input type="text" name="" value="" size="1"></td>
+				<td><button class="press"><a href="#">送出評價</a></button></td>
+				
 			</tr>
 			<tr>
 				<td><input type="checkbox" name="" value=""></td>
@@ -88,6 +97,7 @@
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
 				<td><input type="text" name="" value="" size="1"></td>
+				<td><button class="press"><a href="#">送出評價</a></button></td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" name="" value=""></td>
@@ -98,10 +108,12 @@
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
 				<td><input type="text" name="" value="" size="1"></td>
+				<td><button class="press"><a href="#">送出評價</a></button></td>
 			</tr>
 			</table>
+		<div class="clear"></div>
 		</div>
-		<button class="press"><a href="#">送出評價</a></button>
+		
 	</div>
 	<div class="footer">
 			<p>©copyright by 2017 9487DB&PHP</p>
