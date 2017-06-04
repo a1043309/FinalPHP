@@ -20,7 +20,7 @@ if(isset($_POST["oldpwd"]) && isset($_POST["newpwd1"]) && isset($_POST["newpwd2"
 	{
 		if($_POST["newpwd1"] == $_POST["newpwd2"])
 		{
-			$sql = "UPDATE user SET U_PW= '$_POST[newpwd1]'";
+			$sql = "UPDATE user SET U_PW= '$_POST[newpwd1]' WHERE U_ID = '$UID'";
 			$result = mysqli_query($Link,$sql);
 			echo "<script>alert('更改成功');location.href='index.php'</script>";
 		}
