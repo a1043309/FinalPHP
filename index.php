@@ -133,7 +133,7 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 					}
 				}
 				if(!isset($_SESSION["ID"]))
-					echo "登入失敗";
+					echo "<script>alert('登入失敗');location.href='signin.php'</script>";
 			}
 			else
 			{
@@ -169,9 +169,9 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 			<ul>
 				<li>
 					<a href="index.php">首頁</a>
-					<a href="#">新楓之谷</a>
-					<a href="#">跑跑卡丁車</a>
-					<a href="#">爆爆王</a>
+					<?php echo"<a href=each-game-page.php?&p_game=新楓之谷>新楓之谷</a>";?>
+					<?php echo"<a href=each-game-page.php?&p_game=跑跑卡丁車>跑跑卡丁車</a>";?>
+					<?php echo"<a href=each-game-page.php?&p_game=爆爆王>爆爆王</a>";?>
 				</li>
 			</ul>
 		</div>
@@ -206,7 +206,7 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 					</ul>
 				</div>
 				<div class="list-more">
-					<a href="#">>>>點我看全部</a>
+					<?php echo"<a href=each-game-page.php?&p_game=新楓之谷>>>>點我看全部</a>";?>
 				</div>
 				<div class="clear"></div>
 				<div class="list-line"></div>
@@ -257,7 +257,7 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 					</ul>
 				</div>
 				<div class="list-more">
-					<a href="#">>>>點我看全部</a>
+					<?php echo"<a href=each-game-page.php?&p_game=跑跑卡丁車>>>>點我看全部</a>";?>
 				</div>
 				<div class="clear"></div>
 				<div class="list-line"></div>
@@ -309,7 +309,7 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 					</ul>
 				</div>
 				<div class="list-more">
-					<a href="#">>>>點我看全部</a>
+					<?php echo"<a href=each-game-page.php?&p_game=爆爆王>>>>點我看全部</a>";?>
 				</div>
 				<div class="clear"></div>
 				<div class="list-line"></div>

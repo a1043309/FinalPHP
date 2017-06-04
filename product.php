@@ -93,7 +93,7 @@
 					<?php echo "<input type = 'hidden' name = 'p_code' value = '$P_Code'>"; ?>
 					<p>需要數量： <input id="product-amount" type="number" min="0" name="amount"> &nbsp;&nbsp;&nbsp;<span>(庫存：<?php echo $P_Inv; ?>)</span></p>
 					<div class="product-btn">
-						<div class="btn-buy"><button type="submit" form="buy" id="purchase">立即購買</button></div>
+						<div class="btn-buy"><button type="submit" form="buy" id="purchase" style="width: 160px;height: 50px;line-height: 50px;text-align: center;font-family: Microsoft JhengHei;font-size: 24px;font-weight: 600;background: #feb336;color: #FFF;border: solid 3px #fa9c00;border-radius: 3px;text-decoration: none;display: block;float: left;margin-right: 55px;">立即購買</button></div>
 						<div class="btn-cart"><a href="">加入購物車</a></div>
 					</div>
 					<div class="clear"></div>
@@ -105,9 +105,26 @@
 					</div>
 					<div class="seller-info-details">
 						<p>會員：<?php echo $Seller_ID; ?></p>
-						<p>賣家評價：0則</p>
-						<p>正評率：<span>99.99%</span></p>
-						<div class="seller-info-more"><a href="">看賣家全部商品</a></div>
+						<p>賣家評價：
+							<?php
+								$sql4 = "SELECT * FROM purchase WHERE P_Code IN(SELECT P_Code FROM product WHERE Seller_ID = '$Seller_ID')";
+								$result4 = mysqli_query($Link,$sql4);
+								$count = mysqli_num_rows($result4);
+								echo $count."則";?>
+						</p>
+						<p>正評率：<span>
+							<?php
+								$sql5 = "SELECT SUM(RateToSeller) AS RATESUM, COUNT(RateToSeller) AS RATECOUNT FROM PURCHASE WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$Seller_ID')";
+								$result5 = mysqli_query($Link,$sql5);
+								$row5 = mysqli_fetch_assoc($result5);
+								if($row5["RATECOUNT"] == 0){
+									echo "0";
+								}
+								else{
+									echo $row5["RATESUM"]/$row5["RATECOUNT"];
+								}?>
+						</span></p>
+						<div class="seller-info-more"><?php echo "<a href='pmarket.php?&seller=$Seller_ID'>看賣家全部商品</a>";?></div>
 					</div>
 				</div>
 			</div>
@@ -227,7 +244,7 @@
 
 		</div>
 		<div class="footer">
-			<p>Copyright © 2017 9487DB&PHP</p>
+			<p style="font-size: 14px;">Copyright © 2017 9487DB&PHP</p>
 		</div>
 	</div>
 </body>

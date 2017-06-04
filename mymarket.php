@@ -44,7 +44,7 @@
 				<div class="seller-infomation-details">
 					<p>賣家 : <?php echo "<a href='' class='lid-member'>".$UID."</a>";?></p>
 					<?php
-					$sql = "SELECT SUM(RateToBuyer) AS RATESUM, COUNT(RateToBuyer) AS RATECOUNT FROM PURCHASE WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$UID')";
+					$sql = "SELECT SUM(RateToSeller) AS RATESUM, COUNT(RateToSeller) AS RATECOUNT FROM PURCHASE WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$UID')";
 
 					$result = mysqli_query($Link,$sql);
 					$row = mysqli_fetch_assoc($result);
