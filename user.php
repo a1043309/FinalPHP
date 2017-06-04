@@ -167,7 +167,7 @@
 			
 			<div class="buyerbox2"></div>
 			<div class="u_text2">我的商品</div>
-			<div class="u_text3"><a href="">>>更多</a></div>
+			<div class="u_text3"><a href="onsale.php">>>更多</a></div>
 			<div class="buyerbox2"></div>
 			<div class="u_text2">已完成的交易</div>
 			<div class="u_text3"><a href="#">>>更多</a></div>

@@ -1,20 +1,36 @@
+<?php
+	header('Content-type: text/html; charset=utf-8');
+	session_start();
+	if(!isset($_SESSION["ID"]))
+		header("Location:signin.php");
+
+	$UID = $_SESSION["ID"];
+	$Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
+	
+	if(!$Link)
+		echo "連接失敗";
+	mysqli_query($Link, "SET NAMES UTF8");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>商品管理</title>
-	<link rel="stylesheet" type="text/css" href="yoyo.css">
+	<link rel="stylesheet" type="text/css" href="css/yoyo.css">
 </head>
 <body>
 	<div class="user_wrap">
 		<div class="user_header">
-			<img src="yoyo/logo.png">
-			<div class="user_header_profile">
-				<a href="#"><img src="yoyo/marketcar.png"></a>
+			<a href="index.php"><img src="pic/logo.png"></a>
+			<div  style="margin-right:50px;" class="user_header_profile">
+				<a href="#"><img style="height: auto;" src="pic/marketcar.png"></a>
 				<p>
-				<a href="#">修改資料</a>&nbsp;&nbsp;
-				<a href="#">登出</a>&nbsp;&nbsp;
-				<a href="#">$0</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<?php 
+					$result = mysqli_query($Link,"SELECT U_MONEY FROM user WHERE U_ID = '$UID'");
+					$row = mysqli_fetch_assoc($result);
+					echo "<a style='padding:10px;' href='#' class='lid-member'>$".$row["U_MONEY"]."</a>"; ?>
+				<?php echo "<a style='padding:10px;' href='index.php?&logout=yes' class='lid-member'>登出</a>"; ?>
+				<a style='padding:10px;' href="edit-info.php">修改資料</a>
 				</p>
 			</div>
 		</div>
@@ -43,7 +59,7 @@
 
 		<div class="myorder_content2">
 			<div class="clear"></div>
-			<table border="1" style="text-align: center; margin-top: 1em;">
+			<table border="1" style="text-align: center; margin-top: 1em; margin-left: 200px;">
 			<tr>
 				<td>商品名稱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>庫存&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
@@ -51,29 +67,24 @@
 				<td>操作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				
 			</tr>
-			<tr>
-				<td>1:1700 全楓谷最便宜 可提供擺499w箭矢</td>
-				<td>10</td>
-				<td>100</td>
-				<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style="color: black;">修改商品</a>&nbsp;&nbsp;&nbsp;<a href="#" style="color: black;">刪除商品</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-			</tr>
+			<?php
+				$sql2 = "SELECT * FROM product WHERE Seller_ID = '$UID'";
+				$result2 = mysqli_query($Link,$sql2);
+				while ($row2 = mysqli_fetch_assoc($result2)) {
+					$code = $row2['P_Code'];
+					$name = $row2['P_NAME'];?>
+					<tr>
+					<td><?php echo "<a href=product.php?&p_code=$code>$name</a>"; ?></td>
+					<td><?php echo $row2['P_Inv']; ?></td>
+					<td><?php echo $row2['P_Price']; ?></td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo "<a href=editproduct.php?&p_code=$code>修改商品</a>"; ?> &nbsp;&nbsp;&nbsp;<?php echo "<a href=delproduct.php?&p_code=$code>刪除商品</a>";?>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+				<?php }
+			?>
 			</table>
 		</div>
 		
-		<div class="footer">
+		<div style="margin-top: 180px;" class="footer">
 			<p>©copyright by 2017 9487DB&PHP</p>
 		</div>
 	</div>
