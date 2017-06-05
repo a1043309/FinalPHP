@@ -121,7 +121,7 @@
 									echo "0";
 								}
 								else{
-									echo $row5["RATESUM"]/$row5["RATECOUNT"];
+									echo round($row5["RATESUM"]/$row5["RATECOUNT"],2)."/10";
 								}?>
 						</span></p>
 						<div class="seller-info-more"><?php echo "<a href='pmarket.php?&seller=$Seller_ID'>看賣家全部商品</a>";?></div>
@@ -132,6 +132,7 @@
 			<div style="margin-bottom: 0px;" class="product-more">
 				<?php echo "<div class='product-more-y'><a href='product.php?p_code=$P_Code'>商品資訊</a></div>"?>
 				<?php echo "<div class='product-more-p'><a href='product.php?p_code=$P_Code&question=0'>問與答</a></div>"?>
+			<div class="clear"></div>
 			</div>
 	<?php
 		if(isset($_POST["reply"]))
@@ -141,9 +142,11 @@
 				$UID = $_SESSION["ID"];
 				$reply = $_POST["reply"];
 				$Q_Code = $_POST["q_code"];
+				$p_code = $_POST["p_code"];
 
 				$sql = "UPDATE question SET Reply_Content = '$reply' WHERE Q_Code = '$Q_Code'";
 				$result = mysqli_query($Link,$sql);
+				header("Location:product.php?&p_code=$p_code&question=0");
 			}
 			else
 			{
@@ -189,21 +192,26 @@
 			$result = mysqli_query($Link,$sql);
 			$result2 = mysqli_query($Link,"SELECT Seller_ID FROM product WHERE P_Code = '$P_Code'");
 		$row2 = mysqli_fetch_assoc($result2);
-			while($row = mysqli_fetch_assoc($result)){
-				echo "發問者：".$row['U_ID']."<br/>";
-				echo "問題：".$row['Content']."<br/>";
-				echo "回覆：".$row['Reply_Content'];
+			while($row = mysqli_fetch_assoc($result)){?>
+				<div class="show" style="margin-top: 30px;line-height: 30px;margin-left: 10%;border: solid 2px purple;padding: 5px 10px;margin-right: 10%;"> 
+				<?echo "<p>發問者：".$row['U_ID']."</p>";
+				echo "<p>問題：".$row['Content']."</p>";
+				echo "<p>回覆：".$row['Reply_Content']."</p>";
 				if(isset($UID))
 				{
 					if($UID == $row2["Seller_ID"])
 					{
 						$q_code = $row["Q_Code"];
-						echo "<a href = 'replyy.php?p_code=$P_Code&q_code=$q_code'>回覆</a>";
+						$p_code = $P_Code;
+						echo "<form action=product.php method='post'>";
+						echo "<input type='hidden' name='q_code' value=$q_code>";
+						echo "<input type='hidden' name='p_code' value=$p_code>";
+						echo "<input style='margin-bottom:10px;width:150px;' type='text' name='reply'><input type='submit' value='回覆'></form>";
 					}
-				}
-				
-
-				echo "<br/><br/>";
+				}?>
+				<div class="clear"></div>
+				</div>
+				<?
 			}
 
 				echo "<br/><br/><br/>";
@@ -211,36 +219,38 @@
 				if(isset($UID))
 				{
 					if($UID != $row2["Seller_ID"])
-					{
-						echo "我要發問<br/>";
+					{?>
+					  <div class="qa" style="text-align: center;text-align: center;margin-top: 30px;border: solid 2px black;margin-right: 10%;margin-left: 10%;padding-bottom: 10px;padding-top: 10px;">
+					  <?php
+						echo "<p>我要發問</p>";
 						echo "<form action = product.php?p_code=$P_Code&question=0 method = 'post' id = 'askquest'><br/>";
-						echo "<input type='text' name='content'><br/>";
+						echo "<input style='margin-bottom:10px;width:200px;' type='text' name='content'><br/>";
 						echo "<input id='post' type='submit' value='提交''><input type='reset' value='重新填寫''>";
-						echo "</form>";
-					}
+						echo "</form>";?>
+						<div class="clear"></div>
+						</div>
+				<?php }
 					
 				}
 
-					}
-					else
-					{
-						$sql = "SELECT * FROM product WHERE P_Code = '$P_Code'";
-						$result = mysqli_query($Link,$sql);
-						$row = mysqli_fetch_assoc($result);
+		}
+		else
+		{
+			$sql = "SELECT * FROM product WHERE P_Code = '$P_Code'";
+			$result = mysqli_query($Link,$sql);
+			$row = mysqli_fetch_assoc($result);
 
-						$P_Name = $row["P_NAME"];
-						$P_Price = $row["P_Price"];
-						$P_ImgPath = $row["P_ImgPath"];
-						$P_SoldAmount = $row["P_SoldAmount"];
-						$P_Inv = $row["P_Inv"];
-						$Seller_ID = $row["Seller_ID"];
-						$P_Present = $row["P_Present"];
-						echo "<img src='$P_ImgPath' style='border:3px solid lightblue; width:35%; margin-top:30px;'><br/><br/><br/>";
+			$P_Name = $row["P_NAME"];
+			$P_Price = $row["P_Price"];
+			$P_ImgPath = $row["P_ImgPath"];
+			$P_SoldAmount = $row["P_SoldAmount"];
+			$P_Inv = $row["P_Inv"];
+			$Seller_ID = $row["Seller_ID"];
+			$P_Present = $row["P_Present"];
+			echo "<img src='$P_ImgPath' style='border:3px solid lightblue; width:35%; margin-top:30px;'><br/><br/><br/>";
 
-						echo $P_Present;
-					}
-
-	?>
+			echo $P_Present;
+		} ?>
 
 		</div>
 		<div class="footer">

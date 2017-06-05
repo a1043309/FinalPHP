@@ -193,8 +193,8 @@ else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classi
 				<div class="post-data" >數 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：
 					<?php echo "<input id='selected-post' type='number' min='0' name='p_inv' value='$roww[P_Inv]'>";?>		
 				</div>
-				<div class="post-data" >商品照片：
-					<input id="selected-post" type="file" name="img">		
+				<div class="post-data" >商品照片：<?php
+					"<input id='selected-post' type='file' name='img' value = '$roww[P_ImgPath]'>";?>無法更換		
 				</div>
 				<div class="post-data" >商品介紹：
 					<?php echo "<textarea rows='4' cols='50' name='info'>$roww[P_Present]
@@ -209,8 +209,8 @@ else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classi
 			</form>
 		</div>
 		<div class="clear"></div>
-		<div class="footer">
-			<p>Copyright © 2017 9487DB&PHP</p>
+		<div style="margin-top: 180px;" class="footer">
+			<p>©copyright by 2017 9487DB&PHP</p>
 		</div>
 	</div>
 </body>

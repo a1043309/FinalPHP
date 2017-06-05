@@ -46,7 +46,7 @@
 						<p>買家正評率 0<br></p><?php
 					}
 					else{?>
-						<p>買家正評率<br><?php echo $row["RATESUM"]/$row["RATECOUNT"];
+						<p>買家正評率<br><?php echo round($row["RATESUM"]/$row["RATECOUNT"],2)."/10";
 					}?>
 				<p>正評(<?php 
 					$sql3 = "SELECT RateToBuyer FROM PURCHASE WHERE Buyer_ID='$UID'";
@@ -67,7 +67,7 @@
 						<p>賣家正評率 0<br></p><?php
 					}
 					else{?>
-						<p>賣家正評率<br><?php echo $row2["RATESUM"]/$row2["RATECOUNT"];
+						<p>賣家正評率<br><?php  echo round($row2["RATESUM"]/$row2["RATECOUNT"],2)."/10";
 					}?></p>
 				<p>正評(<?php 
 					$sql4 = "SELECT RateToSeller FROM purchase WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$UID')";
@@ -118,10 +118,10 @@
 			</div>
 			<div class="buyerbox"></div>
 			<div class="u_text2">賣家回答</div>
-			<div class="u_text3"><a href="#">>>更多</a></div>
+			<div class="u_text3"><a href="ask.php">>>更多</a></div>
 			<div class="buyerbox"></div>
 			<div class="u_text2">賣家評價</div>
-			<div class="u_text3"><a href="#">>>更多</a></div>
+			<div class="u_text3"><a href="saler_trade_finish.php">>>更多</a></div>
 			<div class="contentbox">
 				<?php
 					$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Code IN (SELECT P_Code FROM question WHERE Asker_ID = '$UID')";
@@ -201,13 +201,13 @@
 
 			<div class="buyerbox2"></div>
 			<div class="u_text2">買家疑問</div>
-			<div class="u_text3"><a href="">>>更多</a></div>
+			<div class="u_text3"><a href="answer.php">>>更多</a></div>
 			<div class="buyerbox2"></div>
 			<div class="u_text2">訂單管理</div>
 			<div class="u_text3"><a href="saler_trade_ing.php">>>更多</a></div>
 			<div class="contentbox2">
 				<?php
-					$sql = "SELECT P_NAME,P_Code FROM product WHERE Seller_ID='$UID' AND P_Code IN (SELECT P_Code FROM question)";
+					$sql = "SELECT * FROM question, product WHERE Seller_ID = '$UID' AND question.P_Code = product.P_Code AND Reply_Content IS NULL";
 
 					$result = mysqli_query($Link,$sql);
 					for ($i=0; $i < 3; $i++) { 

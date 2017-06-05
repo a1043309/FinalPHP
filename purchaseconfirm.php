@@ -85,15 +85,17 @@ else
 			$amount = $_GET["amount"];
 		else
 			$amount = 1;
-		if (($amount*$P_Price)>$U_MONEY) {
+		if ($amount<1) {
+			echo "<script>alert('請輸入購買數量');location.href='product.php?&p_code=$p_code';</script>";	
+		}elseif (($amount*$P_Price)>$U_MONEY) {
 			echo "<script>alert('您的錢不夠 需要儲值！');location.href='product.php?&p_code=$p_code';</script>";
-		}
-		echo "<script> var r = confirm('確認購買嗎？');
-		if (r == true) {
-			location.href='purchaseconfirm.php?p_code=$p_code&confirm=yes&amount=$amount';
 		}else{
-			location.href='product.php?p_code=$p_code';
-		}</script>";
+			echo "<script> var r = confirm('確認購買嗎？');
+			if (r == true) {
+				location.href='purchaseconfirm.php?p_code=$p_code&confirm=yes&amount=$amount';
+			}else{
+				location.href='product.php?p_code=$p_code';
+			}</script>";
+		}	
 	}
-	
 }
