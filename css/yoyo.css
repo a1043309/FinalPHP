@@ -243,10 +243,11 @@
 .contentbox3{
     width: 340px;
     height: 91px;
-    border: solid 3px #ffb161;
+    border: solid 3px #ccbdfb;
     float: left;
     margin-left: -391px;
     margin-top: 33px;
+    margin-bottom: 33px;
 }
 .sell{
 	width: 107px;
