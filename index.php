@@ -137,7 +137,7 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 			}
 			else
 			{
-				echo "<a href='userpage.php' class='lid-member'>會員專區</a>";
+				echo "<a href='user.php' class='lid-member'>會員專區</a>";
 				echo "<a href='signup.php' class='lid-member'>立即註冊</a>";
 				echo "<a href='signin.php' class='lid-member'>會員登入</a>";
 			}
@@ -229,15 +229,19 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 					<div class="charts-title">
 						<h3>94會賣榜</h3>
 					</div>
-					<div class="charts-data">
-						<p>1.OEBOEBOEB</p>
-					</div>
-					<div class="charts-data">
-						<p>2.oPTToYoYowen</p>
-					</div>
-					<div class="charts-data">
-						<p>3.EuniceDai8787</p>
-					</div>
+					<?php
+						$sql2 = "SELECT Seller_ID, SUM(P_Price*P_SoldAmount) FROM product WHERE P_Game = '新楓之谷' GROUP BY Seller_ID ORDER BY SUM(P_Price*P_SoldAmount) DESC LIMIT 3";
+						$result2 = mysqli_query($Link, $sql2);
+					?>
+					<?php
+						$i = 1;
+						while ($row2 = mysqli_fetch_assoc($result2)) {
+								 ?>
+							<div class="charts-data">
+								<p><?php echo $i;?>.<?php echo $row2["Seller_ID"]; ?></p>
+							</div>
+							<?php $i++; ?>
+					<?php } ?>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -281,15 +285,19 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 					<div class="charts-title">
 						<h3>94會賣榜</h3>
 					</div>
-					<div class="charts-data">
-						<p>1.OEBOEBOEB</p>
-					</div>
-					<div class="charts-data">
-						<p>2.oPTToYoYowen</p>
-					</div>
-					<div class="charts-data">
-						<p>3.EuniceDai8787</p>
-					</div>
+					<?php
+						$sql2 = "SELECT Seller_ID, SUM(P_Price*P_SoldAmount) FROM product WHERE P_Game = '跑跑卡丁車' GROUP BY Seller_ID ORDER BY SUM(P_Price*P_SoldAmount) DESC LIMIT 3";
+						$result2 = mysqli_query($Link, $sql2);
+					?>
+					<?php
+						$i = 1;
+						while ($row2 = mysqli_fetch_assoc($result2)) {
+								 ?>
+							<div class="charts-data">
+								<p><?php echo $i;?>.<?php echo $row2["Seller_ID"]; ?></p>
+							</div>
+							<?php $i++; ?>
+					<?php } ?>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -333,15 +341,19 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 					<div class="charts-title">
 						<h3>94會賣榜</h3>
 					</div>
-					<div class="charts-data">
-						<p>1.OEBOEBOEB</p>
-					</div>
-					<div class="charts-data">
-						<p>2.oPTToYoYowen</p>
-					</div>
-					<div class="charts-data">
-						<p>3.EuniceDai8787</p>
-					</div>
+					<?php
+						$sql2 = "SELECT Seller_ID, SUM(P_Price*P_SoldAmount) FROM product WHERE P_Game = '爆爆王' GROUP BY Seller_ID ORDER BY SUM(P_Price*P_SoldAmount) DESC LIMIT 3";
+						$result2 = mysqli_query($Link, $sql2);
+					?>
+					<?php
+						$i = 1;
+						while ($row2 = mysqli_fetch_assoc($result2)) {
+								 ?>
+							<div class="charts-data">
+								<p><?php echo $i;?>.<?php echo $row2["Seller_ID"]; ?></p>
+							</div>
+							<?php $i++; ?>
+					<?php } ?>
 				</div>
 				<div class="clear"></div>
 			</div>

@@ -62,7 +62,7 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 			}
 			else
 			{
-				echo "<a href='userpage.php' class='lid-member'>會員專區</a>";
+				echo "<a href='user.php' class='lid-member'>會員專區</a>";
 				echo "<a href='signup.php' class='lid-member'>立即註冊</a>";
 				echo "<a href='signin.php' class='lid-member'>會員登入</a>";
 			}
@@ -158,16 +158,17 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 		<div class="clear"></div>
 		<div class="footer">
 			<?php
-    //分頁頁碼
+    //分頁頁碼	
+				echo "string";
    				echo '共 '.$data_nums.' 筆-在 '.$page.' 頁-共 '.$pages.' 頁';
-    			echo "<br /><a href=?page=1>首頁</a> ";
+    			echo "<br /><a href=each-game-page.php?&p_game=$p_game?page=1>首頁</a> ";
     			echo "第 ";
     				for( $i=1 ; $i<=$pages ; $i++ ) {
         				if ( $page-3 < $i && $i < $page+3 ) {
-           					 echo "<a href=?page=".$i.">".$i."</a> ";
+           					 echo "<a href=each-game-page.php?&p_game=$p_game?page=".$i.">".$i."</a> ";
         				}
     				} 
-    			echo " 頁 <a href=?page=".$pages.">末頁</a><br /><br />";
+    			echo " 頁 <a href=each-game-page.php?&p_game=$p_game?page=".$pages.">末頁</a><br /><br />";
 			?>
 			<p style="font-size: 14px;">Copyright © 2017 9487DB&PHP</p>
 		</div>

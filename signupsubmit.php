@@ -21,7 +21,6 @@ if (isset($_GET["id"]))
 
 	$result = mysqli_query($Link,"SELECT * FROM user");	
 }
-header("Refresh;3;url=index.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
