@@ -16,6 +16,7 @@
 	<meta charset="UTF-8">
 	<title>會員專區</title>
 	<link rel="stylesheet" type="text/css" href="css/yoyo.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 </head>
 <body>
 	<div class="user_wrap">
@@ -137,8 +138,9 @@
 			
 			<div class="clear"></div>
 			<div class="user_leftbox">
-				<p>會員年齡分析</p>
-				<p>18以下<br>18~25<br>26~40<br>40以上</p>
+				<p style="margin-top: 10px;">會員年齡分析</p>
+    			<canvas id="myChart" width="110px" height="auto"></canvas>
+				<p style="margin-top: 0px;">18以下<br>18~25<br>26~40<br>40以上</p>
 			</div>
 			<div>
 				<img src="pic/title2.png" class="imbuyer2">
@@ -224,5 +226,56 @@
 			<p>©copyright by 2017 9487DB&PHP</p>
 		</div>		
 	</div>
+		<?php
+		$data = "SELECT U_NAME, TIMESTAMPDIFF(YEAR,U_BIRTH,CURDATE()) AS age FROM user";
+		$resultdata = mysqli_query($Link, $data);
+		$a = 0;
+		$b = 0;
+		$c = 0;
+		$d = 0;
+		while ($rowdata = mysqli_fetch_assoc($resultdata)) {
+		 	$age = $rowdata['age'];
+		 	if ($age < 18) {
+		 		$a++;
+		 	}
+		 	if ($age >= 18 && $age <= 25) {
+		 		$b++;
+		 	}
+		 	if ($age >25 && $age < 40) {
+		 		$c++;
+		 	}
+		 	if ($age >= 40) {
+		 		$d++;
+		 	}
+		 }
+
+	?>
+	<script type="text/javascript">
+    var data = [
+    {
+        value: <?php echo $a; ?>,
+        color:"#80FFFF",
+        label:"18以下"
+    },
+    {
+        value : <?php echo $b; ?>,
+        color : "#02F78E",
+        label:"18~25"
+    },
+    {
+        value : <?php echo $c; ?>,
+        color : "#FF5151",
+        label:"26~40"
+    },
+    {
+    	value:<?php echo $d; ?>,
+    	color:"AFAF61",
+    	label:"40以上"
+    }
+];
+//Get the context of the canvas element we want to select
+var ctx = document.getElementById("myChart").getContext("2d");
+var myNewChart = new Chart(ctx).Pie(data);
+	</script>
 </body>
 </html>

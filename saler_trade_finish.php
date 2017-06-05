@@ -75,7 +75,7 @@
 			<a href="saler_trade_ing.php" class="htext3-1">訂單管理</a>
 			<a href="onsale.php" class="text3-2">商品管理</a>
 			<a href="#" class="myorder_q"></a>
-			<div class="text4">問答</div>
+			<a href="ask.php"><div class="text4">問答</div></a>
 			<div class="myorder_line"></div>
 			<div class="clear"></div>
 		</div>

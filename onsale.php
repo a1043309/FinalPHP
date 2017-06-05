@@ -40,14 +40,14 @@
 			<div class="text1">我的拍賣</div>
 			<div class="buyer"></div>
 			<div class="text2">我是買家</div>
-			<a href="#" class="htext2-1">我的訂單</a>
-			<a href="#" class="text2-2">已購買的商品</a>
+			<a href="myorder.php" class="htext2-1">我的訂單</a>
+			<a href="order_history.php" class="text2-2">已購買的商品</a>
 			<div class="seller"></div>
 			<div class="text3">我是賣家</div>
 			<a href="saler_trade_ing.php" class="text3-1">訂單管理</a>
 			<a href="onsale.php" class="htext3-2">商品管理</a>
 			<a href="#" class="myorder_q"></a>
-			<div class="text4">問答</div>
+			<a href="ask.php"><div class="text4">問答</div></a>
 			<div class="myorder_line"></div>
 		</div>
 

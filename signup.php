@@ -82,7 +82,7 @@ if(isset($_SESSION["ID"]))
 						<option value="student">學生</option>
 						<option value="work">上班族</option>
 					</select></p>
-			<p>生日：<input type="date" name="birth"></p>
+			<p>生日：<input type="date" name="birth"><a>YYYY-MM-DD</a></p>
 			<p>手機：<input type="text" name="phone"></p>
 			<p>E-mail: <input type="text" name="email"></p>
 			<input id="su" type="button" onclick="sign();" name="su" value="立即註冊">
