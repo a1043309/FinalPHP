@@ -119,10 +119,8 @@
 			<div class="buyerbox"></div>
 			<div class="u_text2">賣家回答</div>
 			<div class="u_text3"><a href="ask.php">>>更多</a></div>
-			<div class="buyerbox"></div>
-			<div class="u_text2">賣家評價</div>
-			<div class="u_text3"><a href="saler_trade_finish.php">>>更多</a></div>
-			<div class="contentbox">
+			
+			<div class="contentbox3" style="width: 340px;height: 91px;border: solid 3px #ccbdfb;float: left;margin-left: -391px;margin-top: 33px;margin-bottom: 33px;">
 				<?php
 					$sql = "SELECT P_NAME,P_Code FROM product WHERE P_Code IN (SELECT P_Code FROM question WHERE Asker_ID = '$UID')";
 
@@ -136,22 +134,7 @@
 					
 				?>
 			</div>
-			<div class="contentbox">
-			<?php
-				$sql = "SELECT A1.P_Code P_Code, A1.P_NAME P_NAME, A2.Purchase_Code Purchase_Code
-					FROM product A1, purchase A2 
-					WHERE A1.P_Code = A2.P_Code AND A2.Buyer_ID = '$UID' AND A2.isReceive!=0 AND A2.RateToBuyer IS NOT NULL
-					GROUP BY A2.Purchase_Code
-					ORDER BY A2.Post_Time DESC";
-
-				$result = mysqli_query($Link,$sql);
-				for ($i=0; $i < 3; $i++) { 
-					if($row = mysqli_fetch_assoc($result))
-					{
-						echo "<a href=product.php?&p_code=$row[P_Code]>$row[P_NAME]</a><br/>";
-					}
-				}
-			?></div>
+			
 			<div class="clear"></div>
 			<div class="user_leftbox">
 				<p>會員年齡分析</p>
@@ -162,7 +145,7 @@
 				<div class="u_text1">我是賣家</div>
 			</div>
 			<div class="user_line2"></div>
-			<button class="publish1" onclick="self.location.href='post.php'">我要刊登</button>
+			<button class="publish1" onclick="self.location.href='post.php'" style="position: relative;">我要刊登</button>
 			<button class="publish2" onclick="self.location.href='mymarket.php'">我的賣場</button>
 			
 			<div class="buyerbox2"></div>
@@ -234,27 +217,7 @@
 				?>
 			</div>
 
-			<div class="buyerbox3"></div>
-			<div class="u_text2">買家評價</div>
-			<div class="u_text3"><a href="#">>>更多</a></div>
-			<div class="contentbox3">
-				<?php
-					$sql = "SELECT A1.P_Code P_Code, A1.P_NAME P_NAME, A2.Purchase_Code Purchase_Code
-						FROM product A1, purchase A2 
-						WHERE A1.P_Code = A2.P_Code AND A1.Seller_ID = '$UID' AND A2.isReceive!=0 AND A2.RateToSeller IS NOT NULL
-						GROUP BY A2.Purchase_Code
-						ORDER BY A2.Post_Time DESC";
-
-						$result = mysqli_query($Link,$sql);
-						for ($i=0; $i < 3; $i++) { 
-							if ($row = mysqli_fetch_assoc($result)) {
-								echo "<a href=product.php?&p_code=$row[P_Code]>$row[P_NAME]</a><br/>";
-							}
-						}
-				?>
-			</div>
-	
-		</div>
+			
 		
 		<div class="footer">
 			<div class="clear"></div>
