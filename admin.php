@@ -51,14 +51,32 @@
 			<div class="content-title" style="border-bottom: 3px solid lightblue;padding-bottom: 5px;">
 				<img src="pic/title.png" class="imbuyer">
 				<p style="position: absolute;float: left;left: 7%;color: white;">後台管理</p>
-				<?php echo "<a href='admin.php?p_manage=0'><p style='float: left;padding-left: 20px;'>商品管理</p></a>";?>
-				<?php echo "<a href='admin.php?u_manage=0'><p style='float: left;padding-left: 20px;'>會員管理</p></a>;"?>
+				<?php echo "<a href='admin.php?type=p_manage'><p style='float: left;padding-left: 20px;'>商品管理</p></a>";?>
+				<?php echo "<a href='admin.php?type=u_manage'><p style='float: left;padding-left: 20px;'>會員管理</p></a>;"?>
 				<div class="clear"></div>
 			</div>
-		<?php if (isset($_GET["p_manage"])) {?>
+			<form action="admin.php" method="get">
+			<select name="type">
+  				<option value="u_manage">查詢會員</option>
+ 				 <option value="p_manage">查詢商品</option>
+
+			</select>
+					<input type="text" name="search">
+					<input type="submit" name="">
+				</form>
+
+
+		<?php if (isset($_GET["type"])) {
+				if($_GET["type"] == "p_manage"){
+			?>
 			<div class="content-list">
 				<?php
 					$sql = "SELECT * FROM product";
+					if(isset($_GET['search']))
+					{
+						$s = "%".$_GET['search']."%";
+						$sql = "SELECT * FROM product WHERE P_NAME LIKE '$s'";
+					}
 					$result = mysqli_query($Link,$sql);
 				?>
 				<table border="1" style="text-align: center;margin-top: 1em; margin-right: auto;margin-left: auto;">
@@ -85,11 +103,22 @@
 					?>
 				</table>
 			</div>
-		<?php } ?>
-		<?php if (isset($_GET["u_manage"])) {?>
+		<?php }
+		} ?>
+		<?php if (isset($_GET["type"])) {
+				if($_GET["type"] == "u_manage"){
+			?>
 			<div class="content-list">
-				<?php
+				
+				<?php					
 					$sql = "SELECT * FROM user";
+					if(isset($_GET['search']))
+					{
+						$s = "%".$_GET['search']."%";
+						$sql = "SELECT * FROM user WHERE U_ID LIKE '$s'";
+					}
+						
+					
 					$result = mysqli_query($Link,$sql);
 				?>
 				<table border="1" style="text-align: center;margin-top: 1em; margin-right: auto;margin-left: auto;">
@@ -114,7 +143,8 @@
 					?>
 				</table>
 			</div>
-		<?php } ?>
+		<?php }
+		} ?>
 		</div>
 		<div class="footer" style="margin: unset;font-weight: unset;padding-top: 180px;">
 		<p style="font-size:14px;">Copyright © 2017 9487DB&PHP</p>
