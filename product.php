@@ -191,37 +191,43 @@
 
 			$result = mysqli_query($Link,$sql);
 			$result2 = mysqli_query($Link,"SELECT Seller_ID FROM product WHERE P_Code = '$P_Code'");
-		$row2 = mysqli_fetch_assoc($result2);
-			while($row = mysqli_fetch_assoc($result)){?>
-				<div class="show" style="margin-top: 30px;line-height: 30px;margin-left: 10%;border: solid 2px purple;padding: 5px 10px;margin-right: 10%;"> 
-				<?echo "<p>發問者：".$row['U_ID']."</p>";
-				echo "<p>問題：".$row['Content']."</p>";
-				echo "<p>回覆：".$row['Reply_Content']."</p>";
-				if(isset($UID))
+			$row2 = mysqli_fetch_assoc($result2);
+			while($row = mysqli_fetch_assoc($result))
 				{
-					if($UID == $row2["Seller_ID"])
+					?>
+					<div class="show" style="margin-top: 30px;line-height: 30px;margin-left: 10%;border: solid 2px purple;padding: 5px 10px;margin-right: 10%;"> 
+					<?php
+					echo "<p>發問者：".$row['U_ID']."</p>";
+					echo "<p>問題：".$row['Content']."</p>";
+					echo "<p>回覆：".$row['Reply_Content']."</p>";
+					if(isset($UID))
 					{
-						$q_code = $row["Q_Code"];
-						$p_code = $P_Code;
-						echo "<form action=product.php method='post'>";
-						echo "<input type='hidden' name='q_code' value=$q_code>";
-						echo "<input type='hidden' name='p_code' value=$p_code>";
-						echo "<input style='margin-bottom:10px;width:150px;' type='text' name='reply'><input type='submit' value='回覆'></form>";
+						if($UID == $row2["Seller_ID"])
+						{
+							$q_code = $row["Q_Code"];
+							$p_code = $P_Code;
+							echo "<form action=product.php method='post'>";
+							echo "<input type='hidden' name='q_code' value=$q_code>";
+							echo "<input type='hidden' name='p_code' value=$p_code>";
+							echo "<input style='margin-bottom:10px;width:150px;' type='text' name='reply'><input type='submit' value='回覆'></form>";
+						}
 					}
-				}?>
+				}
+				?>
 				<div class="clear"></div>
 				</div>
-				<?
-			}
+				<?php
+			
 
 				echo "<br/><br/><br/>";
 
 				if(isset($UID))
 				{
 					if($UID != $row2["Seller_ID"])
-					{?>
-					  <div class="qa" style="text-align: center;text-align: center;margin-top: 30px;border: solid 2px black;margin-right: 10%;margin-left: 10%;padding-bottom: 10px;padding-top: 10px;">
-					  <?php
+					{
+
+					  echo "<div class='qa' style='text-align: center;text-align: center;margin-top: 30px;border: solid 2px black;margin-right: 10%;margin-left: 10%;padding-bottom: 10px;padding-top: 10px;''>";
+					  
 						echo "<p>我要發問</p>";
 						echo "<form action = product.php?p_code=$P_Code&question=0 method = 'post' id = 'askquest'><br/>";
 						echo "<input style='margin-bottom:10px;width:200px;' type='text' name='content'><br/>";
@@ -229,7 +235,8 @@
 						echo "</form>";?>
 						<div class="clear"></div>
 						</div>
-				<?php }
+						<?php
+					 }
 					
 				}
 
@@ -250,7 +257,8 @@
 			echo "<img src='$P_ImgPath' style='border:3px solid lightblue; width:35%; margin-top:30px;'><br/><br/><br/>";
 
 			echo $P_Present;
-		} ?>
+		} 
+		?>
 
 		</div>
 		<div class="footer">
