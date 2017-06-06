@@ -222,11 +222,12 @@
 							echo "<input type='hidden' name='p_code' value=$p_code>";
 							echo "<input style='margin-bottom:10px;width:150px;' type='text' name='reply'><input type='submit' value='回覆'></form>";
 						}
-					}
-				}
-				?>
-				<div class="clear"></div>
+					}?>
+					<div class="clear"></div>
 				</div>
+			<?php }
+				?>
+				
 				<?php
 			
 
