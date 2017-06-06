@@ -142,6 +142,15 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 				echo "<a href='signin.php' class='lid-member'>會員登入</a>";
 			}
 		?>
+		<script type="text/javascript">
+			function search(){
+					var content = document.getElementById("search");
+					var game = document.getElementById("selected");
+					document.location.href="each-game-page.php?search="+ content.value + "&p_game=" + game.value;
+			}
+		</script>
+
+
 		<a href="#" id="cart"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>		
 	</div>
 	<div class="wrap">
@@ -158,10 +167,10 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 				</select>
 			</div>
 			<div class="search">
-				<input id="search" type="text" placeholder="關鍵字搜尋">		
+				<input id="search" name = "ss" type="text" placeholder="關鍵字搜尋">		
 			</div>
 			<div class="search-icon">
-				<button><i class="fa fa-search fa-2x" aria-hidden="true"></i></button>
+				<button onclick="search();"><i class="fa fa-search fa-2x" aria-hidden="true"></i></button>
 			</div>
 		</div>
 		<div class="clear"></div>
