@@ -23,7 +23,6 @@
 		<div class="user_header">
 			<a href="index.php"><img src="pic/logo.png"></a>
 			<div style="margin-right: 100px;" class="user_header_profile">
-				<a href="index.php"><img style="height: auto;" src="pic/marketcar.png"></a>
 				<p>
 				<?php $result = mysqli_query($Link,"SELECT U_MONEY FROM user WHERE U_ID = '$UID'");
 					$row = mysqli_fetch_assoc($result);
