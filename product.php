@@ -105,7 +105,6 @@
 					<p>需要數量： <input id="product-amount" type="number" min="0" name="amount"> &nbsp;&nbsp;&nbsp;<span>(庫存：<?php echo $P_Inv; ?>)</span></p>
 					<div class="product-btn">
 						<div class="btn-buy"><button type="submit" form="buy" id="purchase">立即購買</button></div>
-						<div class="btn-cart"><a href="">加入購物車</a></div>
 					</div>
 					<div class="clear"></div>
 					</form>
