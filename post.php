@@ -161,6 +161,8 @@ else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classi
 				$result = mysqli_query($Link,"SELECT U_MONEY FROM user WHERE U_ID = '$UID'");
 				$row = mysqli_fetch_assoc($result);
 
+				if(isset($_SESSION["isAdmin"]))
+					echo "<a href='admin.php' class='lid-member'>後臺管理</a>";
 				echo "<a href='user.php' class='lid-member'>".$UID."</a>";
 				echo "<a href='index.php?&logout=yes' class='lid-member'>登出</a>";
 				echo "<a href='#' class='lid-member'>$".$row["U_MONEY"]."</a>";

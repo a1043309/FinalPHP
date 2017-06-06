@@ -57,6 +57,8 @@
 				echo "<a href='user.php' class='lid-member'>".$UID."</a>";
 				echo "<a href='post.php' class='lid-member'>我要刊登</a>";
 				echo "<a href='index.php?&logout=yes' class='lid-member'>登出</a>";
+				if(isset($_SESSION["isAdmin"]))
+					echo "<a href='admin.php' class='lid-member'>後臺管理</a>";
 				echo "<a href='#' class='lid-member'>$".$row["U_MONEY"]."</a>";
 			}
 			else

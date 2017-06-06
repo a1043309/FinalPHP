@@ -16,15 +16,8 @@ if(!isset($_SESSION["ID"]))
 	header("Location:signin.php");
 else if ($_SESSION["ID"] != $row["Seller_ID"])
 {
-	$UID = $_SESSION["ID"];
-	$sql2 = "SELECT * FROM user WHERE U_ID = '$UID'";
-	$result2 = mysqli_query($Link,$sql2);
-	$row2 = mysqli_fetch_assoc($result2);
-	
-	if($row2['U_Right'] != 1)
+	if(!isset($_SESSION["isAdmin"]))
 		header("Location:index.php");
-	else
-		$_SESSION["isAdmin"] = true;
 }
 
 else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classify"]) && isset($_POST["p_name"]) && isset($_POST["p_price"]) && isset($_POST["p_inv"]) && isset($_POST["info"]))
@@ -52,11 +45,9 @@ else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classi
      		echo "失敗";
 	}
 	
-	if(!isset($_SESSION["isAdmin"]))
 		$sql = "UPDATE product SET P_Server = '$_POST[server]',P_Classify = '$_POST[classify]',P_Present = '$_POST[info]',P_NAME = '$_POST[p_name]',P_Inv = '$_POST[p_inv]',P_Price = '$_POST[p_price]', P_Game = '$_POST[game]' WHERE P_Code = '$p_code'";
 	echo $sql;
 	$result = mysqli_query($Link,$sql);
-	$result = mysqli_query($Link,"UPDATE product SET P_ImgPath = '$imgPath' WHERE P_Code = '$p_code'");
 	header("Location:product.php?&p_code=".$p_code);
 }
 
@@ -168,6 +159,8 @@ else if(isset($_POST["game"]) && isset($_POST["server"]) && isset($_POST["classi
 
 				echo "<a href='user.php' class='lid-member'>".$UID."</a>";
 				echo "<a href='index.php?&logout=yes' class='lid-member'>登出</a>";
+				if(isset($_SESSION["isAdmin"]))
+					echo "<a href='admin.php' class='lid-member'>後臺管理</a>";
 				echo "<a href='#' class='lid-member'>$".$row["U_MONEY"]."</a>";
 			}
 			?>
