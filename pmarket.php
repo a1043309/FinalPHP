@@ -83,7 +83,7 @@
 						$sql3 = "SELECT * FROM product WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$seller')";
 						$result3 = mysqli_query($Link, $sql3);
 						$data_nums = mysqli_num_rows($result3);
-						$per = 5;
+						$per = 8;
 						$pages = ceil($data_nums/$per);
 						if (!isset($_GET["page"])) {
 							$page = 1;
@@ -91,6 +91,8 @@
 							$page = intval($_GET["page"]);
 						}
 						$start = ($page-1)*$per;
+						$sql3 = $sql3.' LIMIT '.$start.', '.$per;
+						$result3 = mysqli_query($Link, $sql3);
 					}else{
 						$p_game = $_GET["p_game"];
 						$sql3 = "SELECT * FROM product WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$seller' AND P_Game = '$p_game')";
@@ -104,8 +106,12 @@
 							$page = intval($_GET["page"]);
 						}
 						$start = ($page-1)*$per;
+						$sql3 = $sql3.' LIMIT '.$start.', '.$per;
+						$result3 = mysqli_query($Link, $sql3);
 					}
 						
+						$sql3 = $sql3.' LIMIT '.$start.', '.$per;
+						$result3 = mysqli_query($Link, $sql3);
 						while ($row3 = mysqli_fetch_array($result3)) {?>
 							<div class="product-details">
 							<?php 
@@ -130,14 +136,14 @@
 			<?php
     //分頁頁碼
    				echo '共 '.$data_nums.' 筆-在 '.$page.' 頁-共 '.$pages.' 頁';
-    			echo "<br /><a href=?page=1>首頁</a> ";
+    			echo "<br /><a href=pmarket.php?&page=1>首頁</a> ";
     			echo "第 ";
     				for( $i=1 ; $i<=$pages ; $i++ ) {
         				if ( $page-3 < $i && $i < $page+3 ) {
-           					 echo "<a href=?page=".$i.">".$i."</a> ";
+           					 echo "<a href=pmarket.php?&page=".$i.">".$i."</a> ";
         				}
     				} 
-    			echo " 頁 <a href=?page=".$pages.">末頁</a><br /><br />";
+    			echo " 頁 <a href=pmarket.php?&page=".$pages.">末頁</a><br /><br />";
 			?>
 			<p style="font-size: 14px;">Copyright © 2017 9487DB&PHP</p>
 		</div>

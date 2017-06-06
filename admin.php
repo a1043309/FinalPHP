@@ -48,11 +48,11 @@
 			<div class="clear"></div>
 		</div>
 		<div class="content" style="position: relative;">
-			<div class="content-title" style="border-bottom: 3px solid lightblue;padding-bottom: 5px;">
+			<div class="content-title" style="border-bottom: 3px solid lightblue; padding-bottom: 5px;">
 				<img src="pic/title.png" class="imbuyer">
 				<p style="position: absolute;float: left;left: 7%;color: white;">後台管理</p>
 				<?php echo "<a href='admin.php?p_manage=0'><p style='float: left;padding-left: 20px;'>商品管理</p></a>";?>
-				<?php echo "<a href='admin.php?u_manage=0'><p style='float: left;padding-left: 20px;'>會員管理</p></a>;"?>
+				<?php echo "<a href='admin.php?u_manage=0'><p style='float: left;padding-left: 20px;'>會員管理</p></a>";?>
 				<div class="clear"></div>
 			</div>
 		<?php if (isset($_GET["p_manage"])) {?>
@@ -60,6 +60,15 @@
 				<?php
 					$sql = "SELECT * FROM product";
 					$result = mysqli_query($Link,$sql);
+					$data_nums = mysqli_num_rows($result);
+					$per = 20;
+					$pages = ceil($data_nums/$per);
+					if (!isset($_GET["page"])) {
+						$page = 1;
+					}else{
+						$page = intval($_GET["page"]);
+					}
+					$start = ($page-1)*$per;
 				?>
 				<table border="1" style="text-align: center;margin-top: 1em; margin-right: auto;margin-left: auto;">
 					<tr>
@@ -70,6 +79,9 @@
 						<td style="padding: 10px 30px">操作</td>
 					</tr>
 					<?php
+						$sql = $sql.' LIMIT '.$start.', '.$per;
+						$result = mysqli_query($Link, $sql);
+						$p = 'p_manage=0';
 						while ($row = mysqli_fetch_assoc($result)) {
 							$code = $row['P_Code'];
 							$name = $row['P_NAME'];
@@ -91,6 +103,15 @@
 				<?php
 					$sql = "SELECT * FROM user";
 					$result = mysqli_query($Link,$sql);
+					$data_nums = mysqli_num_rows($result);
+					$per = 20;
+					$pages = ceil($data_nums/$per);
+					if (!isset($_GET["page"])) {
+						$page = 1;
+					}else{
+						$page = intval($_GET["page"]);
+					}
+					$start = ($page-1)*$per;
 				?>
 				<table border="1" style="text-align: center;margin-top: 1em; margin-right: auto;margin-left: auto;">
 					<tr>
@@ -101,6 +122,9 @@
 						<td style="padding: 10px 30px">操作</td>
 					</tr>
 					<?php
+						$sql = $sql.' LIMIT '.$start.', '.$per;
+						$result = mysqli_query($Link, $sql);
+						$p = 'u_manage=0';
 						while ($row = mysqli_fetch_assoc($result)) { 
 							$user = $row['U_ID']; ?>
 							<tr>
@@ -117,6 +141,18 @@
 		<?php } ?>
 		</div>
 		<div class="footer" style="margin: unset;font-weight: unset;padding-top: 180px;">
+		<?php
+    //分頁頁碼
+   				echo '共 '.$data_nums.' 筆-在 '.$page.' 頁-共 '.$pages.' 頁';
+    			echo "<br /><a href=admin.php?&".$p."&page=1>首頁</a> ";
+    			echo "第 ";
+    				for( $i=1 ; $i<=$pages ; $i++ ) {
+        				if ( $page-3 < $i && $i < $page+3 ) {
+           					 echo "<a href=admin.php?&".$p."&page=".$i.">".$i."</a> ";
+        				}
+    				} 
+    			echo " 頁 <a href=admin.php?&".$p."&page=".$pages.">末頁</a><br /><br />";
+			?>
 		<p style="font-size:14px;">Copyright © 2017 9487DB&PHP</p>
 	</div>
 </body>

@@ -81,7 +81,7 @@
 						$sql3 = "SELECT * FROM product WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$UID')";
 						$result3 = mysqli_query($Link, $sql3);
 						$data_nums = mysqli_num_rows($result3);
-						$per = 5;
+						$per = 8;
 						$pages = ceil($data_nums/$per);
 						if (!isset($_GET["page"])) {
 							$page = 1;
