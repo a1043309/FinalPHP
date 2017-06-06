@@ -151,10 +151,10 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 			</div>
 			<div class="search-selected">
 				<select id="selected">
-					<option value="null">Play 蝦咪 game?</option>
-					<option value="mapelstory">新楓之谷</option>
-					<option value="kartrider">跑跑卡丁車</option>
-					<option value="bnb">爆爆王</option>
+					<option value="">Play 蝦咪 game?</option>
+					<option value="新楓之谷">新楓之谷</option>
+					<option value="跑跑卡丁車">跑跑卡丁車</option>
+					<option value="爆爆王">爆爆王</option>
 				</select>
 			</div>
 			<div class="search">
