@@ -76,7 +76,7 @@
 				<input id="search" type="text" placeholder="關鍵字搜尋">		
 			</div>
 			<div class="search-icon">
-				<a href="#"><i class="fa fa-search fa-2x" aria-hidden="true"></i></a>
+				<button><i class="fa fa-search fa-2x" aria-hidden="true"></i></button>
 			</div>
 		</div>
 		<div class="clear"></div>
