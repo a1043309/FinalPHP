@@ -113,6 +113,29 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 		</div>
 		<div class="clear"></div>
 		<div class="content">
+			<div class="pic-area" style="width: 23%;float: left;">
+				<div class="pic-title">
+					<img src="pic/1.jpg" alt="">
+				</div>
+				<div class="pic-details">
+					<img src="pic/2.jpg" alt="">
+				</div>
+				<div class="pic-details">
+					<img src="pic/3.jpg" alt="">			
+				</div>
+				<div class="pic-details">
+					<img src="pic/4.jpg" alt="">			
+				</div>
+				<div class="pic-details">
+					<img src="pic/5.jpg" alt="">			
+				</div>
+				<div class="pic-details">
+					<img src="pic/6.jpg" alt="">			
+				</div>
+				<div class="pic-details">
+					<img src="pic/7.jpg" alt="">			
+				</div>
+			</div>
 			<div class="product-area">
 				<div class="product-title"><h2>全部商品</h2></div>
 						<?php 

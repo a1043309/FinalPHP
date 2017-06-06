@@ -311,34 +311,20 @@ img{
 	font-family: Microsoft JhengHei;
 	font-size: 24px;
 }
-.search-area{
+.pic-area{
 	float: left;
 	width: 280px;
 }
-.search-title{
+.pic-title{
 	width: 266px;
-	height: 64px;
-	border: dotted 3px #f87676;
+	border: dotted 3px #888bed;
+	margin-bottom: -6px;
 }
-.search-title h3{
-	text-align: center;
-	line-height: 64px;
-	font-family: Microsoft JhengHei;
-	font-size: 30px;
-    font-weight: 600;
-    color: #0082f6;
-}
-.search-details{
+.pic-details{
 	width: 266px;
-	height: 139px;
-	border: dotted 3px #f87676;
+	border: dotted 3px #888bed;
 	border-top: 1.5px;	
-}
-.search-details p{
-	text-align: center;
-	font-family: Microsoft JhengHei;
-	font-size: 20px;
-	line-height: 90px;
+	margin-bottom: -6px;
 }
 #price-set{
 	width: 70px;
@@ -523,9 +509,9 @@ img{
     line-height: 100px;
 }
 .label-post-line{
-	width: 1221px;
+    width: 1221px;
     border-bottom: solid 5px #ccbdfb;
-    padding-top: 100px;
+    padding-top: 99px;
 }
 .main-post{
 	width: 1221px;
@@ -1026,4 +1012,8 @@ textarea{
 	color: black;
 	font-size: 20px;
 }
-.
+body{
+	max-width: 1230px;
+	margin: 0 auto;
+}
+
