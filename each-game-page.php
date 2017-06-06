@@ -76,7 +76,7 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 			}
 		</script>
 
-		<a href="#" id="cart"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>		
+			
 	</div>
 	<div class="wrap">
 		<div class="header">
