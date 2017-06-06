@@ -19,8 +19,8 @@
 		}
 	}
 	if ($new != "used") {
-		echo "<script>alert('恭喜 這個ID可以使用');</script>";
-	}
+		echo "<script>alert('恭喜 這個ID可以使用');location.href='signup.php'</script>";
 
-	header("Refresh:0; http://localhost:8888/9487/signup.php");
+	}
+	
 ?>
