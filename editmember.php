@@ -5,20 +5,45 @@ session_start();
 $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 	if(!$Link)
 		echo "連接失敗";
-mysqli_query($Link, "SET NAMES UTF8");
 
-if($user = $_GET['user']){
-	$user = $_GET['user'];
+if(!isset($_SESSION["ID"]))
+{
+	header("Location:signin.php");
+}
+else
+{
+	$UID = $_SESSION["ID"];
+	$sql = "SELECT * FROM user WHERE U_ID = '$UID'";
+	$result = mysqli_query($Link,$sql);
+	$row = mysqli_fetch_assoc($result);
+	
+	if($row['U_Right'] != 1)
+		header("Location:index.php");
+	else
+		$_SESSION["isAdmin"] = true;
 }
 
+$Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
+	if(!$Link)
+		echo "連接失敗";
+mysqli_query($Link, "SET NAMES UTF8");
+
+if(isset($_GET['user'])){
+	$user = $_GET['user'];
+}
+else
+{
+	header("Location:index.php");
+}
 if(isset($_POST["oid"]))
 	{
-		if(isset($_POST["name"]) && isset($_POST["phone"]) && isset($_POST["email"]) && isset($_POST["birth"]) && isset($_POST["id"]))	
+		if(isset($_POST["name"]) && isset($_POST["phone"]) && isset($_POST["email"]) && isset($_POST["id"]))	
 		{
 			$oid = $_POST["oid"];
 			$sql = "UPDATE user SET U_NAME = '$_POST[name]', U_ID = '$_POST[id]', U_PHONE = '$_POST[phone]',U_EMAIL = '$_POST[email]' WHERE U_ID = '$oid'";
 			$result = mysqli_query($Link,$sql);
-			echo "<script>alert('更改成功');location.href='admin.php'</script>";
+			echo $sql;
+			//echo "<script>alert('更改成功');location.href='admin.php'</script>";
 		}
 		else{
 			echo "<script>alert('請填寫完整');</script>";

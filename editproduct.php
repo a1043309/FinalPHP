@@ -12,10 +12,6 @@ $sql = "SELECT * FROM product WHERE P_Code = '$p_code'";
 $result = mysqli_query($Link,$sql);
 $row = mysqli_fetch_assoc($result);
 
-$sql2 = "SELECT * FROM user WHERE U_ID = '$p_code'";
-$result2 = mysqli_query($Link,$sql2);
-$row2 = mysqli_fetch_assoc($result2);
-
 if(!isset($_SESSION["ID"]))
 	header("Location:signin.php");
 else if ($_SESSION["ID"] != $row["Seller_ID"])
