@@ -159,7 +159,12 @@ img{
 	float: left;
 	margin-top: 102px;
 }
-.search-icon a:hover{
+.search-icon button{
+	background: #FFF;
+	border: none;
+	cursor: pointer;
+}
+.search-icon button:hover{
 	color: #888bed;
 	transition: 0.4s;
 }
