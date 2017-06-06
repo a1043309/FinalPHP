@@ -26,6 +26,15 @@
 	$P_Game = $row["P_Game"];
 
 ?>
+
+<script type="text/javascript">
+			function search(){
+					var content = document.getElementById("search");
+					var game = document.getElementById("selected");
+					document.location.href="each-game-page.php?search="+ content.value + "&p_game=" + game.value;
+			}
+		</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,10 +75,10 @@
 			</div>
 			<div class="search-selected">
 				<select id="selected">
-					<option value="null">Play 蝦咪 game?</option>
-					<option value="mapelstory">新楓之谷</option>
-					<option value="kartrider">跑跑卡丁車</option>
-					<option value="bnb">爆爆王</option>
+					<option value="">Play 蝦咪 game?</option>
+					<option value="新楓之谷">新楓之谷</option>
+					<option value="跑跑卡丁車">跑跑卡丁車</option>
+					<option value="爆爆王">爆爆王</option>
 				</select>
 			</div>
 			<div class="search">
