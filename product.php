@@ -66,7 +66,7 @@
 				echo "<a href='signin.php' class='lid-member'>會員登入</a>";
 			}
 			?>
-		<a href="index.php" id="cart"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>		
+			
 	</div>
 	<div class="wrap">
 		<div class="header">
