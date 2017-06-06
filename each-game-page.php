@@ -113,21 +113,27 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 		</div>
 		<div class="clear"></div>
 		<div class="content">
-			<div class="search-area">
-				<div class="search-title">
-					<h3>縮小搜尋範圍</h3>
+			<div class="pic-area">
+				<div class="pic-title">
+					<img src="pic/1.jpg" alt="">
 				</div>
-				<div class="search-details">
-					<p>價格低於 <input id="price-set" type="number" name="price" min="0"> 元</p>
-					<input id="search-submit" type="submit" value="送出">
+				<div class="pic-details">
+					<img src="pic/2.jpg" alt="">
 				</div>
-				<form action="" method="post" ></form>
-				<div class="search-details">
-					<p>伺服器
-						<select id="server-chosen" style="font-size: 16px;" name="server">
-						 </select>
-					</p>
-					<input id="search-submit" type="submit" value="送出">					
+				<div class="pic-details">
+					<img src="pic/3.jpg" alt="">			
+				</div>
+				<div class="pic-details">
+					<img src="pic/4.jpg" alt="">			
+				</div>
+				<div class="pic-details">
+					<img src="pic/5.jpg" alt="">			
+				</div>
+				<div class="pic-details">
+					<img src="pic/6.jpg" alt="">			
+				</div>
+				<div class="pic-details">
+					<img src="pic/7.jpg" alt="">			
 				</div>
 			</div>
 
