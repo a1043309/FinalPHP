@@ -95,7 +95,7 @@
 					<?php echo "<img src='$P_ImgPath'>"; ?>
 				</div>
 				<form action="purchaseconfirm.php" method="get" id="buy">
-				<div class="product-data">
+				<div class="product-data" style="margin-left: 400px;">
 					<h3><?php echo $P_Name; ?></h3>
 					<h2>價格：<span><?php echo "$".$P_Price; ?></span></h2>
 					<p>伺服器：<?php echo $P_Server; ?></p>

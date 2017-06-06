@@ -23,8 +23,16 @@
 		<div class="user_header">
 			<a href="index.php"><img src="pic/logo.png"></a>
 			<div class="user_header_profile">
-				<a href="#"><img id="m" src="pic/marketcar.png"></a>
+			<?php
+				$sql = "SELECT * FROM user WHERE U_ID = '$UID'";
+				$result = mysqli_query($Link,$sql);
+				$row = mysqli_fetch_assoc($result);
+				
+			?>
 				<p>
+				<?php if ($row["U_Right"] == true) {
+					echo "<a href='admin.php?p_manage=0'>後台管理</a>";
+				}?> &nbsp;&nbsp;
 				<a href="edit-info.php">修改資料</a>&nbsp;&nbsp;
 				<?php echo "<a href='index.php?&logout=yes' class='lid-member'>登出</a>"; ?>&nbsp;&nbsp;
 				<?php 
