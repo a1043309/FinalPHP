@@ -33,7 +33,7 @@
 					echo "<a href='#' class='lid-member'>$".$row["U_MONEY"]."</a>"; ?>
 				<?php echo "<a href='index.php?&logout=yes' class='lid-member'>登出</a>"; ?>
 				<a href="edit-info.php">修改資料</a>
-				<a href="#" id="cart"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>	
+					
 			</div>
 		</div>
 		<div class="clear"></div>
