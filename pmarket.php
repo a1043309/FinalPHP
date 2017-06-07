@@ -60,9 +60,30 @@
 					$sql2 = "SELECT RateToSeller FROM purchase WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$seller')";
 					$result2 = mysqli_query($Link,$sql2);
 					$g = 0;
-				while($row2 = mysqli_fetch_assoc($result2)){if($row2["RateToSeller"]>5){$g++;}} echo $g;?>)<br>負評(<?php 
+				while($row2 = mysqli_fetch_assoc($result2))
+					{
+						if($row2["RateToSeller"]>=5)
+							{
+								$g++;
+							}
+					}
+					echo $g;
+					?>
+					)
+					<br>負評(
+						<?php 
 				$b=0;
-				while($row2 = mysqli_fetch_assoc($result2)){ if($row2["RateToSeller"]<5){$b++;}} echo $b;?>)</p>
+				$result3 = mysqli_query($Link,$sql2);
+				while($row3 = mysqli_fetch_assoc($result3))
+					{
+					 if($row3["RateToSeller"]<5)
+					 	{
+					 		$b++;
+					 	}
+					 } 
+					 echo $b;
+					 ?>
+					 )</p>
 				</div>
 			</div>
 			<div class="label-pmarket">
