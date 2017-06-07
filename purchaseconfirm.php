@@ -54,7 +54,7 @@ else
 		$sql = "UPDATE user SET U_MONEY = $U_MONEY-($amount * $P_Price) WHERE U_ID = '$UID'";
 		//echo $sql."<br/>";
 		$result = mysqli_query($Link,$sql);
-		$sql = "INSERT INTO purchase (Amount,Buyer_ID,Purchase_Code,P_Code) VALUES ($amount,'$UID','$purchase_code','$p_code')";
+		$sql = "INSERT INTO purchase(Amount,Buyer_ID,Purchase_Code,P_Code) VALUES ('$amount,'$UID','$purchase_code','$p_code')";
 		$result = mysqli_query($Link,$sql);
 		$sql = "UPDATE product SET P_Inv = ($P_Inv - $amount) WHERE P_Code = '$p_code'";
 		$result = mysqli_query($Link,$sql);

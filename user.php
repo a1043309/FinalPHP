@@ -46,7 +46,7 @@
 			<div class="clear"></div>
 			<div class="user_leftbox">
 				<?php
-					$sql = "SELECT SUM(RateToBuyer) AS RATESUM, COUNT(RateToBuyer) AS RATECOUNT FROM PURCHASE WHERE Buyer_ID='$UID'";
+					$sql = "SELECT SUM(RateToBuyer) AS RATESUM, COUNT(RateToBuyer) AS RATECOUNT FROM purchase WHERE Buyer_ID='$UID'";
 
 					$result = mysqli_query($Link,$sql);
 					$row = mysqli_fetch_assoc($result);
@@ -58,7 +58,7 @@
 						<p>買家正評率<br><?php echo round($row["RATESUM"]/$row["RATECOUNT"],2)."/10";
 					}?>
 				<p>正評(<?php 
-					$sql3 = "SELECT RateToBuyer FROM PURCHASE WHERE Buyer_ID='$UID'";
+					$sql3 = "SELECT RateToBuyer FROM purchase WHERE Buyer_ID='$UID'";
 					$result3 = mysqli_query($Link,$sql3);
 					$row3 = mysqli_fetch_assoc($result3);
 					$g = 0;

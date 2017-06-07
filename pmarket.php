@@ -45,7 +45,7 @@
 				<div class="seller-infomation-details">
 					<p>賣家 : <?php echo "<a href='' class='lid-member'>".$seller."</a>";?></p>
 					<?php
-					$sql = "SELECT SUM(RateToSeller) AS RATESUM, COUNT(RateToSeller) AS RATECOUNT FROM PURCHASE WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$seller')";
+					$sql = "SELECT SUM(RateToSeller) AS RATESUM, COUNT(RateToSeller) AS RATECOUNT FROM purchase WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$seller')";
 
 					$result = mysqli_query($Link,$sql);
 					$row = mysqli_fetch_assoc($result);
@@ -54,15 +54,15 @@
 						<p>賣家正評率 0<br></p><?php
 					}
 					else{?>
-						<p>賣家正評率<?php echo $row["RATESUM"]/$row["RATECOUNT"];?></p>
+						<p>賣家正評率<?php echo round($row["RATESUM"]/$row["RATECOUNT"],2)."/10";?></p>
 					<?php }?>
 					<p>正評(<?php 
 					$sql2 = "SELECT RateToSeller FROM purchase WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$seller')";
 					$result2 = mysqli_query($Link,$sql2);
 					$g = 0;
-				while($row2 = mysqli_fetch_assoc($result2)){if($row2["RateToSeller"]>5){$g++;}} echo $g;?>)<br>負評(<?php 
-				$b=0;
-				while($row2 = mysqli_fetch_assoc($result2)){ if($row2["RateToSeller"]<5){$b++;}} echo $b;?>)</p>
+					while($row2 = mysqli_fetch_assoc($result2)){if($row2["RateToSeller"]>5){$g++;}} echo $g;?>)<br>負評(<?php 
+					$b=0;
+					while($row2 = mysqli_fetch_assoc($result2)){ if($row2["RateToSeller"]<5){$b++;}} echo $b;?>)</p>
 				</div>
 			</div>
 			<div class="label-pmarket">

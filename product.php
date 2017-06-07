@@ -117,14 +117,14 @@
 						<p>會員：<?php echo $Seller_ID; ?></p>
 						<p>賣家評價：
 							<?php
-								$sql4 = "SELECT * FROM purchase WHERE P_Code IN(SELECT P_Code FROM product WHERE Seller_ID = '$Seller_ID')";
+								$sql4 = "SELECT RateToSeller FROM purchase WHERE P_Code IN(SELECT P_Code FROM product WHERE Seller_ID = '$Seller_ID')";
 								$result4 = mysqli_query($Link,$sql4);
 								$count = mysqli_num_rows($result4);
 								echo $count."則";?>
 						</p>
 						<p>正評率：<span>
 							<?php
-								$sql5 = "SELECT SUM(RateToSeller) AS RATESUM, COUNT(RateToSeller) AS RATECOUNT FROM PURCHASE WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$Seller_ID')";
+								$sql5 = "SELECT SUM(RateToSeller) AS RATESUM, COUNT(RateToSeller) AS RATECOUNT FROM purchase WHERE P_Code IN (SELECT P_Code FROM product WHERE Seller_ID = '$Seller_ID')";
 								$result5 = mysqli_query($Link,$sql5);
 								$row5 = mysqli_fetch_assoc($result5);
 								if($row5["RATECOUNT"] == 0){
