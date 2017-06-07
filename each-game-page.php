@@ -139,12 +139,16 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 			<div class="product-area">
 				<div class="product-title"><h2>全部商品</h2></div>
 						<?php 
-						$p_game = $_GET["p_game"];
-						$sql3 = "SELECT * FROM product WHERE P_Game = '$p_game'";
 						if(isset($_GET["search"]))
 						{
 							$s = "%".$_GET["search"]."%";
-							$sql3 = "SELECT * FROM product WHERE P_Game = '$p_game' AND P_NAME LIKE '$s'";
+							if(empty($_GET["p_game"]))
+								$sql3 = "SELECT * FROM product WHERE P_NAME LIKE '$s'";
+							else
+							{
+								$p_game = $_GET["p_game"];
+								$sql3 = "SELECT * FROM product WHERE P_Game = '$p_game' AND P_NAME LIKE '$s'";
+							}
 						}
 						$result3 = mysqli_query($Link, $sql3);
 						$data_nums = mysqli_num_rows($result3);
