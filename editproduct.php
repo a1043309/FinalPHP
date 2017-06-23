@@ -7,7 +7,7 @@ $p_code = $_GET['p_code'];
 $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 	if(!$Link)
 		echo "連接失敗";
-
+mysqli_query($Link,"SET NAMES UTF8");
 $sql = "SELECT * FROM product WHERE P_Code = '$p_code'";
 $result = mysqli_query($Link,$sql);
 $row = mysqli_fetch_assoc($result);

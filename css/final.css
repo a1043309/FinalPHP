@@ -50,6 +50,9 @@ table {
 img{
 	max-width: 100%;
 }
+body{
+	font-family: Microsoft JhengHei;
+}
 .lid{
 	width: 1221px;
     height: 42px;
@@ -66,8 +69,8 @@ img{
 }
 .lid p{
 	font-family: Microsoft JhengHei;
-    font-size: 18px;
-    color: #162182;
+        font-size: 18px;
+	color: #162182;
 	position: absolute;
 	left: 100px;
 	top: 11px;
@@ -279,8 +282,14 @@ img{
 }
 .main-data{
 	width: 340px;
-	padding: 10px;
+	padding-left: 50px;
 	float: left;
+}
+.main-data a{
+	text-decoration: none;
+}
+.main-data a:hover{
+	text-decoration: underline;
 }
 .sold-charts{
 	float: right;
@@ -425,7 +434,7 @@ img{
 }
 .seller-infomation-details{
 	width: 266px;
-	height: 149px;
+	height: 199px;
 	border: solid 3px #979797;
 }
 .seller-infomation-details p{
@@ -774,7 +783,7 @@ textarea{
 }
 .product-btn{
 	width: 450px;
-	margin-left: 35px;
+	margin-left: 265px;
 }
 #purchase{
 	width: 160px;

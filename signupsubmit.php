@@ -48,7 +48,7 @@ if (isset($_GET["id"]))
 			}	
 			if(!$isUsed)
 			{
-				$result = mysqli_query($Link,"INSERT INTO USER(U_ID,U_PW,U_NAME,U_BIRTH,U_GENDER,U_PHONE,U_EMAIL,U_JOB) VALUES('$id','$pwd','$name','$birth','$gender','$phone','$email','$job')");
+				$result = mysqli_query($Link,"INSERT INTO user(U_ID,U_PW,U_NAME,U_BIRTH,U_GENDER,U_PHONE,U_EMAIL,U_JOB) VALUES('$id','$pwd','$name','$birth','$gender','$phone','$email','$job')");
 				
 				echo "<p id='success'>&nbsp;&nbsp;&nbsp;恭喜您，註冊成功！！</p>";
 				echo "<p id='success_describe'>3秒後，自動跳回首頁......</p>";

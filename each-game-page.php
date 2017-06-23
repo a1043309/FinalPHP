@@ -150,6 +150,11 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 								$sql3 = "SELECT * FROM product WHERE P_Game = '$p_game' AND P_NAME LIKE '$s'";
 							}
 						}
+						else if (isset($_GET["p_game"]))
+						{
+							$p_game = $_GET["p_game"];
+								$sql3 = "SELECT * FROM product WHERE P_Game = '$p_game'";
+						}
 						$result3 = mysqli_query($Link, $sql3);
 						$data_nums = mysqli_num_rows($result3);
 						$per = 8;
@@ -200,3 +205,4 @@ $Link = mysqli_connect('localhost','phpholyshit','tingting123','9487');
 	</div>
 </body>
 </html>
+

@@ -4,6 +4,7 @@ header('Content-type: text/html; charset=utf-8');
 
 if(isset($_GET["logout"]))
 {
+	unset($_SESSION["isAdmin"]);
 	unset($_SESSION["ID"]);
 	header("Location:index.php");
 }
